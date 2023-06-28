@@ -1,0 +1,26 @@
+.text-white{
+    color: white;
+}
+
+.btn-inventory {
+    background: #2f3d59;
+}
+
+a {
+    text-decoration: none;
+    list-style-type: none;
+}
+
+a:hover {
+    text-decoration: none;
+    list-style-type: none;
+}
+
+a:link {
+    text-decoration: none;
+    list-style-type: none;
+}
+
+.w-33 {
+    width: 33.33%;
+}
