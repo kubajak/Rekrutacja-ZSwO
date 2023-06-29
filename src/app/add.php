@@ -15,16 +15,14 @@
     <script type="text/javascript" src="../js/skrypt.js"></script>
     <script type="text/javascript" src="../js/pesel.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
 </head>
 <body onload="stopka()">
-
     <!-- SIDENAV( BOCZNE MENU ) -->
     <div class="sidenav">
         <div id="sidenav-wrapp">
             <div class="sidenav-title">
                 <h3>System rekrutacyjny</h3>
-                <hr />
+                <hr/>
             </div>
         </div><br><br><br>
         <nav>
@@ -42,22 +40,12 @@
         <div class="header">
             <div class="header-col"><span>Kreator dodawania Ucznia</span></div>
         </div>
-
         <div class="add-container">
             <div class="container">
                 <form action="dodaj_ucznia.php" method="post" autocomplete="off">
                     <div class="row">
-                        <div class="col-50" id="col-50-id"><br />
-							<?php
-								// generate a random token value
-								$token = bin2hex(random_bytes(32));
-							?>
-							
-							<!-- include the token value as a hidden input field -->
-							<input type="hidden" name="token" value="<?php echo $token; ?>">
-							<!-- your form fields here -->
-							
-                            <h3>Dane Ucznia</h3><br />
+                        <div class="col-50" id="col-50-id"><br/>
+                            <h3>Dane Ucznia</h3><br/>
                             <label for="fname">PESEL:</label>
                             <input type="text" name="pesel_text" id="pesel_spr" placeholder="12345678910" required>
                             <label for="email">Imię:</label>
@@ -82,7 +70,7 @@
                                 <div class="col-50">
                                     <label><input type="radio" id="state" name="jezyk_obcy_text" value="de">Język Niemiecki</label>
                                 </div>
-                            </div><br />
+                            </div><br/>
                             <div class="row">
                                 <div class="wybor col-12">
                                     <label for="state">Wybór 1:</label>
@@ -131,8 +119,8 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-50"><br />
-                            <h3>Punktacja</h3><br />
+                        <div class="col-50"><br/>
+                            <h3>Punktacja</h3><br/>
                             <label for="cname">Egzamin część Humanistyczna:</label>
                             <input type="text" name="egczhuman" placeholder="0-100" id="eg_cz_H_spr" required>
                             <label for="ccnum">Egzamin część Matemtyczna:</label>
@@ -176,10 +164,10 @@
                                 <div class="col-50">
                                     <label><input type="radio" id="state" name="state2" value="false" checked>NIE</label>
                                 </div>
-                            </div><br />
+                            </div><br/>
                         </div>
-                    </div><br />
-                    <input type="submit" class="btn btn-inventory btn-lg text-white btn-block" id="button_checked" value="DODAJ UCZNIA"><br />
+                    </div><br/>
+                    <input type="submit" class="btn btn-inventory btn-lg text-white btn-block" id="button_checked" value="DODAJ UCZNIA"><br/>
                 </form>
             </div>
         </div>

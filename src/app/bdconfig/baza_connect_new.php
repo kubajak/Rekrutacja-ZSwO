@@ -1,5 +1,4 @@
 <?php
-//Nieaktywne
 class Dbh{
     private $servername; // Nazwa serwera MySQL
     private $username;   // Nazwa użytkownika do logowania do bazy danych
