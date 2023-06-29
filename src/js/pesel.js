@@ -1,34 +1,10 @@
-// * Dane Wymagane
-// PESEL
-// Imię  
-// Drugi Imię
-// Nazwisko
-// Miejscowość
-// Kod pocztowy
-// Ulica i numer domu
-// Szkoła podstawowa
-// Egzamin część Humanistyczna %
-// Egzamin część Matemtyczna %
-// Egzamin Język Obcy %
-// Język Polski
-// Język Obcy
-// Historia
-// Wiedza o społeczeństwie
-// Geografia
-// Chemia
-// Biologia
-// Matematyka
-// Informatyka
-// Szczegółowe osiągnięcia
-
-var button = "#button_checked";
+const button = "#button_checked";
 
 $(function(){ // PESEL*
     var pole_pesel = "#pesel_spr";
     $("#pesel_spr").keyup(function(){
         var pesel = $.trim($(pole_pesel).val());
         if(pesel.length < 12){
-            //var reg = /^\d+$/;
             var _pesel_ = pesel.substring(0,10);
             var tab0 = [1,3,7,9,1,3,7,9,1,3];
             let tab1 = Array.from(String(_pesel_),Number);
