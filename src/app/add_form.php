@@ -17,6 +17,14 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body onload="stopka()">
+<?php
+    require 'classes/bdconfig/Dbh.php';
+
+    if($_SERVER['REQUEST_METHOD'] == 'POST'){
+        $add = new Add();
+        $add->add();
+    }
+?>
     <!-- SIDENAV( BOCZNE MENU ) -->
     <div class="sidenav">
         <div id="sidenav-wrapp">
@@ -36,49 +44,13 @@
         <div class="footer" style="float: left"><span id="span_footer"></span></div>
     </div>
     <!-- HEADER ( GÓRNA (CZARNY PASEK) ) -->
-    <?php
-        require 'classes/Add.php';
-
-        $add = new Add();
-        
-        if(isset($_POST['submit'])){
-            $add->addStudent(
-                $_POST['imie'],
-                $_POST['drugie_imie'],
-                $_POST['nazwisko'],
-                $_POST['miejscowosc'],
-                $_POST['kod_pocztowy'],
-                $_POST['ulica_numer'],
-                $_POST['szkola_podstawowa'],
-                $_POST['jezyk_obcy'],
-                $_POST['wybor1'],
-                $_POST['wybor2'],
-                $_POST['wybor3'],
-                $_POST['egczhuman'],
-                $_POST['egczmatma'],
-                $_POST['egczobcy'],
-                $_POST['polski'],
-                $_POST['obcy'],
-                $_POST['historia'],
-                $_POST['wos'],
-                $_POST['geografia'],
-                $_POST['chemia'],
-                $_POST['biologia'],
-                $_POST['matematyka'],
-                $_POST['informatyka'],
-                $_POST['pasek'],
-                $_POST['state1'],
-                $_POST['state2']
-            );
-        }
-    ?>
     <div class="main">
         <div class="header">
             <div class="header-col"><span>Kreator dodawania Ucznia</span></div>
         </div>
         <div class="add-container">
             <div class="container">
-                <form action="" method="post" autocomplete="off">
+                <form action="<? echo $_SERVER['PHP_SELF']; ?>" method="post" autocomplete="off">
                     <div class="row">
                         <div class="col-50" id="col-50-id"><br />
                             <h3>Dane Ucznia</h3><br />
@@ -183,8 +155,8 @@
                             <input type="text" name="matematyka" id="matematyka" placeholder="2-6">
                             <label for="informatyka">Informatyka:</label>
                             <input type="text" name="informatyka" id="informatyka" placeholder="2-6">
-                            <label for="pasek">Szczegółowe osiągnięcia:</label>
-                            <input type="text" name="pasek" id="pasek" placeholder="0-18">
+                            <label for="osiagniecia">Szczegółowe osiągnięcia:</label>
+                            <input type="text" name="osiagniecia" id="osiagniecia" placeholder="0-18">
                             <label for="state1">Świadectwo z wyróżnieniem:</label>
                             <div class="row">
                                 <div class="col-50">
