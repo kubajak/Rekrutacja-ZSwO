@@ -18,12 +18,9 @@
 </head>
 <body onload="stopka()">
 <?php
-    require 'classes/bdconfig/Dbh.php';
-
-    if($_SERVER['REQUEST_METHOD'] == 'POST'){
-        $add = new Add();
-        $add->add();
-    }
+    require 'classes/Add.php';
+    $add = new Add();
+    $add->add(); 
 ?>
     <!-- SIDENAV( BOCZNE MENU ) -->
     <div class="sidenav">
@@ -50,7 +47,7 @@
         </div>
         <div class="add-container">
             <div class="container">
-                <form action="<? echo $_SERVER['PHP_SELF']; ?>" method="post" autocomplete="off">
+                <form action="" method="post" autocomplete="off">
                     <div class="row">
                         <div class="col-50" id="col-50-id"><br />
                             <h3>Dane Ucznia</h3><br />
