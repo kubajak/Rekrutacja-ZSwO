@@ -43,9 +43,10 @@ class Add extends Dbh{
             $this->GetValues();
             $this->SetValues();
             $this->AddToDatabase();
-            //header("Location: ../add_form.php");
+            header("Location: ../add_form.php?success=1");
         } catch(Exception $e){
             echo $e->getMessage();
+            header("Location: ../add_form.php?success=0");
         }
     }
 
@@ -106,7 +107,7 @@ class Add extends Dbh{
         $osiagniecia_punkty = $this->osiagniecia;
 
         if($this->pasek == true){
-            $pasek_punkty = 3;
+            $pasek_punkty = 7;
         } else {
             $pasek_punkty = 0;
         }
@@ -387,4 +388,7 @@ class Add extends Dbh{
         }
     }
 }
+
+$add = new Add();
+$add->add();
 ?>

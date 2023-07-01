@@ -17,13 +17,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 <body onload="stopka()">
-<?php
-    if(isset($_POST['submit'])){
-        require 'classes/Add.php';
-        $add = new Add();
-        $add->add();
-    } 
-?>
     <!-- SIDENAV( BOCZNE MENU ) -->
     <div class="sidenav">
         <div id="sidenav-wrapp">
@@ -49,7 +42,7 @@
         </div>
         <div class="add-container">
             <div class="container">
-                <form action="" method="post" autocomplete="off">
+                <form action="classes/Add.php" method="post" autocomplete="off">
                     <div class="row">
                         <div class="col-50" id="col-50-id"><br />
                             <h3>Dane Ucznia</h3><br />

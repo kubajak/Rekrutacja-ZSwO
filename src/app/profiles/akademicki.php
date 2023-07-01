@@ -19,7 +19,7 @@
         <div class="container">
             <div class="row">
                 <div class="col">
-                    <a href="../klasa.php"><input type="button" class="btn btn-success btn-lg text-white btn-block" value="Powrót"></a>
+                    <a href="../classes.php"><input type="button" class="btn btn-success btn-lg text-white btn-block" value="Powrót"></a>
                 </div>
                 <div class="col">
                     <input type="button" class="btn btn-danger btn-lg text-white btn-block" value="Drukuj" onclick="window.print()">
@@ -40,7 +40,7 @@
     <?php
         require "../classes/Classes.php";
         $classes = new Classes();
-        $classes->ShowStudentsInClasses("Profil Akademicki");
+        $classes->ShowStudentsInClass("profil_akademicki","Profil Akademicki");
     ?>
 </body>
 </html>
