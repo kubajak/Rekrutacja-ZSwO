@@ -14,13 +14,15 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script type="text/javascript" src="../js/skrypt.js"></script>
     <script type="text/javascript" src="../js/pesel.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 <body onload="stopka()">
 <?php
-    require 'classes/Add.php';
-    $add = new Add();
-    $add->add(); 
+    if(isset($_POST['submit'])){
+        require 'classes/Add.php';
+        $add = new Add();
+        $add->add();
+    } 
 ?>
     <!-- SIDENAV( BOCZNE MENU ) -->
     <div class="sidenav">

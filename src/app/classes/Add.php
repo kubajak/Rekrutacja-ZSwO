@@ -1,5 +1,5 @@
 <?php
-require 'classes/bdconfig/Dbh.php';
+require 'bdconfig/Dbh.php';
 class Add extends Dbh{
 
     private $pesel;
@@ -383,6 +383,7 @@ class Add extends Dbh{
 
         } catch (PDOException $e) {
             echo "Error: " . $e->getMessage();
+            die();
         }
     }
 }

@@ -39,47 +39,47 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <a href="profile/akademicki.php">
+                    <a href="profiles/akademicki.php">
                         <div class="box-class blue" style="cursor: pointer;"><img src="../../img/icon/class_icon/graduation-cap-solid.svg">
                             <h1>Profil</h1><span>Akademicki</span>
                         </div>
                     </a>
-                    <a href="profile/prozdrowotny.php">
+                    <a href="profiles/prozdrowotny.php">
                         <div class="box-class orange" style="cursor: pointer;"><img src="../../img/icon/class_icon/child-solid.svg">
                             <h1>Profil</h1><span>Prozdrowotny</span>
                         </div>
                     </a>
-                    <a href="profile/mundurowy.php" class="a_klasa">
+                    <a href="profiles/mundurowy.php" class="a_klasa">
                         <div class="box-class green" style="cursor: pointer;"><img src="../../img/icon/class_icon/fighter-jet-solid.svg">
                             <h1>Profil</h1><span>Mundurowy</span>
                         </div>
                     </a>
-                    <a href="profile/sportowy.php" class="a_klasa">
+                    <a href="profiles/sportowy.php" class="a_klasa">
                         <div class="box-class purple" style="cursor: pointer;"><img src="../../img/icon/class_icon/running-solid.svg">
                             <h1>Profil</h1><span>Sportowo Turystyczny, Sportowy</span>
                         </div>
                     </a>
-                    <a href="profile/matematyczny.php" class="a_klasa">
+                    <a href="profiles/matematyczny.php" class="a_klasa">
                         <div class="box-class mint" style="cursor: pointer;"><img src="../../img/icon/class_icon/square-root-alt-solid.svg">
                             <h1>Profil</h1><span>Matematyczno Inżynieryjny</span>
                         </div>
                     </a>
-                    <a href="profile/logistyczny.php" class="a_klasa">
+                    <a href="profiles/logistyczny.php" class="a_klasa">
                         <div class="box-class red" style="cursor: pointer;"><img src="../../img/icon/class_icon/truck-solid.svg">
                             <h1>Profil</h1><span>Logistyczny</span>
                         </div>
                     </a>
-                    <a href="profile/informatyczny.php" class="a_klasa">
+                    <a href="profiles/informatyczny.php" class="a_klasa">
                         <div class="box-class gray" style="cursor: pointer;"><img src="../../img/icon/class_icon/laptop-code-solid.svg">
                             <h1>Profil</h1><span>Informatyczny</span>
                         </div>
                     </a>
-                    <a href="profile/wielozawodowy.php" class="a_klasa">
+                    <a href="profiles/wielozawodowy.php" class="a_klasa">
                         <div class="box-class dark_blue" style="cursor: pointer;"><img src="../../img/icon/class_icon/tools-solid.svg">
                             <h1>Profil</h1><span>Wielozawodowy</span>
                         </div>
                     </a>
-                    <a href="profile/profile_wszyscy.php" class="a_klasa">
+                    <a href="profiles/wszyscy.php" class="a_klasa">
                         <div class="box-class pink" style="cursor: pointer;"><img src="../../img/icon/class_icon/user-friends-solid.svg">
                             <h1>Wszyscy</h1><span>Uczniowie</span>
                         </div>

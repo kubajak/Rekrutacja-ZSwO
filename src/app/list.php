@@ -46,7 +46,11 @@
             </div>
             </div>
         </div>    
-        <!-- Wyświetlanie -->
+        <?php
+            require "classes/Listing.php";
+            $listing = new Listing();
+            $listing->listing();
+        ?>
     </div>
 </body>
 </html>
