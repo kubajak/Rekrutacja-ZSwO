@@ -37,5 +37,10 @@
             </div>
         </div>
     </div>
+    <?php
+        require "../classes/Classes.php";
+        $classes = new Classes();
+        $classes->ShowStudentsInClasses("Profil Akademicki");
+    ?>
 </body>
 </html>
