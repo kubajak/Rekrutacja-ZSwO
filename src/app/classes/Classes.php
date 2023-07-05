@@ -11,10 +11,10 @@ class Classes extends Dbh{
             $stmt->execute();
 
             $row = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
+            $count = $stmt->rowCount();
             $licznik = 0;
 
-            if($row > 0){
+            if($count > 0){
                 echo "<div class='div_tabela'>";
                 echo "<table class='table_uczen'>";
                 echo "<tr class='tr_uczen'>";

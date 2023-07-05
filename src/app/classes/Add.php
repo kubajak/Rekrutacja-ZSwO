@@ -38,9 +38,9 @@ class Add extends Dbh{
     private $informatyczny = 0;
     private $wielobranzowy = 0;
 
-    public function add(){
+    public function Add(){
         try{
-            $this->GetValues();
+            $this->GetValuesFromForm();
             $this->SetValues();
             $this->AddToDatabase();
             header("Location: ../add_form.php?success=1");
@@ -50,7 +50,7 @@ class Add extends Dbh{
         }
     }
 
-    private function GetValues(){
+    protected function GetValuesFromForm(){
         $this->pesel = $_POST['pesel'];
         $this->imie = $_POST['imie'];
         $this->drugie_imie = $_POST['drugie_imie'];
@@ -93,7 +93,7 @@ class Add extends Dbh{
 
         $egczhuman_punkty = $this->egczhuman * 0.35;
         $egczmatma_punkty = $this->egczmatma * 0.35;
-        $egczobcy_punkty = $this->egczobcy   * 0.30;
+        $egczobcy_punkty  = $this->egczobcy  * 0.30;
 
         $polski_punkty = $this->GetPoints($this->polski);
         $obcy_punkty = $this->GetPoints($this->obcy);
@@ -390,5 +390,5 @@ class Add extends Dbh{
 }
 
 $add = new Add();
-$add->add();
+$add->Add();
 ?>
