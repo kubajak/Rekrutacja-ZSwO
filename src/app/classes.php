@@ -9,7 +9,7 @@
     <link rel="stylesheet" media="screen" href="../css/root.css">
     <link rel="stylesheet" media="screen" href="../css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Inter:200,300,400,600,700&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/png" href="../../img/icon/website_icon/logo.png" />
+    <link rel="icon" type="image/png" href="../../img/icon/website_icon/logo.png"/>
     <script type="text/javascript" src="../js/skrypt.js"></script>
 </head>
 <body onload="stopka()">
@@ -18,7 +18,7 @@
         <div id="sidenav-wrapp">
             <div class="sidenav-title">
                 <h3>System rekrutacyjny</h3>
-                <hr />
+                <hr/>
             </div>
         </div><br><br><br>
         <nav>

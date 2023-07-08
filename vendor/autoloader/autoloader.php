@@ -1,11 +1,14 @@
 <?php
-spl_autoload_register(function ($nazwaKlasy) {
-    // Zamień przestrzeń nazw na ścieżkę pliku
-    $sciezkaPliku = str_replace('\\', '/', $nazwaKlasy) . '.php';
+spl_autoload_register(function ($className) {
+    // Zamień namespace separator na separator ścieżki
+    $className = str_replace('\\', DIRECTORY_SEPARATOR, $className);
 
-    // Sprawdź, czy plik istnieje
-    if (file_exists($sciezkaPliku)) {
-        require $sciezkaPliku;
+    // Ścieżka do klasy w stosunku do katalogu z klasami
+    $classFile = __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'src' . DIRECTORY_SEPARATOR . 'app' . DIRECTORY_SEPARATOR . 'classes' . DIRECTORY_SEPARATOR . $className . '.php';
+
+    // Sprawdź, czy plik istnieje i załaduj go
+    if (file_exists($classFile)) {
+        require $classFile;
     }
-});   
+});
 ?>
