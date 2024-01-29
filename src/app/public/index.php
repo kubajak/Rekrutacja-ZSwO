@@ -29,10 +29,9 @@
 </head>
 <body onload="stopka()">
     <?php
-        require "../classes/CountStudents.php";
-        require "../classes/Clock.php";
-        $CountStudents = new CountStudents();
-        $Clock = new Clock();
+        require_once "../../../vendor/autoloader/autoloader.php";
+        $countStudents = new CountStudents();
+        $clock = new Time();
     ?>
     <!-- SIDENAV( BOCZNE MENU ) -->
     <div class="sidenav">
@@ -44,9 +43,9 @@
         </div><br><br><br>
         <nav>
             <li class="btn-background"><a href="index.php"><img src="../../../img/icon/nav_icon/home-solid.svg">Home</a></li>
-            <li class="btn-background"><a href="../add_form.php"><img src="../../../img/icon/nav_icon/user-plus-solid.svg">Dodaj Ucznia</a></li>
+            <li class="btn-background"><a href="../addform.php"><img src="../../../img/icon/nav_icon/user-plus-solid.svg">Dodaj Ucznia</a></li>
             <li class="btn-background"><a href="../list.php"><img src="../../../img/icon/nav_icon/list-alt-solid.svg">Lista Uczniów</a></li>
-            <li class="btn-background"><a href="../classes.php"><img src="../../../img/icon/nav_icon/book-solid.svg">Wyświetl klasy</a></li>
+            <li class="btn-background"><a href="../listclasses.php"><img src="../../../img/icon/nav_icon/book-solid.svg">Wyświetl klasy</a></li>
             <li class="btn-background"><a href="../../../index.html"><img src="../../../img/icon/nav_icon/sign-out-alt-solid.svg">WYJDŹ</a></li>
         </nav>
         <hr class="footer-line" />
@@ -61,12 +60,12 @@
             <div class="row">
                 <div class="col">
                     <div class="box red"><img src="../../../img/icon/nav_icon/home-solid.svg">
-                        <h1 id="h1-id-zegar"><?php echo $Clock->clock(); ?></h1><span>Godzina</span>
+                        <h1 id="h1-id-zegar"><?php echo $clock->currentTime(); ?></h1><span>Godzina</span>
                     </div>
                 </div>
                 <div class="col">
                     <div class="box blue"><img src="../../../img/icon/nav_icon/user-plus-solid.svg">
-                        <h1><?php echo $CountStudents->CountAllStudents("id"); ?></h1><span>Uczniów</span>
+                        <h1><?php echo $countStudents->countAllStudents("id"); ?></h1><span>Uczniów</span>
                     </div>
                 </div>
                 <div class="col">
@@ -123,14 +122,14 @@
                         <div class="area-text">
                             <div class="container">
                                 <div class="row">
-                                    <div class="col-12">Profil Akademicki: <span class="span_function_ilosc"><?php echo $CountStudents->CountStudentsForEachClass("profil_akademicki"); ?></span></div>
-                                    <div class="col-12">Profil Prozdrowotny: <span class="span_function_ilosc"><?php echo $CountStudents->CountStudentsForEachClass("profil_prozdrowotny"); ?></span></div>
-                                    <div class="col-12">Profil Mundurowy: <span class="span_function_ilosc"><?php echo $CountStudents->CountStudentsForEachClass("profil_mundurowy"); ?></span></div>
-                                    <div class="col-12">Profil Sportowo Turystyczny: <span class="span_function_ilosc"><?php echo $CountStudents->CountStudentsForEachClass("profil_sportowo_turystyczny_sportowy"); ?></span></div>
-                                    <div class="col-12">Profil Matematyczno Inżynieryjny: <span class="span_function_ilosc"><?php echo $CountStudents->CountStudentsForEachClass("profil_matematyczno_inzynieryjny"); ?></span></div>
-                                    <div class="col-12">Profil Logistyczny: <span class="span_function_ilosc"><?php echo $CountStudents->CountStudentsForEachClass("profil_logistyczny"); ?></span></div>
-                                    <div class="col-12">Profil Informatyczny: <span class="span_function_ilosc"><?php echo $CountStudents->CountStudentsForEachClass("profil_informatyczny"); ?></span></div>
-                                    <div class="col-12">Profil Wielozawodowy: <span class="span_function_ilosc"><?php echo $CountStudents->CountStudentsForEachClass("profil_wielozawodowy"); ?></span></div>
+                                    <div class="col-12">Profil Akademicki: <span class="span_function_ilosc"><?php echo $countStudents->countStudentsForEachClass("profil_akademicki"); ?></span></div>
+                                    <div class="col-12">Profil Prozdrowotny: <span class="span_function_ilosc"><?php echo $countStudents->countStudentsForEachClass("profil_prozdrowotny"); ?></span></div>
+                                    <div class="col-12">Profil Mundurowy: <span class="span_function_ilosc"><?php echo $countStudents->countStudentsForEachClass("profil_mundurowy"); ?></span></div>
+                                    <div class="col-12">Profil Sportowo Turystyczny: <span class="span_function_ilosc"><?php echo $countStudents->countStudentsForEachClass("profil_sportowo_turystyczny_sportowy"); ?></span></div>
+                                    <div class="col-12">Profil Matematyczno Inżynieryjny: <span class="span_function_ilosc"><?php echo $countStudents->countStudentsForEachClass("profil_matematyczno_inzynieryjny"); ?></span></div>
+                                    <div class="col-12">Profil Logistyczny: <span class="span_function_ilosc"><?php echo $countStudents->countStudentsForEachClass("profil_logistyczny"); ?></span></div>
+                                    <div class="col-12">Profil Informatyczny: <span class="span_function_ilosc"><?php echo $countStudents->countStudentsForEachClass("profil_informatyczny"); ?></span></div>
+                                    <div class="col-12">Profil Wielozawodowy: <span class="span_function_ilosc"><?php echo $countStudents->countStudentsForEachClass("profil_wielozawodowy"); ?></span></div>
                                 </div>
                             </div>
                         </div>

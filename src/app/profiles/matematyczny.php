@@ -19,7 +19,7 @@
         <div class="container">
             <div class="row">
                 <div class="col">
-                    <a href="../classes.php"><input type="button" class="btn btn-success btn-lg text-white btn-block" value="Powrót"></a>
+                    <a href="../listclasses.php"><input type="button" class="btn btn-success btn-lg text-white btn-block" value="Powrót"></a>
                 </div>
                 <div class="col">
                     <input type="button" class="btn btn-danger btn-lg text-white btn-block" value="Drukuj" onclick="window.print()">
@@ -38,9 +38,9 @@
         </div>
     </div>
     <?php
-        require "../classes/Classes.php";
-        $classes = new Classes();
-        $classes->ShowStudentsInClass("profil_matematyczno_inzynieryjny","Profil Mat-Inż");
+        require "../../../vendor/autoloader/autoloader.php";
+        $classes = new DrawClassTable();
+        $classes->drawClassTable("profil_matematyczno_inzynieryjny","Profil Mat-Inż");
     ?>
 </body>
 </html>

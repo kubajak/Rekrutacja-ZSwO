@@ -6,7 +6,7 @@ class Dbh{
     private $dbname;     // Nazwa bazy danych, z którą ma być nawiązane połączenie
     private $charset;    // Kodowanie znaków używane w bazie danych
 
-    protected function connect(){
+    public function connect(){
         // Metoda do nawiązywania połączenia z bazą danych
 
         $this->servername = "localhost"; // Przypisanie wartości "localhost" do zmiennej $servername (nazwa serwera MySQL)
