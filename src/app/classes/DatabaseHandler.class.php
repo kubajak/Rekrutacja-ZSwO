@@ -3,6 +3,7 @@ include "bdconfig/Dbh.php";
 
 class DatabaseHandler{
     private $conn;
+    private $table_name = "rekrutacja_uczen_tbl";
     
     public function __construct(){
         $db = new Dbh();
@@ -98,9 +99,13 @@ class DatabaseHandler{
         }
     }
 
-    public function removeRowFromDatabase(){
+    public function removeRowFromDatabase($id){
         try{
-            
+            $sql = "DELETE FROM " .$this->table_name. " WHERE id = :id";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(':id', $id);
+            $stmt->execute();
+            header("Location: ../list.php");
         }catch(PDOException $e){
             echo $e->getMessage();
         }

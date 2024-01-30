@@ -5,10 +5,13 @@ include "DatabaseHandler.class.php";
 class FormHandler{
     private $validator;
     private $addToDatabase;
+    private $removeRowFromDatabase;
+    private $table_name = "rekrutacja_uczen_tbl";
 
     public function __construct(){
         $this->validator = new Validator;
         $this->addToDatabase = new DatabaseHandler;
+        $this->removeRowFromDatabase = new DatabaseHandler();
     } 
     
     public function add($form_data){
@@ -31,8 +34,18 @@ class FormHandler{
 
                 $osiagniecia    = $form_data['osiagniecia'];
 
-                $pasek = ($form_data['state1'] === true) ? 7 : 0;
-                $wolontariat = ($form_data['state2'] === true) ? 3 : 0;
+                $pasek = 0;
+                $wolontariat = 0;
+
+                if($form_data['state1'] == true)
+                    $pasek = 7;
+                else
+                    $pasek = 0;
+
+                if($form_data['state2'] == true)
+                    $wolontariat = 3;
+                else
+                    $wolontariat = 0;
 
                 $wybor1 = $form_data['wybor1'];
                 $wybor2 = $form_data['wybor2'];
@@ -256,8 +269,12 @@ class FormHandler{
 
     }
 
-    public function remove($form_data){
-        
+    public function remove($id){
+        try{
+            return $this->removeRowFromDatabase->removeRowFromDatabase($id);
+        }catch(PDOException $e){
+            echo $e->getMessage();
+        }
     }
 
     private function getPoints($data){
@@ -276,5 +293,11 @@ class FormHandler{
                 return 0;
         }   
     }
+}
+
+$formHandler = new FormHandler();
+
+if(isset($_GET['id'])){
+    $formHandler->remove($_GET['id']);
 }
 ?>
