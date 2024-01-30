@@ -6,8 +6,8 @@ class DrawClassTable{
     private $table_name ="rekrutacja_uczen_tbl";
 
     public function __construct(){
-        $dbh = new Dbh();
-        $this->conn = $dbh->connect();
+        $db = new Dbh();
+        $this->conn = $db->connect();
     }
 
     public function drawClassTable($profile, $name){

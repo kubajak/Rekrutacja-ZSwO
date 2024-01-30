@@ -6,18 +6,20 @@ class CountStudents{
     private $table_name ="rekrutacja_uczen_tbl";
 
     public function __construct(){
-        $dbh = new Dbh();
-        $this->conn = $dbh->connect();
+        $db = new Dbh();
+        $this->conn = $db->connect();
     }
 
     public function countAllStudents($data){
         try{
+            $pdo = $this->conn;
             $sql = "SELECT count($data) AS total from $this->table_name WHERE $data > 0";
-            $stmt = $this->conn->prepare($sql);
+            $stmt = $pdo->prepare($sql);
             $stmt->execute();
 
-            $count = $stmt->fetchColumn();
-            
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
+            $count = $result['total']; 
+
             return $count;
 
         } catch(PDOException $e){
@@ -27,11 +29,13 @@ class CountStudents{
 
     public function countStudentsForEachClass($data){
         try{
+            $pdo = $this->conn;
             $sql = "SELECT count($data) AS total from $this->table_name WHERE $data > 0";
-            $stmt = $this->conn->prepare($sql);
+            $stmt = $pdo->prepare($sql);
             $stmt->execute();
 
-            $count = $stmt->fetchColumn();
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
+            $count = $result['total']; 
             
             return $count;
 

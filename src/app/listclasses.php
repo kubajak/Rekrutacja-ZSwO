@@ -39,12 +39,12 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <a href="profiles/akademicki.php">
+                    <a href="profiles/akademicki.php" class="a_klasa">
                         <div class="box-class blue" style="cursor: pointer;"><img src="../../img/icon/class_icon/graduation-cap-solid.svg">
                             <h1>Profil</h1><span>Akademicki</span>
                         </div>
                     </a>
-                    <a href="profiles/prozdrowotny.php">
+                    <a href="profiles/prozdrowotny.php" class="a_klasa">
                         <div class="box-class orange" style="cursor: pointer;"><img src="../../img/icon/class_icon/child-solid.svg">
                             <h1>Profil</h1><span>Prozdrowotny</span>
                         </div>

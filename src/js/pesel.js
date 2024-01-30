@@ -1,8 +1,8 @@
 const button = "#button_checked";
 
 $(function(){ // PESEL*
-    var pole_pesel = "#pesel_spr";
-    $("#pesel_spr").keyup(function(){
+    var pole_pesel = "#pesel";
+    $("#pesel").keyup(function(){
         var pesel = $.trim($(pole_pesel).val());
         if(pesel.length < 12){
             var _pesel_ = pesel.substring(0,10);
@@ -51,48 +51,48 @@ $(function(){ // PESEL*
 });
 
 $(function(){ // Imię*
-    $("#imie_spr").keyup(function(){
-        sprawdz_dane("#imie_spr",true);
+    $("#imie").keyup(function(){
+        sprawdz_dane("#imie",true);
     });
 });
 
 $(function(){ // Drugi Imię*
-    $("#drugie_imie_spr").keyup(function(){
-        sprawdz_dane("#drugie_imie_spr",false);
+    $("#drugie_imie").keyup(function(){
+        sprawdz_dane("#drugie_imie",false);
     });
 });
 
 $(function(){ // Nazwisko*
-    $("#nazwisko_spr").keyup(function(){
-        sprawdz_dane("#nazwisko_spr",true);
+    $("#nazwisko").keyup(function(){
+        sprawdz_dane("#nazwisko",true);
     });
 });
 
 $(function(){ // Miejscowość*
-    $("#miejscowosc_spr").keyup(function(){
-        sprawdz_dane("#miejscowosc_spr",true);
+    $("#miejscowosc").keyup(function(){
+        sprawdz_dane("#miejscowosc",true);
     });
 });
 
 $(function(){ // Kod pocztowy*
     var reg = /^\d+$/;
-    $("#kod_pocztowy_spr").keyup(function(){
-        var str = $.trim($("#kod_pocztowy_spr").val());
+    $("#kod_pocztowy").keyup(function(){
+        var str = $.trim($("#kod_pocztowy").val());
         if(str.length == 6 && str[2]=="-"){
             var _str_ = str.replace("-","");
             if(reg.test(_str_)){
-                $("#kod_pocztowy_spr").css({
+                $("#kod_pocztowy").css({
                     "border": "1px solid #17C671"
                 });
                 $(button).attr("disabled",false);
             } else {
-                $("#kod_pocztowy_spr").css({
+                $("#kod_pocztowy").css({
                     "border": "1px solid #C4183C"
                 });
                 $(button).attr("disabled",true);
             }
         } else {
-            $("#kod_pocztowy_spr").css({
+            $("#kod_pocztowy").css({
                 "border": "1px solid #C4183C"
             });
             $(button).attr("disabled",true);
@@ -101,8 +101,8 @@ $(function(){ // Kod pocztowy*
 });
 
 $(function(){ // Ulica i numer domu*
-    $("#ulica_spr").keyup(function(){
-            $("#ulica_spr").css({
+    $("#ulica_numer").keyup(function(){
+            $("#ulica_numer").css({
                 "border": "1px solid #17C671"
             });
             $(button).attr("disabled",false);
@@ -110,8 +110,8 @@ $(function(){ // Ulica i numer domu*
 });
 
 $(function(){ // Szkoła podstawowa*
-    $("#szkola_spr").keyup(function(){
-            $("#szkola_spr").css({
+    $("#szkola_podstawowa").keyup(function(){
+            $("#szkola_podstawowa").css({
                 "border": "1px solid #17C671"
             });
             $(button).attr("disabled",false);
@@ -119,74 +119,74 @@ $(function(){ // Szkoła podstawowa*
 });
 
 $(function(){ // Egzamin część Humanistyczna %*
-    $("#eg_cz_H_spr").keyup(function(){
-        sprawdz_procenty("#eg_cz_H_spr")
+    $("#egczhuman").keyup(function(){
+        sprawdz_procenty("#eg_cz_H")
     });
 });
 
 $(function(){ // Egzamin część Matemtyczna %*
-    $("#eg_cz_M_spr").keyup(function(){
-        sprawdz_procenty("#eg_cz_M_spr")
+    $("#egczmatma").keyup(function(){
+        sprawdz_procenty("#eg_cz_M")
     });
 });
 
 $(function(){ // Egzamin Język Obcy %*
-    $("#eg_cz_O_spr").keyup(function(){
-        sprawdz_procenty("#eg_cz_O_spr")
+    $("#egczobcy").keyup(function(){
+        sprawdz_procenty("#eg_cz_O")
     });
 });
 
 $(function(){ // Język Polski*
-    $("#p_spr").keyup(function(){
-        sprawdz_oceny("#p_spr")
+    $("#polski").keyup(function(){
+        sprawdz_oceny("#p")
     });
 });
 
 $(function(){ // Język Obcy*
-    $("#o_spr").keyup(function(){
-        sprawdz_oceny("#o_spr")
+    $("#obcy").keyup(function(){
+        sprawdz_oceny("#o")
     });
 });
 
 $(function(){ // Historia*
-    $("#h_spr").keyup(function(){
-        sprawdz_oceny("#h_spr")
+    $("#historia").keyup(function(){
+        sprawdz_oceny("#h")
     });
 });
 
 $(function(){ // Wiedza o społeczeństwie*
-    $("#w_spr").keyup(function(){
-        sprawdz_oceny("#w_spr")
+    $("#wos").keyup(function(){
+        sprawdz_oceny("#w")
     });
 });
 
 $(function(){ // Geografia*
-    $("#g_spr").keyup(function(){
-        sprawdz_oceny("#g_spr")
+    $("#geografia").keyup(function(){
+        sprawdz_oceny("#g")
     });
 });
 
 $(function(){ // Chemia*
-    $("#ch_spr").keyup(function(){
-        sprawdz_oceny("#ch_spr")
+    $("#chemia").keyup(function(){
+        sprawdz_oceny("#ch")
     });
 });
 
 $(function(){ // Biologia*
-    $("#b_spr").keyup(function(){
-        sprawdz_oceny("#b_spr")
+    $("#biologia").keyup(function(){
+        sprawdz_oceny("#b")
     });
 });
 
 $(function(){ // Matematyka*
-    $("#m_spr").keyup(function(){
-        sprawdz_oceny("#m_spr")
+    $("#matematyka").keyup(function(){
+        sprawdz_oceny("#m")
     });
 });
 
 $(function(){ // Informatyka*
-    $("#i_spr").keyup(function(){
-        sprawdz_oceny("#i_spr")
+    $("#informatyka").keyup(function(){
+        sprawdz_oceny("#i")
     });
 });
 

@@ -1,12 +1,14 @@
 <?php
 class Time{
     public function currentYear(){
-        $date = gmdate('Y', time());
+        date_default_timezone_set('Europe/Warsaw');
+        $date = date('Y', time());
         return $date;
     }
 
     public function currentTime(){
-        $date = gmdate('h:i', time());
+        date_default_timezone_set('Europe/Warsaw');
+        $date = date('h:i', time());
         return $date;
     }
 }

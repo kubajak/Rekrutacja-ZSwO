@@ -11,10 +11,10 @@
     <link rel="stylesheet" media="screen" href="../css/root.css">
     <link href="https://fonts.googleapis.com/css?family=Inter:200,300,400,600,700&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="../../img/icon/website_icon/logo.png" />
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script type="text/javascript" src="../js/skrypt.js"></script>
     <script type="text/javascript" src="../js/pesel.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
 <body onload="stopka()">
     <!-- SIDENAV( BOCZNE MENU ) -->
@@ -37,12 +37,52 @@
     </div>
     <!-- HEADER ( GÓRNA (CZARNY PASEK) ) -->
     <div class="main">
+        <?php
+        require "../../vendor/autoloader/autoloader.php";
+        $formHandler = new FormHandler();
+            if($_SERVER['REQUEST_METHOD'] === 'POST'){
+                $form_data = array(
+                    'pesel'             => htmlspecialchars($_POST['pesel']),
+                    'imie'              => htmlspecialchars($_POST['imie']),
+                    'drugie_imie'       => htmlspecialchars($_POST['drugie_imie']),
+                    'nazwisko'          => htmlspecialchars($_POST['nazwisko']),
+                    'miejscowosc'       => htmlspecialchars($_POST['miejscowosc']),
+                    'kod_pocztowy'      => htmlspecialchars($_POST['kod_pocztowy']),
+                    'ulica_numer'       => htmlspecialchars($_POST['ulica_numer']),
+                    'szkola_podstawowa' => htmlspecialchars($_POST['szkola_podstawowa']),
+                    'jezyk_obcy'        => htmlspecialchars($_POST['jezyk_obcy']),
+                    'wybor1'            => htmlspecialchars($_POST['wybor1']),
+                    'wybor2'            => htmlspecialchars($_POST['wybor2']),
+                    'wybor3'            => htmlspecialchars($_POST['wybor3']),
+                    'egczhuman'         => htmlspecialchars($_POST['egczhuman']),
+                    'egczmatma'         => htmlspecialchars($_POST['egczmatma']),
+                    'egczobcy'          => htmlspecialchars($_POST['egczobcy']),
+                    'polski'            => htmlspecialchars($_POST['polski']),
+                    'obcy'              => htmlspecialchars($_POST['obcy']),
+                    'historia'          => htmlspecialchars($_POST['historia']),
+                    'wos'               => htmlspecialchars($_POST['wos']),
+                    'geografia'         => htmlspecialchars($_POST['geografia']),
+                    'chemia'            => htmlspecialchars($_POST['chemia']),
+                    'biologia'          => htmlspecialchars($_POST['biologia']),
+                    'matematyka'        => htmlspecialchars($_POST['matematyka']),
+                    'informatyka'       => htmlspecialchars($_POST['informatyka']),
+                    'osiagniecia'       => htmlspecialchars($_POST['osiagniecia']),
+                    'state1'            => htmlspecialchars($_POST['state1']),
+                    'state2'            => htmlspecialchars($_POST['state2'])
+                );
+                try{
+                    $formHandler->add($form_data);
+                }catch(Throwable $e){
+                    echo $e->getMessage();
+                }
+            }
+        ?>
         <div class="header">
             <div class="header-col"><span>Kreator dodawania Ucznia</span></div>
         </div>
         <div class="add-container">
             <div class="container">
-                <form action="classes/Add.php" method="post" autocomplete="off">
+                <form action="#" method="post" autocomplete="off">
                     <div class="row">
                         <div class="col-50" id="col-50-id"><br />
                             <h3>Dane Ucznia</h3><br />
@@ -124,31 +164,31 @@
                         <div class="col-50"><br/>
                             <h3>Punktacja</h3><br/>
                             <label for="egczhuman">Egzamin część Humanistyczna:</label>
-                            <input type="text" name="egczhuman" id="egczhuman" placeholder="0-100">
+                            <input type="text" name="egczhuman" id="egczhuman" placeholder="0-100" required>
                             <label for="egczmatma">Egzamin część Matemtyczna:</label>
-                            <input type="text" name="egczmatma" id="egczmatma" placeholder="0-100">
+                            <input type="text" name="egczmatma" id="egczmatma" placeholder="0-100" required>
                             <label for="egczobcy">Egzamin Język Obcy:</label>
-                            <input type="text" name="egczobcy" id="egczobcy" placeholder="0-100">
+                            <input type="text" name="egczobcy" id="egczobcy" placeholder="0-100" required>
                             <label for="polski">Język Polski:</label>
-                            <input type="text" name="polski" id="polski" placeholder="2-6">
+                            <input type="text" name="polski" id="polski" placeholder="2-6" required>
                             <label for="obcy">Język Obcy:</label>
-                            <input type="text" name="obcy" id="obcy" placeholder="2-6">
+                            <input type="text" name="obcy" id="obcy" placeholder="2-6" required>
                             <label for="historia">Historia:</label>
-                            <input type="text" name="historia" id="historia" placeholder="2-6">
+                            <input type="text" name="historia" id="historia" placeholder="2-6" required>
                             <label for="wos">Wiedza o społeczeństwie:</label>
-                            <input type="text" name="wos" id="wos" placeholder="2-6">
+                            <input type="text" name="wos" id="wos" placeholder="2-6" required>
                             <label for="geografia">Geografia:</label>
-                            <input type="text" name="geografia" id="geografia" placeholder="2-6">
+                            <input type="text" name="geografia" id="geografia" placeholder="2-6" required>
                             <label for="chemia">Chemia:</label>
-                            <input type="text" name="chemia" id="chemia" placeholder="2-6">
+                            <input type="text" name="chemia" id="chemia" placeholder="2-6" required>
                             <label for="biologia">Biologia:</label>
-                            <input type="text" name="biologia" id="biologia" placeholder="2-6">
+                            <input type="text" name="biologia" id="biologia" placeholder="2-6" required>
                             <label for="matematyka">Matematyka:</label>
-                            <input type="text" name="matematyka" id="matematyka" placeholder="2-6">
+                            <input type="text" name="matematyka" id="matematyka" placeholder="2-6" required>
                             <label for="informatyka">Informatyka:</label>
-                            <input type="text" name="informatyka" id="informatyka" placeholder="2-6">
+                            <input type="text" name="informatyka" id="informatyka" placeholder="2-6" required>
                             <label for="osiagniecia">Szczegółowe osiągnięcia:</label>
-                            <input type="text" name="osiagniecia" id="osiagniecia" placeholder="0-18">
+                            <input type="text" name="osiagniecia" id="osiagniecia" placeholder="0-18" required>
                             <label for="state1">Świadectwo z wyróżnieniem:</label>
                             <div class="row">
                                 <div class="col-50">
@@ -169,7 +209,7 @@
                             </div><br/>
                         </div>
                     </div><br/>
-                    <input type="submit" class="btn btn-inventory btn-lg text-white btn-block" value="DODAJ UCZNIA"><br />
+                    <input type="submit" class="btn btn-inventory btn-lg text-white btn-block" id="button_checked" value="DODAJ UCZNIA"><br />
                 </form>
             </div>
         </div>
