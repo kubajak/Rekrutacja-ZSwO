@@ -13,6 +13,7 @@
     <link rel="icon" type="image/png" href="../../img/icon/website_icon/logo.png"/>
     <script type="text/javascript" src="../js/skrypt.js"></script>
     <script type="text/javascript" src="../js/pesel.js"></script>
+    <script type="text/javascript" src="../js/confirmDelete.js"></script>
 </head>
 <body onload="stopka()">
     <!-- SIDENAV( BOCZNE MENU ) -->

@@ -52,7 +52,7 @@ class DatabaseHandler{
             ];
 
             $placeholders = array_fill(0, count($columns),'?');
-            $sql = "INSERT INTO `rekrutacja_uczen_tbl` (`" . implode('`, `', $columns) . "`) VALUES (" . implode(', ', $placeholders) . ")";
+            $sql = "INSERT INTO " .$this->table_name. " (`" . implode('`, `', $columns) . "`) VALUES (" . implode(', ', $placeholders) . ")";
 
             $stmt = $pdo->prepare($sql);
 
@@ -113,6 +113,51 @@ class DatabaseHandler{
 
     public function editRowInDatabase(){
         try{
+
+        }catch(PDOException $e){
+            echo $e->getMessage();
+        }
+    }
+
+    public function retriveRowFromDatabase($id){
+        try{
+            $pdo = $this->conn;
+            $sql = "SELECT * FROM .$this->table_name. WHERE $id = ?";
+            $stmt = $pdo->prepare($sql);
+            $stmt->execute([$id]);
+            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+            foreach($result as $result){
+                $edit_data = Array(
+                    'pesel' => $result['pesel'],
+                    'imie' => $result['imie'],
+                    'drugie_imie' => $result['drugie_imie'],
+                    'nazwisko' => $result['nazwisko'],
+                    'kod_pocztowy' => $result['kod_pocztowy'],
+                    'miejscowosc' => $result['miejscowosc'],
+                    'ulica_numer' => $result['ulica_numer'],
+                    'szkola_podstawowa' => $result['szkola_podstawowa'],
+                    'jezyk_obcy' => $result['jezyk_wiodacy'],
+                    'wybor1' => $result['wybor1'],
+                    'wybor2' => $result['wybor2'],
+                    'wybor3' => $result['wybor3'],
+                    'egczhuman' => $result['egz_cz_humanistyczna'],
+                    'egczmatma' => $result['egz_cz_matematyczna'],
+                    'egczobcy' => $result['egz_cz_jezyk_obcy'],
+                    'polski' => $result['jezyk_polski'],
+                    'obcy' => $result['jezyk_obcy'],
+                    'historia' => $result['historia'],
+                    'wos' => $result['wos'],
+                    'geografia' => $result['geografia'],
+                    'chemia' => $result['chemia'],
+                    'biologia' => $result['biologia'],
+                    'matematyka' => $result['matematyka'],
+                    'informatyka' => $result['informatyka'],
+                    'pasek' => $result['swiadectwo_z_wyrozn'],
+                    'osiagniecia' => $result['osiagniecia'],
+                    'wolontariat' => $result['wolontariat']
+                );
+            }
 
         }catch(PDOException $e){
             echo $e->getMessage();

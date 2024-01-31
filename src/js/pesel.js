@@ -120,73 +120,73 @@ $(function(){ // Szkoła podstawowa*
 
 $(function(){ // Egzamin część Humanistyczna %*
     $("#egczhuman").keyup(function(){
-        sprawdz_procenty("#eg_cz_H")
+        sprawdz_procenty("#egczhuman")
     });
 });
 
 $(function(){ // Egzamin część Matemtyczna %*
     $("#egczmatma").keyup(function(){
-        sprawdz_procenty("#eg_cz_M")
+        sprawdz_procenty("#egczmatma")
     });
 });
 
 $(function(){ // Egzamin Język Obcy %*
     $("#egczobcy").keyup(function(){
-        sprawdz_procenty("#eg_cz_O")
+        sprawdz_procenty("#egczobcy")
     });
 });
 
 $(function(){ // Język Polski*
     $("#polski").keyup(function(){
-        sprawdz_oceny("#p")
+        sprawdz_oceny("#polski")
     });
 });
 
 $(function(){ // Język Obcy*
     $("#obcy").keyup(function(){
-        sprawdz_oceny("#o")
+        sprawdz_oceny("#obcy")
     });
 });
 
 $(function(){ // Historia*
     $("#historia").keyup(function(){
-        sprawdz_oceny("#h")
+        sprawdz_oceny("#historia")
     });
 });
 
 $(function(){ // Wiedza o społeczeństwie*
     $("#wos").keyup(function(){
-        sprawdz_oceny("#w")
+        sprawdz_oceny("#wos")
     });
 });
 
 $(function(){ // Geografia*
     $("#geografia").keyup(function(){
-        sprawdz_oceny("#g")
+        sprawdz_oceny("#geografia")
     });
 });
 
 $(function(){ // Chemia*
     $("#chemia").keyup(function(){
-        sprawdz_oceny("#ch")
+        sprawdz_oceny("#chemia")
     });
 });
 
 $(function(){ // Biologia*
     $("#biologia").keyup(function(){
-        sprawdz_oceny("#b")
+        sprawdz_oceny("#biologia")
     });
 });
 
 $(function(){ // Matematyka*
     $("#matematyka").keyup(function(){
-        sprawdz_oceny("#m")
+        sprawdz_oceny("#matematyka")
     });
 });
 
 $(function(){ // Informatyka*
     $("#informatyka").keyup(function(){
-        sprawdz_oceny("#i")
+        sprawdz_oceny("#informatyka")
     });
 });
 

@@ -6,7 +6,6 @@ class FormHandler{
     private $validator;
     private $addToDatabase;
     private $removeRowFromDatabase;
-    private $table_name = "rekrutacja_uczen_tbl";
 
     public function __construct(){
         $this->validator = new Validator;
@@ -18,9 +17,9 @@ class FormHandler{
         try{
             if($this->validator->validate($form_data)){
 
-                $egczhuman = $form_data['egczhuman'] * 0.35;
-                $egczmatma = $form_data['egczmatma'] * 0.35;
-                $egczobcy =  $form_data['egczobcy']  * 0.30;
+                $egczhuman  = $form_data['egczhuman']  * 0.35;
+                $egczmatma  = $form_data['egczmatma']  * 0.35;
+                $egczobcy   = $form_data['egczobcy']   * 0.30;
 
                 $polski         = $this->getPoints($form_data['polski']);
                 $obcy           = $this->getPoints($form_data['obcy']);
@@ -252,7 +251,6 @@ class FormHandler{
                     'logistyczny' => $logistyczny,
                     'informatyczny' => $informatyczny,
                     'wielobranzowy' => $wielobranzowy,
-                    
                 );
 
                 $this->addToDatabase->addToDatabase($toDatabase);
