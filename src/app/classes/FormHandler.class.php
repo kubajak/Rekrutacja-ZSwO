@@ -294,8 +294,12 @@ class FormHandler{
 }
 
 $formHandler = new FormHandler();
-
+ 
 if(isset($_GET['id'])){
     $formHandler->remove($_GET['id']);
+}
+
+if(isset($_POST['edit_subbmit'])&&(isset($_GET['id']))){
+    $formHandler->edit($_GET['id']);
 }
 ?>

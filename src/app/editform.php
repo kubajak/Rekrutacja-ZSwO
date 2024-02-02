@@ -43,88 +43,54 @@
         <div class="add-container">
             <div class="container">
                 <?php
-                require "classes/bdconfig/Dbh.php";
-
-                class EditGetValues extends Dbh{
-                    public $id;
-                    public $pesel;
-                    public $imie;
-                    public $drugie_imie;
-                    public $nazwisko;
-                    public $miejscowosc;
-                    public $kod_pocztowy;
-                    public $ulica_numer;
-                    public $szkola_podstawowa;
-                    public $jezyk_wiodacy;
-                    public $wybor1;
-                    public $wybor2;
-                    public $wybor3;
-                    public $egczhuman;
-                    public $egczmatma;
-                    public $egczobcy;
-                    public $polski;
-                    public $obcy;
-                    public $historia;
-                    public $wos;
-                    public $geografia;
-                    public $chemia;
-                    public $biologia;
-                    public $matematyka;
-                    public $informatyka;
-                    public $osiagniecia;
-                    public $pasek;
-                    public $wolontariat;
-
-                    public function EditGetValuesFromDatabase(){
-                        
-                        $this->id = $_GET['id'];
-
-                        $pdo = $this->connect();
-                        $sql = "SELECT * FROM rekrutacja_uczen_tbl WHERE id = ?";
-                        $stmt = $pdo->prepare($sql);
-                        $stmt->execute([$this->id]);
-                        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-                        
-                        foreach($result as $result){
-                            $this->pesel = $result['pesel'];
-                            $this->imie = $result['imie'];
-                            $this->drugie_imie = $result['drugie_imie'];
-                            $this->nazwisko = $result['nazwisko'];
-                            $this->miejscowosc = $result['miejscowosc'];
-                            $this->kod_pocztowy = $result['kod_pocztowy'];
-                            $this->ulica_numer = $result['ulica_numer'];
-                            $this->szkola_podstawowa = $result['szkola_podstawowa'];
-                            $this->jezyk_wiodacy = $result['jezyk_wiodacy'];
-                            $this->wybor1 = $result['wybor1'];
-                            $this->wybor2 = $result['wybor2'];
-                            $this->wybor3 = $result['wybor3'];
-                            $this->egczhuman = $result['egz_cz_humanistyczna'];
-                            $this->egczmatma = $result['egz_cz_matematyczna'];
-                            $this->egczobcy = $result['egz_cz_jezyk_obcy'];
-                            $this->polski = $result['jezyk_polski'];
-                            $this->obcy = $result['jezyk_obcy'];
-                            $this->historia = $result['historia'];
-                            $this->wos = $result['wos'];
-                            $this->geografia = $result['geografia'];
-                            $this->chemia = $result['chemia'];
-                            $this->biologia = $result['biologia'];
-                            $this->matematyka = $result['matematyka'];
-                            $this->informatyka = $result['informatyka'];
-                            $this->osiagniecia = $result['osiagniecia'];
-                            $this->pasek = $result['swiadectwo_z_wyrozn'];
-                            $this->wolontariat = $result['wolontariat'];
-                        }
+                require "../../vendor/autoloader/autoloader.php";
+                $databaseHandler = new DatabaseHandler();
+                $formHandler = new FormHandler();
+                $id = $_GET['id'];
+                $retriveRowFromDatabase = $databaseHandler->retriveRowFromDatabase($id);
+                if($_SERVER['REQUEST_METHOD'] === 'POST'){
+                    $form_data = array(
+                        'pesel'             => htmlspecialchars($_POST['pesel']),
+                        'imie'              => htmlspecialchars($_POST['imie']),
+                        'drugie_imie'       => htmlspecialchars($_POST['drugie_imie']),
+                        'nazwisko'          => htmlspecialchars($_POST['nazwisko']),
+                        'miejscowosc'       => htmlspecialchars($_POST['miejscowosc']),
+                        'kod_pocztowy'      => htmlspecialchars($_POST['kod_pocztowy']),
+                        'ulica_numer'       => htmlspecialchars($_POST['ulica_numer']),
+                        'szkola_podstawowa' => htmlspecialchars($_POST['szkola_podstawowa']),
+                        'jezyk_obcy'        => htmlspecialchars($_POST['jezyk_obcy']),
+                        'wybor1'            => htmlspecialchars($_POST['wybor1']),
+                        'wybor2'            => htmlspecialchars($_POST['wybor2']),
+                        'wybor3'            => htmlspecialchars($_POST['wybor3']),
+                        'egczhuman'         => htmlspecialchars($_POST['egczhuman']),
+                        'egczmatma'         => htmlspecialchars($_POST['egczmatma']),
+                        'egczobcy'          => htmlspecialchars($_POST['egczobcy']),
+                        'polski'            => htmlspecialchars($_POST['polski']),
+                        'obcy'              => htmlspecialchars($_POST['obcy']),
+                        'historia'          => htmlspecialchars($_POST['historia']),
+                        'wos'               => htmlspecialchars($_POST['wos']),
+                        'geografia'         => htmlspecialchars($_POST['geografia']),
+                        'chemia'            => htmlspecialchars($_POST['chemia']),
+                        'biologia'          => htmlspecialchars($_POST['biologia']),
+                        'matematyka'        => htmlspecialchars($_POST['matematyka']),
+                        'informatyka'       => htmlspecialchars($_POST['informatyka']),
+                        'osiagniecia'       => htmlspecialchars($_POST['osiagniecia']),
+                        'state1'            => htmlspecialchars($_POST['state1']),
+                        'state2'            => htmlspecialchars($_POST['state2'])
+                    );
+                    try{
+                        $formHandler->edit($form_data);
+                    }catch(Throwable $e){
+                        echo $e->getMessage();
                     }
                 }
-                $EditGetValues = new EditGetValues();
-                $EditGetValues->EditGetValuesFromDatabase();
                 ?>
-                <form action="classes/Edit.php" method="POST" autocomplete="off">
+                <form action="#" method="POST" autocomplete="off">
                     <div class="row">
                         <div class="col-50" id="col-50-id"><br/>
                             <h3>Dane Ucznia</h3><br/>
                             <label for="id">ID:</label>
-                            <input type="text" name="id" id="id" placeholder="ID" value="<?php echo $EditGetValues->id;?>" readonly required disabled>
+                            <input type="text" name="id" id="id" placeholder="ID" value="<?php ?>" readonly required disabled>
                             <label for="pesel">PESEL:</label>
                             <input type="text" name="pesel" id="pesel" placeholder="12345678910" value="<?php echo $EditGetValues->pesel;?>" required>
                             <label for="imie">Imię:</label>
@@ -254,7 +220,7 @@
                             </div><br/>
                         </div>
                     </div><br/>
-                    <input type="submit" class="btn btn-inventory btn-lg text-white btn-block" value="DODAJ UCZNIA"><br/>
+                    <input type="submit" class="btn btn-inventory btn-lg text-white btn-block" name="edit_submit" value="DODAJ UCZNIA"><br/>
                 </form>
             </div>
         </div>

@@ -286,6 +286,7 @@ nav img {
 	display: inline-block;
     vertical-align: middle;
     transition: transform .4s;
+    cursor: pointer;
 }
 
 .box-class {

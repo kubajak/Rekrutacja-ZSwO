@@ -48,7 +48,7 @@ class DatabaseHandler{
                 'profil_matematyczno_inzynieryjny',
                 'profil_logistyczny',
                 'profil_informatyczny',
-                'profil_wielozawodowy',
+                'profil_wielozawodowy'
             ];
 
             $placeholders = array_fill(0, count($columns),'?');
@@ -91,23 +91,28 @@ class DatabaseHandler{
                 $data['mat_inzy'],
                 $data['logistyczny'],
                 $data['informatyczny'],
-                $data['wielobranzowy'],
+                $data['wielobranzowy']
             ]);
+
+            header("Location: addform.php?success=1");
 
         }catch(PDOException $e){
             echo $e->getMessage();
+            header("Location: addform.php?success=0");
         }
     }
 
     public function removeRowFromDatabase($id){
         try{
+            $pdo = $this->conn;
             $sql = "DELETE FROM " .$this->table_name. " WHERE id = :id";
-            $stmt = $this->conn->prepare($sql);
+            $stmt = $pdo->prepare($sql);
             $stmt->bindParam(':id', $id);
             $stmt->execute();
-            header("Location: ../list.php");
+            header("Location: ../list.php?success=1");
         }catch(PDOException $e){
             echo $e->getMessage();
+            header("Location: ../list.php?succness=0");
         }
     }
 
@@ -129,6 +134,7 @@ class DatabaseHandler{
 
             foreach($result as $result){
                 $edit_data = Array(
+                    'id' => $result['id'],
                     'pesel' => $result['pesel'],
                     'imie' => $result['imie'],
                     'drugie_imie' => $result['drugie_imie'],
@@ -158,6 +164,8 @@ class DatabaseHandler{
                     'wolontariat' => $result['wolontariat']
                 );
             }
+
+            return $edit_data;
 
         }catch(PDOException $e){
             echo $e->getMessage();
