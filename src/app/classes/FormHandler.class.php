@@ -13,7 +13,7 @@ class FormHandler{
         $this->removeRowFromDatabase = new DatabaseHandler();
     } 
     
-    public function add($form_data){
+    public function add(array $form_data){
         try{
             if($this->validator->validate($form_data)){
 
@@ -263,11 +263,11 @@ class FormHandler{
         }
     }
 
-    public function edit($form_data){
+    public function edit(array $form_data){
 
     }
 
-    public function remove($id){
+    public function remove(int $id){
         try{
             return $this->removeRowFromDatabase->removeRowFromDatabase($id);
         }catch(PDOException $e){
@@ -275,7 +275,7 @@ class FormHandler{
         }
     }
 
-    private function getPoints($data){
+    private function getPoints(int $data){
         switch($data){
             case 2:
                 return 2;

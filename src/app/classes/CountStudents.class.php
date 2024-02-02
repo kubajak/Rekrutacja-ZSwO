@@ -10,7 +10,7 @@ class CountStudents{
         $this->conn = $db->connect();
     }
 
-    public function countAllStudents($data){
+    public function countAllStudents(string $data){
         try{
             $pdo = $this->conn;
             $sql = "SELECT count($data) AS total from $this->table_name WHERE $data > 0";
@@ -27,7 +27,7 @@ class CountStudents{
         }
     }
 
-    public function countStudentsForEachClass($data){
+    public function countStudentsForEachClass(string $data){
         try{
             $pdo = $this->conn;
             $sql = "SELECT count($data) AS total from $this->table_name WHERE $data > 0";

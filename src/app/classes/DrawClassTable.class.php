@@ -10,7 +10,7 @@ class DrawClassTable{
         $this->conn = $db->connect();
     }
 
-    public function drawClassTable($profile, $name){
+    public function drawClassTable(string $profile, string $name){
         try{
             $pdo = $this->conn;
             $sql = "SELECT pesel,imie,nazwisko,$profile FROM $this->table_name WHERE $profile > 0";
@@ -53,7 +53,7 @@ class DrawClassTable{
         }
     }
 
-    public function drawClassTableAll($data){
+    public function drawClassTableAll(string $data){
         try{
             $pdo = $this->conn;
             $sql = "SELECT pesel,imie,nazwisko,wybor1,wybor2,wybor3 FROM $this->table_name WHERE $data > 0";

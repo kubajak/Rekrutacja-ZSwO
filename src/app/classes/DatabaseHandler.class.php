@@ -10,7 +10,7 @@ class DatabaseHandler{
         $this->conn = $db->connect();
     }
 
-    public function addToDatabase($data){
+    public function addToDatabase(array $data){
         try{
             $pdo = $this->conn;
             $columns = [
@@ -102,7 +102,7 @@ class DatabaseHandler{
         }
     }
 
-    public function removeRowFromDatabase($id){
+    public function removeRowFromDatabase(int $id){
         try{
             $pdo = $this->conn;
             $sql = "DELETE FROM " .$this->table_name. " WHERE id = :id";
@@ -124,7 +124,7 @@ class DatabaseHandler{
         }
     }
 
-    public function retriveRowFromDatabase($id){
+    public function retriveRowFromDatabase(int $id){
         try{
             $pdo = $this->conn;
             $sql = "SELECT * FROM .$this->table_name. WHERE $id = ?";

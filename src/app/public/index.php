@@ -27,7 +27,7 @@
         }
     </style>
 </head>
-<body onload="stopka()">
+<body>
     <?php
         require_once "../../../vendor/autoloader/autoloader.php";
         $countStudents = new CountStudents();
@@ -49,7 +49,7 @@
             <li class="btn-background"><a href="../../../index.html"><img src="../../../img/icon/nav_icon/sign-out-alt-solid.svg">WYJDŹ</a></li>
         </nav>
         <hr class="footer-line" />
-        <div class="footer" style="float: left"><span id="span_footer"></span></div>
+        <div class="footer" style="float: left"><span id="span_footer">© J.K.K.J - <?php $this->currentYear(); ?></span></div>
     </div>
     <!-- HEADER ( GÓRNA (CZARNY PASEK) ) -->
     <div class="main">
