@@ -263,7 +263,7 @@ class FormHandler{
         }
     }
 
-    public function edit(array $form_data){
+    public function edit($form_data){
 
     }
 
