@@ -15,6 +15,8 @@ class DrawClassTable{
             $pdo = $this->conn;
             $sql = "SELECT pesel,imie,nazwisko,$profile FROM $this->table_name WHERE $profile > 0";
             $stmt = $pdo->prepare($sql);
+            $stmt->bindParam(':pageSize', $pageSize, PDO::PARAM_INT);
+            $stmt->bindParam(':offset', $offset, PDO::PARAM_INT);
             $stmt->execute();
 
             $row = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -101,6 +103,7 @@ class DrawClassTable{
     public function drawClassTableWithUtilities(){
         try{
             $pdo = $this->conn;
+
             $sql = "SELECT id,pesel,imie,nazwisko,wybor1,wybor2,wybor3 FROM $this->table_name";
             $stmt = $pdo->prepare($sql);
             $stmt->execute();

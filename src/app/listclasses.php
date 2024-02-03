@@ -1,16 +1,16 @@
+<?php require_once "../../vendor/autoloader/autoloader.php"; ?>
 <!DOCTYPE html>
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home - System rekrutacji</title>
+    <title>ZS - System rekrutacyjny</title>
     <link rel="stylesheet" href="../../vendor/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="../../vendor/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" media="screen" href="../css/root.css">
     <link rel="stylesheet" media="screen" href="../css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Inter:200,300,400,600,700&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="../../img/icon/website_icon/logo.png"/>
-    <script type="text/javascript" src="../js/skrypt.js"></script>
 </head>
 <body onload="stopka()">
     <!-- SIDENAV( BOCZNE MENU ) -->
@@ -29,7 +29,7 @@
             <li class="btn-background"><a href="../../index.html"><img src="../../img/icon/nav_icon/sign-out-alt-solid.svg">WYJDŹ</a></li>
         </nav>
         <hr class="footer-line" />
-        <div class="footer" style="float: left"><span id="span_footer"></span></div>
+        <div class="footer" style="float: left"><span id="span_footer">© J.K.K.J - <?php echo Time::currentYear() ?></span></div>
     </div>
     <!-- HEADER ( GÓRNA (CZARNY PASEK) ) -->
     <div class="main">
