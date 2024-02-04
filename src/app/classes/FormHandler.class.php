@@ -8,14 +8,13 @@ class FormHandler{
     private $removeRowFromDatabase;
 
     public function __construct(){
-        $this->validator = new Validator;
         $this->addToDatabase = new DatabaseHandler;
         $this->removeRowFromDatabase = new DatabaseHandler();
     } 
     
     public function add(array $form_data){
         try{
-            if($this->validator->validate($form_data)){
+            if(Validator::validate($form_data) && (Validator::validatePesel($form_data['pesel']))){
 
                 $egczhuman  = $form_data['egczhuman']  * 0.35;
                 $egczmatma  = $form_data['egczmatma']  * 0.35;
@@ -256,9 +255,10 @@ class FormHandler{
                 $this->addToDatabase->addToDatabase($toDatabase);
 
             }else{
-                throw new Exception("Brak danych");
+                throw new Exception("Nieprawidłowe dane");
             }
         }catch(Throwable $e){
+            header("Location: addform.php?success=0");
             echo $e->getMessage();
         }
     }

@@ -1,8 +1,8 @@
 const button = "#button_checked";
 
 $(function(){ // PESEL*
-    var pole_pesel = "#pesel";
-    $("#pesel").keyup(function(){
+    var pole_pesel = "#pesell";
+    $("#pesell").keyup(function(){
         var pesel = $.trim($(pole_pesel).val());
         if(pesel.length < 12){
             var _pesel_ = pesel.substring(0,10);
