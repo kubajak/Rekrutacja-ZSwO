@@ -14,7 +14,7 @@
     <link rel="icon" type="image/png" href="../../img/icon/website_icon/logo.png"/>
     <script type="text/javascript" src="../js/confirmDelete.js"></script>
 </head>
-<body onload="stopka()">
+<body>
     <!-- SIDENAV( BOCZNE MENU ) -->
     <div class="sidenav">
         <div id="sidenav-wrapp">

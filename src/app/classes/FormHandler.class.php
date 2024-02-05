@@ -3,7 +3,6 @@ include "Validator.class.php";
 include "DatabaseHandler.class.php";
 
 class FormHandler{
-    private $validator;
     private $addToDatabase;
     private $removeRowFromDatabase;
 
@@ -14,7 +13,7 @@ class FormHandler{
     
     public function add(array $form_data){
         try{
-            if(Validator::validate($form_data) && (Validator::validatePesel($form_data['pesel']))){
+            if(!in_array(false, Validator::validate($form_data), true)){
 
                 $egczhuman  = $form_data['egczhuman']  * 0.35;
                 $egczmatma  = $form_data['egczmatma']  * 0.35;

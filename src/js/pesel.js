@@ -1,8 +1,8 @@
 const button = "#button_checked";
 
 $(function(){ // PESEL*
-    var pole_pesel = "#pesell";
-    $("#pesell").keyup(function(){
+    var pole_pesel = "#pesel";
+    $("#pesel").keyup(function(){
         var pesel = $.trim($(pole_pesel).val());
         if(pesel.length < 12){
             var _pesel_ = pesel.substring(0,10);
@@ -19,12 +19,11 @@ $(function(){ // PESEL*
                     $(pole_pesel).css({
                         "border": "1px solid #17C671"
                     });
-                    $(button).attr("disabled",false);
+                    
                 } else {
                     $(pole_pesel).css({
                         "border": "1px solid #C4183C"
                     });
-                    $(button).attr("disabled",true);
                 }
             }
             if(tab2.length == 2){
@@ -32,20 +31,17 @@ $(function(){ // PESEL*
                     if(wynik == parseInt(pesel[10])){
                         $(pole_pesel).css({
                             "border": "1px solid #17C671"
-                        });
-                        $(button).attr("disabled",false);
+                        });                  
                     } else {
                         $(pole_pesel).css({
                             "border": "1px solid #C4183C"
-                    });
-                    $(button).attr("disabled",true);
+                    });               
                 }
             }
         } else {
             $(pole_pesel).css({
                 "border": "1px solid #C4183C"
-            });
-            $(button).attr("disabled",true);
+            }); 
         }
     });
 });
@@ -84,37 +80,32 @@ $(function(){ // Kod pocztowy*
                 $("#kod_pocztowy").css({
                     "border": "1px solid #17C671"
                 });
-                $(button).attr("disabled",false);
             } else {
                 $("#kod_pocztowy").css({
                     "border": "1px solid #C4183C"
-                });
-                $(button).attr("disabled",true);
+                });   
             }
         } else {
             $("#kod_pocztowy").css({
                 "border": "1px solid #C4183C"
             });
-            $(button).attr("disabled",true);
         }
     });
 });
 
 $(function(){ // Ulica i numer domu*
     $("#ulica_numer").keyup(function(){
-            $("#ulica_numer").css({
-                "border": "1px solid #17C671"
-            });
-            $(button).attr("disabled",false);
+        $("#ulica_numer").css({
+            "border": "1px solid #17C671"
+        });
     });
 });
 
 $(function(){ // Szkoła podstawowa*
     $("#szkola_podstawowa").keyup(function(){
-            $("#szkola_podstawowa").css({
-                "border": "1px solid #17C671"
-            });
-            $(button).attr("disabled",false);
+        $("#szkola_podstawowa").css({
+            "border": "1px solid #17C671"
+        });
     });
 });
 
@@ -198,12 +189,10 @@ $(function(){ // Szczegółowe osiągnięcia*
             $("#osiagniecia").css({
                 "border": "1px solid #17C671"
             });
-            $(button).attr("disabled",false);
         } else {
             $("#osiagniecia").css({
                 "border": "1px solid #C4183C"
             });
-            $(button).attr("disabled",false);
         }
     });
 });
@@ -215,16 +204,10 @@ function sprawdz_dane(pole_id,button_tf){
         $(pole_id).css({
             "border": "1px solid #17C671"
         });
-        $(button).attr("disabled",false);
     } else {
         $(pole_id).css({
             "border": "1px solid #C4183C"
         });
-        if(button_tf){
-            $(button).attr("disabled",true);
-        } else {
-            $(button).attr("disabled",false);
-        }
     }
 }
 
@@ -234,13 +217,11 @@ function sprawdz_procenty(pole_id){
     if(val >= 0 && val <= 100 && reg.test(val)){
         $(pole_id).css({
             "border": "1px solid #17C671"
-        });
-        $(button).attr("disabled",false);
+        }); 
     } else {
         $(pole_id).css({
             "border": "1px solid #C4183C"
         });
-        $(button).attr("disabled",true);
     }
 }
 
@@ -250,12 +231,10 @@ function sprawdz_oceny(pole_id){
     if(val >= 2 && val <= 6 && reg.test(val)){
         $(pole_id).css({
             "border": "1px solid #17C671"
-        });
-        $(button).attr("disabled",false);
+        });     
     } else {
         $(pole_id).css({
             "border": "1px solid #C4183C"
-        });
-        $(button).attr("disabled",true);
+        });     
     }
 }

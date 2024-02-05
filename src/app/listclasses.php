@@ -12,7 +12,7 @@
     <link href="https://fonts.googleapis.com/css?family=Inter:200,300,400,600,700&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="../../img/icon/website_icon/logo.png"/>
 </head>
-<body onload="stopka()">
+<body>
     <!-- SIDENAV( BOCZNE MENU ) -->
     <div class="sidenav">
         <div id="sidenav-wrapp">
