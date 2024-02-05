@@ -218,15 +218,15 @@ class Validator{
                 return self::validateMiejscowosc($value);
             case 'kod_pocztowy':
                 return self::validateKodPocztowy($value);
-            case 'ulica_numer_domu':
+            case 'ulica_numer':
                 return self::valdiateUlicaNumerDomu($value);
             case 'szkola_podstawowa':
                 return self::validateSzkolaPodstawowa($value);
-            case 'egz_cz_human':
+            case 'egczhuman':
                 return self::validateEgzCzHuman($value);
-            case 'egz_cz_matma':
+            case 'egczmatma':
                 return self::valdiateEgzCzMatma($value);
-            case 'egz_cz_obcy':
+            case 'egczobcy':
                 return self::valdiateEgzCzObcy($value);
             case 'polski':
                 return self::validatePolski($value);
