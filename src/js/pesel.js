@@ -19,7 +19,6 @@ $(function(){ // PESEL*
                     $(pole_pesel).css({
                         "border": "1px solid #17C671"
                     });
-                    
                 } else {
                     $(pole_pesel).css({
                         "border": "1px solid #C4183C"

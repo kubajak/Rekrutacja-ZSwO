@@ -5,13 +5,13 @@ include "DatabaseHandler.class.php";
 class FormHandler{
     private $addToDatabase;
     private $removeRowFromDatabase;
-
-    public function __construct(){
+    
+        public function __construct(){
         $this->addToDatabase = new DatabaseHandler;
         $this->removeRowFromDatabase = new DatabaseHandler();
     } 
     
-    public function add(array $form_data){
+    public function add(mixed $form_data){
         try{
             if(!in_array(false, Validator::validate($form_data), true)){
 
@@ -257,6 +257,7 @@ class FormHandler{
                 throw new Exception("Nieprawidłowe dane");
             }
         }catch(Throwable $e){
+            echo $e->getMessage();
             header("Location: addform.php?success=0");
             echo $e->getMessage();
         }

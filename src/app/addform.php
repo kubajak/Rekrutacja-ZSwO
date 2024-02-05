@@ -13,7 +13,7 @@
     <link href="https://fonts.googleapis.com/css?family=Inter:200,300,400,600,700&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="../../img/icon/website_icon/logo.png" />
     <script type="text/javascript" src="../js/pesel.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 </head>
 <body>
     <!-- SIDENAV( BOCZNE MENU ) -->
@@ -69,6 +69,7 @@
                     'state2'            => htmlspecialchars($_POST['state2'])
                 );
                 try{
+                    //Test::test1($form_data);
                     $formHandler->add($form_data);
                 }catch(Throwable $e){
                     echo $e->getMessage();
