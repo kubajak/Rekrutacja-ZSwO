@@ -1,7 +1,8 @@
 <?php
 require_once "bdconfig/Dbh.php";
 
-class DrawClassTable{
+class DrawClassTableAll{
+
     private $conn;
     private $table_name = "rekrutacja_uczen_tbl";
 
@@ -10,10 +11,10 @@ class DrawClassTable{
         $this->conn = $db->connect();
     }
 
-    public function drawClassTable(string $profile, string $name){
+    public function drawClassTableAll(string $data){
         try{
             $pdo = $this->conn;
-            $sql = "SELECT pesel,imie,nazwisko,$profile FROM $this->table_name WHERE $profile > 0";
+            $sql = "SELECT pesel,imie,nazwisko,wybor1,wybor2,wybor3 FROM $this->table_name WHERE $data > 0";
             $stmt = $pdo->prepare($sql);
             $stmt->execute();
 
@@ -29,8 +30,9 @@ class DrawClassTable{
                 echo "<th class='th_uczen'>Pesel</th>";
                 echo "<th class='th_uczen'>Imię</th>";
                 echo "<th class='th_uczen'>Nazwisko</th>";
-                echo "<th class='th_uczen'>Profil</th>";
-                echo "<th class='th_uczen'>Punkty</th>";
+                echo "<th class='th_uczen'>Wybor1</th>";
+                echo "<th class='th_uczen'>Wybor2</th>";
+                echo "<th class='th_uczen'>Wybor3</th>";
                 echo "</tr>";
                 foreach($row as $row){
                     $licznik++;
@@ -39,8 +41,9 @@ class DrawClassTable{
                     echo "<td class='td_uczen'>" . $row['pesel'] . "</td>";
                     echo "<td class='td_uczen'>" . $row['imie'] . "</td>";
                     echo "<td class='td_uczen'>" . $row['nazwisko'] . "</td>";
-                    echo "<td class='td_uczen col-200'>" . $name . "</td>";
-                    echo "<td class='td_uczen col-200 td_10'>" . $row[$profile] . "</td>";
+                    echo "<td class='td_uczen'>" . $row['wybor1'] . "</td>";
+                    echo "<td class='td_uczen'>" . $row['wybor2'] . "</td>";
+                    echo "<td class='td_uczen'>" . $row['wybor3'] . "</td>";
                     echo "</tr>";
                 }
                 echo "</table>";

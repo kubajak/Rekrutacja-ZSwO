@@ -39,8 +39,8 @@
     </div>
     <?php
         require "../../../vendor/autoloader/autoloader.php";
-        $classes = new DrawClassTable();
-        $classes->drawClassTable("profil_mundurowy","Profil Mundurowy");
+        $drawClassTable = new DrawClassTable();
+        $drawClassTable->drawClassTable("profil_mundurowy","Profil Mundurowy");
     ?>
 </body>
 </html>

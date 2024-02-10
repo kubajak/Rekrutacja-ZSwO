@@ -39,8 +39,8 @@
     </div>
     <?php
         require "../../../vendor/autoloader/autoloader.php";
-        $classes = new DrawClassTable();
-        $classes->drawClassTable("profil_sportowo_turystyczny_sportowy","Profil Sport-Tur, Sport");
+        $drawClassTable = new DrawClassTable();
+        $drawClassTable->drawClassTable("profil_sportowo_turystyczny_sportowy","Profil Sport-Tur, Sport");
     ?>
 </body>
 </html>

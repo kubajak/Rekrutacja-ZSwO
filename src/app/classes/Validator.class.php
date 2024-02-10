@@ -29,10 +29,10 @@ class Validator{
 
 
             foreach($fields_to_validate as $field){
-            if(isset($form_data[$field])){
-                $validation_results[$field] = self::validateField($field, $form_data[$field]);
-            }else{
-                $validation_results[$field] = false;
+                if(isset($form_data[$field])){
+                    $validation_results[$field] = self::validateField($field, $form_data[$field]);
+                }else{
+                    $validation_results[$field] = false;
             }
         }
 

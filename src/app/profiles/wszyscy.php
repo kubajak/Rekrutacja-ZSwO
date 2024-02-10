@@ -39,8 +39,8 @@
     </div>
     <?php
         include "../../../vendor/autoloader/autoloader.php";
-        $drawClassTable = new DrawClassTable();
-        $drawClassTable->drawClassTableAll("id");
+        $drawClassTableAll = new DrawClassTableAll();
+        $drawClassTableAll->drawClassTableAll("id");
     ?>
 </body>
 </html>

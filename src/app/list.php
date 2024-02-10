@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script src="../js/confirmEdit.js"></script>
 </head>
 <body>
     <!-- SIDENAV( BOCZNE MENU ) -->
@@ -51,8 +52,8 @@
         </div>
         <div id="dialog-confirm" title="Czy napewno chcesz to zrobić?"></div>
         <?php
-            $list = new DrawClassTable();
-            $list->drawClassTableWithUtilities();
+            $drawClassTableWithUtilities = new DrawClassTableWithUtilities();
+            $drawClassTableWithUtilities->drawClassTableWithUtilities();
         ?>
     </div>
 </body>

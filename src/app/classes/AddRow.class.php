@@ -1,17 +1,14 @@
 <?php
-include "Validator.class.php";
-include "DatabaseHandler.class.php";
+require_once 'DatabaseHandler.class.php';
+require_once 'Validator.class.php';
+class AddRow{
+    private $dbh;
 
-class FormHandler{
-    private $addToDatabase;
-    private $removeRowFromDatabase;
-    
-        public function __construct(){
-        $this->addToDatabase = new DatabaseHandler;
-        $this->removeRowFromDatabase = new DatabaseHandler();
-    } 
-    
-    public function add(mixed $form_data){
+    public function __construct(){
+        $this->dbh = new DatabaseHandler();
+    }
+
+    public function addRow(mixed $form_data){
         try{
             if(!in_array(false, Validator::validate($form_data), true)){
 
@@ -226,21 +223,21 @@ class FormHandler{
                     'wybor1' => $wybor1,
                     'wybor2' => $wybor2,
                     'wybor3' => $wybor3,
-                    'egczhuman' => $egczhuman,
-                    'egczmatma' => $egczmatma,
-                    'egczobcy' => $egczobcy,
-                    'polski' => $polski,
-                    'obcy' => $obcy,
-                    'historia' => $historia,
-                    'wos' => $wos,
-                    'geografia' => $geografia,
-                    'chemia' => $chemia,
-                    'biologia' => $biologia,
-                    'matematyka' => $matematyka,
-                    'informatyka' => $informatyka,
-                    'pasek' => $pasek,
+                    'egczhuman' => $form_data['egczhuman'],
+                    'egczmatma' => $form_data['egczmatma'],
+                    'egczobcy' => $form_data['egczobcy'],
+                    'polski' => $form_data['polski'],
+                    'obcy' => $form_data['obcy'],
+                    'historia' => $form_data['historia'],
+                    'wos' => $form_data['wos'],
+                    'geografia' => $form_data['geografia'],
+                    'chemia' => $form_data['chemia'],
+                    'biologia' => $form_data['biologia'],
+                    'matematyka' => $form_data['matematyka'],
+                    'informatyka' => $form_data['informatyka'],
+                    'pasek' => $form_data['state1'],
                     'osiagniecia' => $form_data['osiagniecia'],
-                    'wolontariat' => $wolontariat,
+                    'wolontariat' => $form_data['state2'],
                     'akademicki' => $akademicki,
                     'prozdrowotny' => $prozdrowotny,
                     'mundurowy' => $mundurowy,
@@ -251,26 +248,13 @@ class FormHandler{
                     'wielobranzowy' => $wielobranzowy,
                 );
 
-                $this->addToDatabase->addToDatabase($toDatabase);
+                $this->dbh->addToDatabase($toDatabase);
 
             }else{
                 throw new Exception("Nieprawidłowe dane");
             }
         }catch(Throwable $e){
-            echo $e->getMessage();
-            header("Location: addform.php?success=0");
-            echo $e->getMessage();
-        }
-    }
-
-    public function edit($form_data){
-
-    }
-
-    public function remove(int $id){
-        try{
-            return $this->removeRowFromDatabase->removeRowFromDatabase($id);
-        }catch(PDOException $e){
+            header("Location: addform.php?success=AddRowERROR");
             echo $e->getMessage();
         }
     }
@@ -293,13 +277,4 @@ class FormHandler{
     }
 }
 
-$formHandler = new FormHandler();
- 
-if(isset($_GET['id'])){
-    $formHandler->remove($_GET['id']);
-}
-
-if(isset($_POST['edit_subbmit'])&&(isset($_GET['id']))){
-    $formHandler->edit($_GET['id']);
-}
 ?>

@@ -1,9 +1,46 @@
 <?php
-include "bdconfig/Dbh.php";
+require_once "bdconfig/Dbh.php";
 
 class DatabaseHandler{
     private $conn;
     private $table_name = "rekrutacja_uczen_tbl";
+    private $columns = [
+        'pesel',
+        'imie',
+        'drugie_imie',
+        'nazwisko',
+        'kod_pocztowy',
+        'miejscowosc',
+        'ulica_numer',
+        'szkola_podstawowa',
+        'jezyk_wiodacy',
+        'wybor1',
+        'wybor2',
+        'wybor3',
+        'egz_cz_humanistyczna',
+        'egz_cz_matematyczna',
+        'egz_cz_jezyk_obcy',
+        'jezyk_polski',
+        'jezyk_obcy',
+        'historia',
+        'wos',
+        'geografia',
+        'chemia',
+        'biologia',
+        'matematyka',
+        'informatyka',
+        'swiadectwo_z_wyrozn',
+        'osiagniecia',
+        'wolontariat',
+        'profil_akademicki',
+        'profil_prozdrowotny',
+        'profil_mundurowy',
+        'profil_sportowo_turystyczny_sportowy',
+        'profil_matematyczno_inzynieryjny',
+        'profil_logistyczny',
+        'profil_informatyczny',
+        'profil_wielozawodowy',
+    ];
     
     public function __construct(){
         $db = new Dbh();
@@ -13,46 +50,9 @@ class DatabaseHandler{
     public function addToDatabase(array $data){
         try{
             $pdo = $this->conn;
-            $columns = [
-                'pesel',
-                'imie',
-                'drugie_imie',
-                'nazwisko',
-                'kod_pocztowy',
-                'miejscowosc',
-                'ulica_numer',
-                'szkola_podstawowa',
-                'jezyk_wiodacy',
-                'wybor1',
-                'wybor2',
-                'wybor3',
-                'egz_cz_humanistyczna',
-                'egz_cz_matematyczna',
-                'egz_cz_jezyk_obcy',
-                'jezyk_polski',
-                'jezyk_obcy',
-                'historia',
-                'wos',
-                'geografia',
-                'chemia',
-                'biologia',
-                'matematyka',
-                'informatyka',
-                'swiadectwo_z_wyrozn',
-                'osiagniecia',
-                'wolontariat',
-                'profil_akademicki',
-                'profil_prozdrowotny',
-                'profil_mundurowy',
-                'profil_sportowo_turystyczny_sportowy',
-                'profil_matematyczno_inzynieryjny',
-                'profil_logistyczny',
-                'profil_informatyczny',
-                'profil_wielozawodowy'
-            ];
 
-            $placeholders = array_fill(0, count($columns),'?');
-            $sql = "INSERT INTO " .$this->table_name. " (`" . implode('`, `', $columns) . "`) VALUES (" . implode(', ', $placeholders) . ")";
+            $placeholders = array_fill(0, count($this->columns),'?');
+            $sql = "INSERT INTO " .$this->table_name. " (`" . implode('`, `', $this->columns) . "`) VALUES (" . implode(', ', $placeholders) . ")";
 
             $stmt = $pdo->prepare($sql);
 
@@ -91,14 +91,13 @@ class DatabaseHandler{
                 $data['mat_inzy'],
                 $data['logistyczny'],
                 $data['informatyczny'],
-                $data['wielobranzowy']
+                $data['wielobranzowy'],
             ]);
 
             header("Location: addform.php?success=1");
 
         }catch(PDOException $e){
-            echo $e->getMessage();
-            header("Location: addform.php?success=0");
+            header("Location: addform.php?success={$e->getMessage()}");
         }
     }
 
@@ -116,18 +115,30 @@ class DatabaseHandler{
         }
     }
 
-    public function editRowInDatabase(){
+    public function editRowInDatabase($form_data){
         try{
+            $pdo = $this->conn;
+            $updateColumns = implode('=?, ', $this->columns). '=?';
+            $sql = "UPDATE {$this->table_name} SET {$updateColumns} WHERE id = :id";
+            $stmt = $pdo->prepare($sql);
+            $stmt->bindParam(':id', $form_data['id']);
 
+            foreach($this->columns as $column){
+                $stmt->bindParam(":$column", $form_data[$column]);
+            }
+
+            $stmt->execute();
+
+            header("Location: list.php?success=1");
         }catch(PDOException $e){
-            echo $e->getMessage();
+            header("Location: list.php?success={$e->getMessage()}");
         }
     }
 
-    public function retriveRowFromDatabase(int $id){
+    public function retriveRowFromDatabase(string $id){
         try{
             $pdo = $this->conn;
-            $sql = "SELECT * FROM .$this->table_name. WHERE $id = ?";
+            $sql = "SELECT * FROM " . $this->table_name . " WHERE id = ?";
             $stmt = $pdo->prepare($sql);
             $stmt->execute([$id]);
             $result = $stmt->fetchAll(PDO::FETCH_ASSOC);

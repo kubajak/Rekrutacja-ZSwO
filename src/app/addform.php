@@ -10,10 +10,10 @@
     <link rel="stylesheet" media="screen" href="../css/style.css">
     <link rel="stylesheet" media="screen" href="../css/add_page.css">
     <link rel="stylesheet" media="screen" href="../css/root.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Inter:200,300,400,600,700&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="../../img/icon/website_icon/logo.png" />
     <script type="text/javascript" src="../js/pesel.js"></script>
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 </head>
 <body>
     <!-- SIDENAV( BOCZNE MENU ) -->
@@ -37,42 +37,44 @@
     <!-- HEADER ( GÓRNA (CZARNY PASEK) ) -->
     <div class="main">
         <?php
-        $formHandler = new FormHandler();
+        $addRow = new AddRow();
             if($_SERVER['REQUEST_METHOD'] === 'POST'){
-                $form_data = array(
-                    'pesel'             => htmlspecialchars($_POST['pesel']),
-                    'imie'              => htmlspecialchars($_POST['imie']),
-                    'drugie_imie'       => htmlspecialchars($_POST['drugie_imie']),
-                    'nazwisko'          => htmlspecialchars($_POST['nazwisko']),
-                    'miejscowosc'       => htmlspecialchars($_POST['miejscowosc']),
-                    'kod_pocztowy'      => htmlspecialchars($_POST['kod_pocztowy']),
-                    'ulica_numer'       => htmlspecialchars($_POST['ulica_numer']),
-                    'szkola_podstawowa' => htmlspecialchars($_POST['szkola_podstawowa']),
-                    'jezyk_obcy'        => htmlspecialchars($_POST['jezyk_obcy']),
-                    'wybor1'            => htmlspecialchars($_POST['wybor1']),
-                    'wybor2'            => htmlspecialchars($_POST['wybor2']),
-                    'wybor3'            => htmlspecialchars($_POST['wybor3']),
-                    'egczhuman'         => htmlspecialchars($_POST['egczhuman']),
-                    'egczmatma'         => htmlspecialchars($_POST['egczmatma']),
-                    'egczobcy'          => htmlspecialchars($_POST['egczobcy']),
-                    'polski'            => htmlspecialchars($_POST['polski']),
-                    'obcy'              => htmlspecialchars($_POST['obcy']),
-                    'historia'          => htmlspecialchars($_POST['historia']),
-                    'wos'               => htmlspecialchars($_POST['wos']),
-                    'geografia'         => htmlspecialchars($_POST['geografia']),
-                    'chemia'            => htmlspecialchars($_POST['chemia']),
-                    'biologia'          => htmlspecialchars($_POST['biologia']),
-                    'matematyka'        => htmlspecialchars($_POST['matematyka']),
-                    'informatyka'       => htmlspecialchars($_POST['informatyka']),
-                    'osiagniecia'       => htmlspecialchars($_POST['osiagniecia']),
-                    'state1'            => htmlspecialchars($_POST['state1']),
-                    'state2'            => htmlspecialchars($_POST['state2'])
-                );
-                try{
-                    //Test::test1($form_data);
-                    $formHandler->add($form_data);
-                }catch(Throwable $e){
-                    echo $e->getMessage();
+                if(isset($_POST['add_button'])){
+                    $form_data = array(
+                        'pesel'             => htmlspecialchars($_POST['pesel']),
+                        'imie'              => htmlspecialchars($_POST['imie']),
+                        'drugie_imie'       => htmlspecialchars($_POST['drugie_imie']),
+                        'nazwisko'          => htmlspecialchars($_POST['nazwisko']),
+                        'miejscowosc'       => htmlspecialchars($_POST['miejscowosc']),
+                        'kod_pocztowy'      => htmlspecialchars($_POST['kod_pocztowy']),
+                        'ulica_numer'       => htmlspecialchars($_POST['ulica_numer']),
+                        'szkola_podstawowa' => htmlspecialchars($_POST['szkola_podstawowa']),
+                        'jezyk_obcy'        => htmlspecialchars($_POST['jezyk_obcy']),
+                        'wybor1'            => htmlspecialchars($_POST['wybor1']),
+                        'wybor2'            => htmlspecialchars($_POST['wybor2']),
+                        'wybor3'            => htmlspecialchars($_POST['wybor3']),
+                        'egczhuman'         => htmlspecialchars($_POST['egczhuman']),
+                        'egczmatma'         => htmlspecialchars($_POST['egczmatma']),
+                        'egczobcy'          => htmlspecialchars($_POST['egczobcy']),
+                        'polski'            => htmlspecialchars($_POST['polski']),
+                        'obcy'              => htmlspecialchars($_POST['obcy']),
+                        'historia'          => htmlspecialchars($_POST['historia']),
+                        'wos'               => htmlspecialchars($_POST['wos']),
+                        'geografia'         => htmlspecialchars($_POST['geografia']),
+                        'chemia'            => htmlspecialchars($_POST['chemia']),
+                        'biologia'          => htmlspecialchars($_POST['biologia']),
+                        'matematyka'        => htmlspecialchars($_POST['matematyka']),
+                        'informatyka'       => htmlspecialchars($_POST['informatyka']),
+                        'osiagniecia'       => htmlspecialchars($_POST['osiagniecia']),
+                        'state1'            => htmlspecialchars($_POST['state1']),
+                        'state2'            => htmlspecialchars($_POST['state2'])
+                    );
+                    try{
+                        //Test::test1($form_data);
+                        $addRow->addRow($form_data);
+                    }catch(Throwable $e){
+                        echo $e->getMessage();
+                    }
                 }
             }
         ?>
@@ -208,7 +210,7 @@
                             </div><br/>
                         </div>
                     </div><br/>
-                    <input type="submit" class="btn btn-inventory btn-lg text-white btn-block" id="button_checked" value="DODAJ UCZNIA"><br />
+                    <input type="submit" class="btn btn-inventory btn-lg text-white btn-block" id="button_checked" name="add_button" value="DODAJ UCZNIA"><br />
                 </form>
             </div>
         </div>
