@@ -9,8 +9,11 @@
     <link rel="stylesheet" href="../../../vendor/bootstrap/css/bootstrap.min.css.map">
     <link rel="stylesheet" media="screen" href="../../css/style.css">
     <link rel="stylesheet" media="screen" href="../../css/news.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Inter:200,300,400,600,700&display=swap" rel="stylesheet">
     <link rel="icon" type="../../../image/png" href="../../../img/icon/website_icon/logo.png"/>
+    <script src="../../js/ShowCurrentTime.js"></script>
+    <script src="../../js/ShowCurrentYear.js"></script>
     <style>
         .row-striped:nth-of-type(odd) {
             background-color: #efefef;
@@ -48,7 +51,7 @@
             <li class="btn-background"><a href="../../../index.html"><img src="../../../img/icon/nav_icon/sign-out-alt-solid.svg">WYJDŹ</a></li>
         </nav>
         <hr class="footer-line" />
-        <div class="footer" style="float: left"><span id="span_footer">© J.K.K.J - <?php echo Time::currentYear() ?></span></div>
+        <div class="footer" style="float: left"><span id="span_footer"></span></div>
     </div>
     <!-- HEADER ( GÓRNA (CZARNY PASEK) ) -->
     <div class="main">
@@ -59,7 +62,7 @@
             <div class="row">
                 <div class="col">
                     <div class="box red"><img src="../../../img/icon/nav_icon/home-solid.svg">
-                        <h1 id="h1-id-zegar"><?php echo Time::currentTime() ?></h1><span>Godzina</span>
+                        <h1 id="h1-id-zegar"></h1><span>Godzina</span>
                     </div>
                 </div>
                 <div class="col">
