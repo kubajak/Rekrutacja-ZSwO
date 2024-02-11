@@ -1,6 +1,6 @@
 /**
  * @param {string} url 
- * @param {int} id 
+ * @param {string} id 
  */
 
 function confirmEdit(url, id) {

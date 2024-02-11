@@ -1,4 +1,5 @@
 <?php
+/*
 class Test{
     public static function test1($form_data){
         if(!in_array(false, Validator::validate($form_data), true)) {
@@ -10,4 +11,5 @@ class Test{
         }
     }
 }
+**/
 ?>

@@ -196,7 +196,7 @@ $(function(){ // Szczegółowe osiągnięcia*
     });
 });
 
-function sprawdz_dane(pole_id,button_tf){
+function sprawdz_dane(pole_id){
     var reg = /^[\s\p{L}]+$/u;
     var str = $.trim($(pole_id).val());
     if(reg.test(str)){
