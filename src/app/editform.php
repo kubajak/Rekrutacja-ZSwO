@@ -134,7 +134,7 @@
                                         <option value="Profil Logistyczny" <?php if ($retriveRowFromDatabase['wybor1'] == "Profil Logistyczny") echo "selected"; ?>>Profil Logistyczny</option>
                                         <option value="Profil Informatyczny" <?php if ($retriveRowFromDatabase['wybor1'] == "Profil Informatyczny") echo "selected"; ?>>Profil Informatyczny</option>
                                         <option value="Klasa Wielozawodowa" <?php if ($retriveRowFromDatabase['wybor1'] == "Klasa Wielozawodowa") echo "selected"; ?>>Klasa Wielozawodowa</option>
-                                        <option value="Inna" <?php if ($retriveRowFromDatabase['wybor1'] == "Inna") echo "selected";?>>Inna</option>
+                                        <option value="Inna" <?php if ($retriveRowFromDatabase['wybor1'] == "Inna") echo "selected"; ?>>Inna</option>
                                     </select>
                                 </div>
                                 <div class="wybor col-12">
@@ -149,7 +149,7 @@
                                         <option value="Profil Logistyczny" <?php if ($retriveRowFromDatabase['wybor2'] == "Profil Logistyczny") echo "selected"; ?>>Profil Logistyczny</option>
                                         <option value="Profil Informatyczny" <?php if ($retriveRowFromDatabase['wybor2'] == "Profil Informatyczny") echo "selected"; ?>>Profil Informatyczny</option>
                                         <option value="Klasa Wielozawodowa" <?php if ($retriveRowFromDatabase['wybor2'] == "Klasa Wielozawodowa") echo "selected"; ?>>Klasa Wielozawodowa</option>
-                                        <option value="Inna" <?php if ($retriveRowFromDatabase['wybor2'] == "Inna") echo "selected";?>>Inna</option>
+                                        <option value="Inna" <?php if ($retriveRowFromDatabase['wybor2'] == "Inna") echo "selected"; ?>>Inna</option>
                                     </select>
                                 </div>
                                 <div class="wybor col-12">
@@ -164,7 +164,7 @@
                                         <option value="Profil Logistyczny" <?php if ($retriveRowFromDatabase['wybor3'] == "Profil Logistyczny") echo "selected"; ?>>Profil Logistyczny</option>
                                         <option value="Profil Informatyczny" <?php if ($retriveRowFromDatabase['wybor3'] == "Profil Informatyczny") echo "selected"; ?>>Profil Informatyczny</option>
                                         <option value="Klasa Wielozawodowa" <?php if ($retriveRowFromDatabase['wybor3'] == "Klasa Wielozawodowa") echo "selected"; ?>>Klasa Wielozawodowa</option>
-                                        <option value="Inna" <?php if ($retriveRowFromDatabase['wybor3'] == "Inna") echo "selected";?>>Inna</option>
+                                        <option value="Inna" <?php if ($retriveRowFromDatabase['wybor3'] == "Inna") echo "selected"; ?>>Inna</option>
                                     </select>
                                 </div>
                             </div>

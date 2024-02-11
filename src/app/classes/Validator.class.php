@@ -39,7 +39,7 @@ class Validator{
         return $validation_results;
     }
 
-    public static function validatePola($form_data){
+    private static function validatePola(array $form_data){
         foreach($form_data as $key => $value){
             if($key !== 'drugie_imie' && empty($value)){
                 return false;
@@ -48,7 +48,7 @@ class Validator{
         return true;
     }
 
-    public static function validatePesel($pesel){
+    private static function validatePesel(string $pesel){
         $wagi = [1, 3, 7, 9, 1, 3, 7, 9, 1, 3];
         $suma = 0;
         // Sprawdź długość numeru PESEL
@@ -73,14 +73,14 @@ class Validator{
         return ($mod == 0) ? ($pesel[10] == 0) : ($pesel[10] == (10 - $mod));
     }
 
-    public static function validateImie($imie){
+    private static function validateImie(string $imie){
         if(preg_match('/^[\s\p{L}]+$/u', $imie)){
             return true;
         }
         return false;
     }
 
-    public static function validateDrugieImie($drugieImie){
+    private static function validateDrugieImie(string $drugieImie){
         if(empty($drugieImie)){
             return true;
         }else{
@@ -92,147 +92,147 @@ class Validator{
         }
     }
 
-    public static function validateNazwisko($nazwisko){
+    private static function validateNazwisko(string $nazwisko){
         if(preg_match('/^[\s\p{L}]+$/u', $nazwisko)){
             return true;
         }
         return false;
     }
 
-    public static function validateMiejscowosc($miejscowosc){
+    private static function validateMiejscowosc(string $miejscowosc){
         if(preg_match('/^[\s\p{L}]+$/u', $miejscowosc)){
             return true;
         }
         return false;
     }
 
-    public static function validateKodPocztowy($kodpocztowy){
+    private static function validateKodPocztowy(string $kodpocztowy){
         if(preg_match('/^[0-9]{2}-[0-9]{3}$/', $kodpocztowy)){
             return true;
         }
         return false;
     }
 
-    public static function valdiateUlicaNumerDomu($ulicaNumerDomu){
+    private static function valdiateUlicaNumerDomu(string $ulicaNumerDomu){
         if(!empty($ulicaNumerDomu)){
             return true;
         }
         return false;
     }
 
-    public static function validateSzkolaPodstawowa($szkolaPodstawowa){
+    private static function validateSzkolaPodstawowa(string $szkolaPodstawowa){
         if(!empty($szkolaPodstawowa)){
             return true;
         }
         return false;
     }
 
-    public static function validateEgzCzHuman($egczhuman){
+    private static function validateEgzCzHuman(string $egczhuman){
         if(self::checkProcent($egczhuman)){
             return true;
         }
         return false;
     }
 
-    public static function valdiateEgzCzMatma($egzczmatma){
+    private static function valdiateEgzCzMatma(string $egzczmatma){
         if(self::checkProcent($egzczmatma)){
             return true;
         }
         return false;
     }
 
-    public static function valdiateEgzCzObcy($egzczobcy){
+    private static function valdiateEgzCzObcy(string $egzczobcy){
         if(self::checkProcent($egzczobcy)){
             return true;
         }
         return false;
     }
 
-    public static function validatePolski($data){
+    private static function validatePolski(string $data){
         if(self::checkOcena($data)){
             return true;
         }
         return false;
     }
 
-    public static function validateObcy($data){
+    private static function validateObcy(string $data){
         if(self::checkOcena($data)){
             return true;
         }
         return false;
     }
 
-    public static function validateHistoria($data){
+    private static function validateHistoria(string $data){
         if(self::checkOcena($data)){
             return true;
         }
         return false;
     }
 
-    public static function validateWos($data){
+    private static function validateWos(string $data){
         if(self::checkOcena($data)){
             return true;
         }
         return false;
     }
 
-    public static function validateGeografia($data){
+    private static function validateGeografia(string $data){
         if(self::checkOcena($data)){
             return true;
         }
         return false;
     }
 
-    public static function validateChemia($data){
+    private static function validateChemia(string $data){
         if(self::checkOcena($data)){
             return true;
         }
         return false;
     }
     
-    public static function validateBiologia($data){
+    private static function validateBiologia(string $data){
         if(self::checkOcena($data)){
             return true;
         }
         return false;
     }
     
-    public static function validateMatematyka($data){
+    private static function validateMatematyka(string $data){
         if(self::checkOcena($data)){
             return true;
         }
         return false;
     }
     
-    public static function validateInformatyka($data){
+    private static function validateInformatyka(string $data){
         if(self::checkOcena($data)){
             return true;
         }
         return false;
     }
     
-    public static function validateOsiagniecia($data){
+    private static function validateOsiagniecia(string $data){
         if(!($data >= 0 && $data <= 18 && is_numeric($data))){
             return false;
         }
         return true;
     }
 
-    private static function checkProcent($data){
+    private static function checkProcent(string $data){
         if(!($data >= 0 && $data <= 100 && is_numeric($data))){
             return false;
         }
         return true;
     }
 
-    private static function checkOcena($data){
+    private static function checkOcena(string $data){
         if(!($data >= 2 && $data <= 6 && is_numeric($data))){
             return false;
         }
         return true;
     }
 
-    private static function validateField($field, $value){
+    private static function validateField(string $field, string $value){
         switch($field){
             case 'pesel':
                 return self::validatePesel($value);

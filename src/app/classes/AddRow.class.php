@@ -8,7 +8,7 @@ class AddRow{
         $this->dbh = new DatabaseHandler();
     }
 
-    public function addRow($form_data){
+    public function addRow(array $form_data){
         try{
             if(!in_array(false, Validator::validate($form_data), true)){
 

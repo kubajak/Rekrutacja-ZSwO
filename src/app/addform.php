@@ -211,7 +211,7 @@
                             </div><br/>
                         </div>
                     </div><br/>
-                    <input type="submit" class="btn btn-inventory btn-lg text-white btn-block" id="button_checked" name="add_submit" value="DODAJ UCZNIA"><br />
+                    <input type="submit" class="btn btn-inventory btn-lg text-white btn-block" id="button_checked" name="add_submit" value="DODAJ UCZNIA"><br/>
                 </form>
             </div>
         </div>
