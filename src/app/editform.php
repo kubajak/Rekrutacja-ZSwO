@@ -171,8 +171,8 @@
                             <input type="text" value="Wybór 1: <?php echo $retriveRowFromDatabase['wybor1']; ?>" disabled>
                             <input type="text" value="Wybór 2: <?php echo $retriveRowFromDatabase['wybor2']; ?>" disabled>
                             <input type="text" value="Wybór 3: <?php echo $retriveRowFromDatabase['wybor3']; ?>" disabled>
-                            <input type="text" value="Świadectwo z wyróżnieniem: <?php if($retriveRowFromDatabase['pasek'] == true) echo "Tak"; else echo "Nie"; ?>" disabled>
-                            <input type="text" value="Wolontariat: <?php if($retriveRowFromDatabase['wolontariat'] == true) echo "Tak"; else echo "Nie"; ?>" disabled>
+                            <input type="text" value="Świadectwo z wyróżnieniem: <?php if($retriveRowFromDatabase['pasek'] === "true") echo "Tak"; else echo "Nie"; ?>" disabled>
+                            <input type="text" value="Wolontariat: <?php if($retriveRowFromDatabase['wolontariat'] === "true") echo "Tak"; else echo "Nie"; ?>" disabled>
                         </div>
                         <div class="col-50"><br/>
                             <h3>Punktacja</h3><br/>
