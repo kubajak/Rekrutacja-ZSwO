@@ -1,0 +1,380 @@
+/* -----] MAIN.CSS [----- *//*
+Author: ;
+Version: 1.0;
+*/
+
+* {
+    padding: 0 auto;
+    margin: 0 auto;
+}
+
+/* -----] MAIN STYLES [----- */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: rgb(230, 230, 230);
+}
+
+.sidenav-title hr {
+    border: 1px solid rgb(73, 73, 73);
+}
+
+.footer-line {
+    border: 1px solid rgb(73, 73, 73);
+    margin: 30px;
+}
+
+/* -----] MENU [----- */
+.sidenav {
+    height: 100%;
+    width: 18%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgb(53, 53, 53);
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+  
+.sidenav a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 19px;
+    color: #fff;
+    display: block;
+    font-weight: 300;
+}
+  
+.sidenav a:hover {
+    color: #cecece;
+}
+
+#sidenav-wrapp {
+    width: 100%;
+    padding: 10px 40px 33px 40px;
+    height: 30px;
+}
+
+.sidenav-title {
+    color: rgb(192, 192, 192);
+    font-size: 30px;
+    text-align: center;
+    float: left;
+    margin: 10px;
+}
+
+nav {
+    list-style-type: none;
+}
+
+
+nav img {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px; 
+    vertical-align: middle;
+}
+
+.btn-background {
+    background: rgb(80, 80, 80);
+    height: 0 auto;
+    padding: 5px;
+    margin: 15px;
+    border-radius: 4px;
+}
+
+.btn-background:hover {
+    background: rgb(59, 59, 59);
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    color: #fff;
+    margin: 30px;
+    font-weight: 200;
+}
+
+
+/* -----] HEADER [----- */
+.header {
+    background: rgb(37, 37, 37);
+    padding: 30px;
+    color: silver;
+    font-weight: 300;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.header span {
+    font-size: 25px;
+    margin: 44px;
+}
+
+.header-col {
+	width: 0 auto;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.btn-header img {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px; 
+    vertical-align: middle;
+}
+
+.btn-header {
+    position: relative;
+    background-color: rgb(27, 87, 250);
+    border: none;
+    font-size: 14px;
+    color: #FFFFFF;
+    padding: 10px;
+    width: 70px;
+    text-align: center;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    text-decoration: none;
+    overflow: hidden;
+    cursor: pointer;
+    border-radius: 6px;
+  }
+  
+  .btn-header:after {
+    content: "";
+    border-radius: 6px;
+    background: rgb(7, 72, 250);
+    display: block;
+    position: absolute;
+    padding-top: 300%;
+    padding-left: 350%;
+    margin-left: -20px!important;
+    margin-top: -120%;
+    opacity: 0;
+    transition: all 0.8s
+  }
+  
+  .btn-header:active:after {
+    padding: 0;
+    margin: 0;
+    opacity: 1;
+    transition: 0s
+  }
+
+/* -----] MAIN WEB [----- */
+
+.main {
+    width: 82%;
+    float: right;
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+}
+
+.area-top {
+    background: #252525;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    width: 100%;
+    padding: 10px;
+    color: #fff;
+}
+
+.left-area {
+    background: #fff;
+    border-radius: 6px;
+    height: 100%;
+    margin-top: 30px;
+}
+
+.right-area {
+    background: #fff;
+    border-radius: 6px;
+    height: 100%;
+    margin-top: 30px;
+}
+
+/* -----] SCROLLBAR [----- */
+::-webkit-scrollbar {
+    width: 19px;
+  }
+  
+::-webkit-scrollbar-track {
+    background: #161616; 
+}
+   
+::-webkit-scrollbar-thumb {
+    background: rgb(58, 58, 58); 
+}
+  
+::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+}
+
+
+/* -----] BOXES HOME [----- */
+.box {
+	display: inline-block;
+    vertical-align: middle;
+}
+
+.box {
+    width: 300px;
+    padding: 45px 10px 45px 10px;
+    color: white;
+    display: inline-block;
+    vertical-align: middle;
+    border-radius: 6px;
+    margin: 10px;
+    font-size: 17px;
+    font-weight: 500;
+    height: 0 auto;
+}
+
+.box img {
+    float: left;
+    width: 35%;
+    height: 55px;
+    vertical-align: middle;
+}
+
+.box span {
+    float: right;
+    width: 65%;
+}
+
+.red {
+    background-color: rgb(253, 42, 42); 
+}
+
+.blue {
+    background-color: rgb(34, 111, 253);
+}
+
+.orange {
+    background-color: rgb(253, 172, 22);
+}
+
+.green {
+    background-color: rgb(40, 209, 7);
+}
+
+.purple {
+    background-color: rgb(149, 22, 253);
+}
+
+.mint {
+    background-color: rgb(19, 165, 133);
+}
+
+.gray {
+    background-color: rgb(75, 75, 75);
+}
+
+.dark_blue {
+    background-color: rgb(29, 89, 138);
+}
+
+.pink {
+    background-color: rgb(238, 68, 181);
+}
+
+.box-class {
+	display: inline-block;
+    vertical-align: middle;
+    transition: transform .4s;
+    cursor: pointer;
+}
+
+.box-class {
+    width: 300px;
+    padding: 45px 0 45px 0;
+    color: white;
+    display: inline-block;
+    vertical-align: middle;
+    border-radius: 6px;
+    margin: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    height: 170px;
+    border: 2px solid rgb(207, 207, 207);
+}
+
+.box-class img {
+    float: left;
+    width: 35%;
+    height: 55px;
+    vertical-align: middle;
+}
+
+.box-class span {
+    float: right;
+    width: 65%;
+}
+
+.box-class:hover {
+    background: rgb(41, 41, 41);
+    transform: scale(0.9);
+}
+
+/* -----] HOME PAGE [----- */
+.notification {
+    background-color: #555;
+    color: white;
+    padding: 11px;
+    position: relative;
+    display: inline-block;
+    border-radius: 3px;
+}
+  
+.notification .badge {
+    position: absolute;
+    top: -14px;
+    right: -8px;
+    padding: 8px;
+    border-radius: 15%;
+    background-color: rgb(17, 128, 255);
+    color: white;
+}
+
+.add-container {
+    margin: 40px;
+}
+
+.span_function_ilosc {
+    font-weight: bold !important;
+}
+
+
+/* -----] KOMUNIKAT [----- */
+#komunikat {
+    padding: 20px;
+    background-color: #3ed418;
+    color: white;
+    margin: 6px;
+}
+  
+.komunikat-btn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+  
+.komunikat-btn:hover {
+    color: black;
+}
+/*----------*/
+
+/* -----] ERROR [----- */
+.error{
+    border: 1px solid #C4183C;
+}
+/*----------*/
