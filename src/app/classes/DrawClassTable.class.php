@@ -52,5 +52,9 @@ class DrawClassTable{
             echo $e->getMessage();
         }
     }
+
+    public function __destruct(){
+        $this->conn = null;
+    }
 }
 ?>

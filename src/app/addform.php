@@ -14,6 +14,7 @@
     <link href="https://fonts.googleapis.com/css?family=Inter:200,300,400,600,700&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="../../img/icon/website_icon/logo.png" />
     <script type="text/javascript" src="../js/pesel.js"></script>
+    <script src="../js/ShowCurrentYear.js"></script>
 </head>
 <body>
     <!-- SIDENAV( BOCZNE MENU ) -->
@@ -32,7 +33,7 @@
             <li class="btn-background"><a href="../../index.html"><img src="../../img/icon/nav_icon/sign-out-alt-solid.svg">WYJDŹ</a></li>
         </nav>
         <hr class="footer-line"/>
-        <div class="footer" style="float: left"><span id="span_footer">© J.K.K.J - <?php echo Time::currentYear() ?></span></div>
+        <div class="footer" style="float: left"><span id="span_footer"></span></div>
     </div>
     <!-- HEADER ( GÓRNA (CZARNY PASEK) ) -->
     <div class="main">

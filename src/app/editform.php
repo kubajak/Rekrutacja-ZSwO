@@ -33,7 +33,7 @@
             <li class="btn-background"><a href="../../index.html"><img src="../../img/icon/nav_icon/sign-out-alt-solid.svg">WYJDŹ</a></li>
         </nav>
         <hr class="footer-line" />
-        <div class="footer" style="float: left"><span id="span_footer">© J.K.K.J - <?php echo Time::currentYear() ?></span></div>
+        <div class="footer" style="float: left"><span id="span_footer"></span></div>
     </div>
     <!-- HEADER ( GÓRNA (CZARNY PASEK) ) -->
     <div class="main">
@@ -81,7 +81,6 @@
                         );
                         try{
                             $editRow->editRow($form_data);
-                            //echo $id;
                         }catch(Throwable $e){
                             echo $e->getMessage();
                         }
@@ -114,11 +113,11 @@
                             <div class="row">
                                 <div class="col-50">
                                     <label for="jezyk_ang"></label>
-                                    <input type="radio" name="jezyk_wiodacy" id="jezyk_ang" value="Angielski" <?php if ($retriveRowFromDatabase['jezyk_obcy'] == "Angielski") echo "checked"; ?>>Język Angielski
+                                    <input type="radio" name="jezyk_wiodacy" id="jezyk_ang" value="Angielski" <?php if ($retriveRowFromDatabase['jezyk_obcy'] === "Angielski") echo "checked"; ?>>Język Angielski
                                 </div>
                                 <div class="col-50">
                                     <label for="jezyk_niem"></label>
-                                    <input type="radio" name="jezyk_wiodacy" id="jezyk_niem" value="Niemiecki" <?php if ($retriveRowFromDatabase['jezyk_obcy'] == "Niemiecki") echo "checked";?>>Język Niemiecki
+                                    <input type="radio" name="jezyk_wiodacy" id="jezyk_niem" value="Niemiecki" <?php if ($retriveRowFromDatabase['jezyk_obcy'] === "Niemiecki") echo "checked"; ?>>Język Niemiecki
                                 </div>
                             </div><br/>
                             <input type="text" name="" id="" value="<?php echo $retriveRowFromDatabase['jezyk_obcy']; ?>" disabled>
@@ -126,45 +125,45 @@
                                 <div class="wybor col-12">
                                     <label for="wybor1">Wybór 1:</label>
                                     <select name="wybor1" id="wybor1">
-                                        <option value="default" <?php if ($retriveRowFromDatabase['wybor1'] == "default") echo "selected";?>>Proszę wybrać Profil/Klasę</option>
-                                        <option value="Profil Akademicki" <?php if ($retriveRowFromDatabase['wybor1'] == "Profil Akademicki") echo "selected";?>>Profil Akademicki</option>
-                                        <option value="Profil Prozdrowotny" <?php if ($retriveRowFromDatabase['wybor1'] == "Profil Prozdrowotny") echo "selected";?>>Profil Prozdrowotny</option>
-                                        <option value="Profil Mundurowy" <?php if ($retriveRowFromDatabase['wybor1'] == "Profil Mundurowy") echo "selected";?>>Profil Mundurowy</option>
-                                        <option value="Profil Sportowy-Turystyczny,Sportowy" <?php if ($retriveRowFromDatabase['wybor1'] == "Profil Sportowy-Turystyczny,Sportowy") echo "selected";?>>Profil Sportowy-Turystyczny,Sportowy</option>
-                                        <option value="Profil Matematyczno-Inżynieryjny" <?php if ($retriveRowFromDatabase['wybor1'] == "Profil Matematyczno-Inżynieryjny") echo "selected";?>>Profil Matematyczno-InŻynieryjny</option>?>>Profil Matematyczno-Inżynieryjny</option>
-                                        <option value="Profil Logistyczny" <?php if ($retriveRowFromDatabase['wybor1'] == "Profil Logistyczny") echo "selected";?>>Profil Logistyczny</option>
-                                        <option value="Profil Informatyczny" <?php if ($retriveRowFromDatabase['wybor1'] == "Profil Informatyczny") echo "selected";?>>Profil Informatyczny</option>
-                                        <option value="Klasa Wielozawodowa" <?php if ($retriveRowFromDatabase['wybor1'] == "Klasa Wielozawodowa") echo "selected";?>>Klasa Wielozawodowa</option>
+                                        <option value="default" <?php if ($retriveRowFromDatabase['wybor1'] == "default") echo "selected"; ?>>Proszę wybrać Profil/Klasę</option>
+                                        <option value="Profil Akademicki" <?php if ($retriveRowFromDatabase['wybor1'] == "Profil Akademicki") echo "selected"; ?>>Profil Akademicki</option>
+                                        <option value="Profil Prozdrowotny" <?php if ($retriveRowFromDatabase['wybor1'] == "Profil Prozdrowotny") echo "selected"; ?>>Profil Prozdrowotny</option>
+                                        <option value="Profil Mundurowy" <?php if ($retriveRowFromDatabase['wybor1'] == "Profil Mundurowy") echo "selected"; ?>>Profil Mundurowy</option>
+                                        <option value="Profil Sportowy-Turystyczny,Sportowy" <?php if ($retriveRowFromDatabase['wybor1'] == "Profil Sportowy-Turystyczny,Sportowy") echo "selected"; ?>>Profil Sportowy-Turystyczny,Sportowy</option>
+                                        <option value="Profil Matematyczno-Inżynieryjny" <?php if ($retriveRowFromDatabase['wybor1'] == "Profil Matematyczno-Inżynieryjny") echo "selected"; ?>>Profil Matematyczno-InŻynieryjny</option>?>>Profil Matematyczno-Inżynieryjny</option>
+                                        <option value="Profil Logistyczny" <?php if ($retriveRowFromDatabase['wybor1'] == "Profil Logistyczny") echo "selected"; ?>>Profil Logistyczny</option>
+                                        <option value="Profil Informatyczny" <?php if ($retriveRowFromDatabase['wybor1'] == "Profil Informatyczny") echo "selected"; ?>>Profil Informatyczny</option>
+                                        <option value="Klasa Wielozawodowa" <?php if ($retriveRowFromDatabase['wybor1'] == "Klasa Wielozawodowa") echo "selected"; ?>>Klasa Wielozawodowa</option>
                                         <option value="Inna" <?php if ($retriveRowFromDatabase['wybor1'] == "Inna") echo "selected";?>>Inna</option>
                                     </select>
                                 </div>
                                 <div class="wybor col-12">
                                     <label for="wybor2">Wybór 2:</label>
                                     <select name="wybor2" id="wybor2">
-                                        <option value="default" <?php if ($retriveRowFromDatabase['wybor2'] == "default") echo "selected";?>>Proszę wybrać Profil/Klasę</option>
-                                        <option value="Profil Akademicki" <?php if ($retriveRowFromDatabase['wybor2'] == "Profil Akademicki") echo "selected";?>>Profil Akademicki</option>
-                                        <option value="Profil Prozdrowotny" <?php if ($retriveRowFromDatabase['wybor2'] == "Profil Prozdrowotny") echo "selected";?>>Profil Prozdrowotny</option>
-                                        <option value="Profil Mundurowy" <?php if ($retriveRowFromDatabase['wybor2'] == "Profil Mundurowy") echo "selected";?>>Profil Mundurowy</option>
-                                        <option value="Profil Sportowy-Turystyczny,Sportowy" <?php if ($retriveRowFromDatabase['wybor2'] == "Profil Sportowy-Turystyczny,Sportowy") echo "selected";?>>Profil Sportowy-Turystyczny,Sportowy</option>
-                                        <option value="Profil Matematyczno-Inżynieryjny" <?php if ($retriveRowFromDatabase['wybor2'] == "Profil Matematyczno-Inżynieryjny") echo "selected";?>>Profil Matematyczno-Inżynieryjny</option>
-                                        <option value="Profil Logistyczny" <?php if ($retriveRowFromDatabase['wybor2'] == "Profil Logistyczny") echo "selected";?>>Profil Logistyczny</option>
-                                        <option value="Profil Informatyczny" <?php if ($retriveRowFromDatabase['wybor2'] == "Profil Informatyczny") echo "selected";?>>Profil Informatyczny</option>
-                                        <option value="Klasa Wielozawodowa" <?php if ($retriveRowFromDatabase['wybor2'] == "Klasa Wielozawodowa") echo "selected";?>>Klasa Wielozawodowa</option>
+                                        <option value="default" <?php if ($retriveRowFromDatabase['wybor2'] == "default") echo "selected"; ?>>Proszę wybrać Profil/Klasę</option>
+                                        <option value="Profil Akademicki" <?php if ($retriveRowFromDatabase['wybor2'] == "Profil Akademicki") echo "selected"; ?>>Profil Akademicki</option>
+                                        <option value="Profil Prozdrowotny" <?php if ($retriveRowFromDatabase['wybor2'] == "Profil Prozdrowotny") echo "selected"; ?>>Profil Prozdrowotny</option>
+                                        <option value="Profil Mundurowy" <?php if ($retriveRowFromDatabase['wybor2'] == "Profil Mundurowy") echo "selected"; ?>>Profil Mundurowy</option>
+                                        <option value="Profil Sportowy-Turystyczny,Sportowy" <?php if ($retriveRowFromDatabase['wybor2'] == "Profil Sportowy-Turystyczny,Sportowy") echo "selected"; ?>>Profil Sportowy-Turystyczny,Sportowy</option>
+                                        <option value="Profil Matematyczno-Inżynieryjny" <?php if ($retriveRowFromDatabase['wybor2'] == "Profil Matematyczno-Inżynieryjny") echo "selected"; ?>>Profil Matematyczno-Inżynieryjny</option>
+                                        <option value="Profil Logistyczny" <?php if ($retriveRowFromDatabase['wybor2'] == "Profil Logistyczny") echo "selected"; ?>>Profil Logistyczny</option>
+                                        <option value="Profil Informatyczny" <?php if ($retriveRowFromDatabase['wybor2'] == "Profil Informatyczny") echo "selected"; ?>>Profil Informatyczny</option>
+                                        <option value="Klasa Wielozawodowa" <?php if ($retriveRowFromDatabase['wybor2'] == "Klasa Wielozawodowa") echo "selected"; ?>>Klasa Wielozawodowa</option>
                                         <option value="Inna" <?php if ($retriveRowFromDatabase['wybor2'] == "Inna") echo "selected";?>>Inna</option>
                                     </select>
                                 </div>
                                 <div class="wybor col-12">
                                     <label for="wybor3">Wybór 3:</label>
                                     <select name="wybor3" id="wybor3">
-                                        <option value="default" <?php if ($retriveRowFromDatabase['wybor3'] == "default") echo "selected";?>>Proszę wybrać Profil/Klasę</option>
-                                        <option value="Profil Akademicki" <?php if ($retriveRowFromDatabase['wybor3'] == "Profil Akademicki") echo "selected";?>>Profil Akademicki</option>
-                                        <option value="Profil Prozdrowotny" <?php if ($retriveRowFromDatabase['wybor3'] == "Profil Prozdrowotny") echo "selected";?>>Profil Prozdrowotny</option>
-                                        <option value="Profil Mundurowy" <?php if ($retriveRowFromDatabase['wybor3'] == "Profil Mundurowy") echo "selected";?>>Profil Mundurowy</option>
-                                        <option value="Profil Sportowy-Turystyczny,Sportowy" <?php if ($retriveRowFromDatabase['wybor3'] == "Profil Sportowy-Turystyczny,Sportowy") echo "selected";?>>Profil Sportowy-Turystyczny,Sportowy</option>
-                                        <option value="Profil Matematyczno-Inżynieryjny" <?php if ($retriveRowFromDatabase['wybor3'] == "Profil Matematyczno-Inżynieryjny") echo "selected";?>>Profil Matematyczno-Inżynieryjny</option>
-                                        <option value="Profil Logistyczny" <?php if ($retriveRowFromDatabase['wybor3'] == "Profil Logistyczny") echo "selected";?>>Profil Logistyczny</option>
-                                        <option value="Profil Informatyczny" <?php if ($retriveRowFromDatabase['wybor3'] == "Profil Informatyczny") echo "selected";?>>Profil Informatyczny</option>
-                                        <option value="Klasa Wielozawodowa" <?php if ($retriveRowFromDatabase['wybor3'] == "Klasa Wielozawodowa") echo "selected";?>>Klasa Wielozawodowa</option>
+                                        <option value="default" <?php if ($retriveRowFromDatabase['wybor3'] == "default") echo "selected"; ?>>Proszę wybrać Profil/Klasę</option>
+                                        <option value="Profil Akademicki" <?php if ($retriveRowFromDatabase['wybor3'] == "Profil Akademicki") echo "selected"; ?>>Profil Akademicki</option>
+                                        <option value="Profil Prozdrowotny" <?php if ($retriveRowFromDatabase['wybor3'] == "Profil Prozdrowotny") echo "selected"; ?>>Profil Prozdrowotny</option>
+                                        <option value="Profil Mundurowy" <?php if ($retriveRowFromDatabase['wybor3'] == "Profil Mundurowy") echo "selected"; ?>>Profil Mundurowy</option>
+                                        <option value="Profil Sportowy-Turystyczny,Sportowy" <?php if ($retriveRowFromDatabase['wybor3'] == "Profil Sportowy-Turystyczny,Sportowy") echo "selected"; ?>>Profil Sportowy-Turystyczny,Sportowy</option>
+                                        <option value="Profil Matematyczno-Inżynieryjny" <?php if ($retriveRowFromDatabase['wybor3'] == "Profil Matematyczno-Inżynieryjny") echo "selected"; ?>>Profil Matematyczno-Inżynieryjny</option>
+                                        <option value="Profil Logistyczny" <?php if ($retriveRowFromDatabase['wybor3'] == "Profil Logistyczny") echo "selected"; ?>>Profil Logistyczny</option>
+                                        <option value="Profil Informatyczny" <?php if ($retriveRowFromDatabase['wybor3'] == "Profil Informatyczny") echo "selected"; ?>>Profil Informatyczny</option>
+                                        <option value="Klasa Wielozawodowa" <?php if ($retriveRowFromDatabase['wybor3'] == "Klasa Wielozawodowa") echo "selected"; ?>>Klasa Wielozawodowa</option>
                                         <option value="Inna" <?php if ($retriveRowFromDatabase['wybor3'] == "Inna") echo "selected";?>>Inna</option>
                                     </select>
                                 </div>
@@ -172,8 +171,8 @@
                             <input type="text" value="Wybór 1: <?php echo $retriveRowFromDatabase['wybor1']; ?>" disabled>
                             <input type="text" value="Wybór 2: <?php echo $retriveRowFromDatabase['wybor2']; ?>" disabled>
                             <input type="text" value="Wybór 3: <?php echo $retriveRowFromDatabase['wybor3']; ?>" disabled>
-                            <input type="text" value="Świadectwo z wyróżnieniem: <?php if($retriveRowFromDatabase['pasek'] == true) echo "Tak"; else echo "Nie";?>" disabled>
-                            <input type="text" value="Wolontariat: <?php if($retriveRowFromDatabase['wolontariat'] == true) echo "Tak"; else echo "Nie";?>" disabled>
+                            <input type="text" value="Świadectwo z wyróżnieniem: <?php if($retriveRowFromDatabase['pasek'] == true) echo "Tak"; else echo "Nie"; ?>" disabled>
+                            <input type="text" value="Wolontariat: <?php if($retriveRowFromDatabase['wolontariat'] == true) echo "Tak"; else echo "Nie"; ?>" disabled>
                         </div>
                         <div class="col-50"><br/>
                             <h3>Punktacja</h3><br/>
@@ -206,19 +205,19 @@
                             <label for="state1">Świadectwo z wyróżnieniem:</label>
                             <div class="row">
                                 <div class="col-50">
-                                    <label><input type="radio" name="state1" value="true" <?php if($retriveRowFromDatabase['pasek'] === "true") echo "checked";?>>TAK</label>
+                                    <label><input type="radio" name="state1" value="true" <?php if($retriveRowFromDatabase['pasek'] === "true") echo "checked"; ?>>TAK</label>
                                 </div>
                                 <div class="col-50">
-                                    <label><input type="radio" name="state1" value="false" <?php if($retriveRowFromDatabase['pasek'] === "false") echo "checked";?>>NIE</label>
+                                    <label><input type="radio" name="state1" value="false" <?php if($retriveRowFromDatabase['pasek'] === "false") echo "checked"; ?>>NIE</label>
                                 </div>
                             </div><br/>
                             <label for="state2">Wolontariat:</label>
                             <div class="row">
                                 <div class="col-50">
-                                    <label><input type="radio" name="state2" value="true" <?php if($retriveRowFromDatabase['wolontariat'] === "true") echo "checked";?>>TAK</label>
+                                    <label><input type="radio" name="state2" value="true" <?php if($retriveRowFromDatabase['wolontariat'] === "true") echo "checked"; ?>>TAK</label>
                                 </div>
                                 <div class="col-50">
-                                    <label><input type="radio" name="state2" value="false" <?php if($retriveRowFromDatabase['wolontariat'] === "false") echo "checked";?>>NIE</label>
+                                    <label><input type="radio" name="state2" value="false" <?php if($retriveRowFromDatabase['wolontariat'] === "false") echo "checked"; ?>>NIE</label>
                                 </div>
                             </div><br/>
                         </div>

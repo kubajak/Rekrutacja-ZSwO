@@ -1,4 +1,5 @@
 <?php
+/*
 class Time{
     public static function currentYear(){
         $now = new DateTime();
@@ -11,4 +12,6 @@ class Time{
         return $now->format('H:i');
     }
 }
+
+**/
 ?>

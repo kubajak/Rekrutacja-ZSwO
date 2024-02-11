@@ -8,5 +8,5 @@ $(document).ready(function(){
 
     showCurrentYear();
 
-    setInterval(displayCurrentTime, 1000);
+    setInterval(showCurrentYear, 1000);
 });

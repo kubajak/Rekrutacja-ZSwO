@@ -13,5 +13,5 @@ $(document).ready(function(){
 
     showCurrentTime();
 
-    setInterval(displayCurrentTime, 1000);
+    setInterval(showCurrentTime, 1000);
 });
