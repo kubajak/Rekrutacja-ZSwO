@@ -47,40 +47,43 @@
                 $id = $_GET['id'];
                 $retriveRowFromDatabase = $dbh->retriveRowFromDatabase($id);
                 if($_SERVER['REQUEST_METHOD'] === 'POST'){
-                    $form_data = array(
-                        'id'                => $id,
-                        'pesel'             => htmlspecialchars($_POST['pesel']),
-                        'imie'              => htmlspecialchars($_POST['imie']),
-                        'drugie_imie'       => htmlspecialchars($_POST['drugie_imie']),
-                        'nazwisko'          => htmlspecialchars($_POST['nazwisko']),
-                        'miejscowosc'       => htmlspecialchars($_POST['miejscowosc']),
-                        'kod_pocztowy'      => htmlspecialchars($_POST['kod_pocztowy']),
-                        'ulica_numer'       => htmlspecialchars($_POST['ulica_numer']),
-                        'szkola_podstawowa' => htmlspecialchars($_POST['szkola_podstawowa']),
-                        'jezyk_obcy'        => htmlspecialchars($_POST['jezyk_obcy']),
-                        'wybor1'            => htmlspecialchars($_POST['wybor1']),
-                        'wybor2'            => htmlspecialchars($_POST['wybor2']),
-                        'wybor3'            => htmlspecialchars($_POST['wybor3']),
-                        'egczhuman'         => htmlspecialchars($_POST['egczhuman']),
-                        'egczmatma'         => htmlspecialchars($_POST['egczmatma']),
-                        'egczobcy'          => htmlspecialchars($_POST['egczobcy']),
-                        'polski'            => htmlspecialchars($_POST['polski']),
-                        'obcy'              => htmlspecialchars($_POST['obcy']),
-                        'historia'          => htmlspecialchars($_POST['historia']),
-                        'wos'               => htmlspecialchars($_POST['wos']),
-                        'geografia'         => htmlspecialchars($_POST['geografia']),
-                        'chemia'            => htmlspecialchars($_POST['chemia']),
-                        'biologia'          => htmlspecialchars($_POST['biologia']),
-                        'matematyka'        => htmlspecialchars($_POST['matematyka']),
-                        'informatyka'       => htmlspecialchars($_POST['informatyka']),
-                        'osiagniecia'       => htmlspecialchars($_POST['osiagniecia']),
-                        'state1'            => htmlspecialchars($_POST['state1']),
-                        'state2'            => htmlspecialchars($_POST['state2'])
-                    );
-                    try{
-                        $editRow->editRow($form_data);
-                    }catch(Throwable $e){
-                        echo $e->getMessage();
+                    if(isset($_POST['edit_submit'])){
+                        $form_data = array(
+                            'id'                => $id,
+                            'pesel'             => htmlspecialchars($_POST['pesel']),
+                            'imie'              => htmlspecialchars($_POST['imie']),
+                            'drugie_imie'       => htmlspecialchars($_POST['drugie_imie']),
+                            'nazwisko'          => htmlspecialchars($_POST['nazwisko']),
+                            'miejscowosc'       => htmlspecialchars($_POST['miejscowosc']),
+                            'kod_pocztowy'      => htmlspecialchars($_POST['kod_pocztowy']),
+                            'ulica_numer'       => htmlspecialchars($_POST['ulica_numer']),
+                            'szkola_podstawowa' => htmlspecialchars($_POST['szkola_podstawowa']),
+                            'jezyk_wiodacy'     => htmlspecialchars($_POST['jezyk_wiodacy']),
+                            'wybor1'            => htmlspecialchars($_POST['wybor1']),
+                            'wybor2'            => htmlspecialchars($_POST['wybor2']),
+                            'wybor3'            => htmlspecialchars($_POST['wybor3']),
+                            'egczhuman'         => htmlspecialchars($_POST['egczhuman']),
+                            'egczmatma'         => htmlspecialchars($_POST['egczmatma']),
+                            'egczobcy'          => htmlspecialchars($_POST['egczobcy']),
+                            'polski'            => htmlspecialchars($_POST['polski']),
+                            'obcy'              => htmlspecialchars($_POST['obcy']),
+                            'historia'          => htmlspecialchars($_POST['historia']),
+                            'wos'               => htmlspecialchars($_POST['wos']),
+                            'geografia'         => htmlspecialchars($_POST['geografia']),
+                            'chemia'            => htmlspecialchars($_POST['chemia']),
+                            'biologia'          => htmlspecialchars($_POST['biologia']),
+                            'matematyka'        => htmlspecialchars($_POST['matematyka']),
+                            'informatyka'       => htmlspecialchars($_POST['informatyka']),
+                            'osiagniecia'       => htmlspecialchars($_POST['osiagniecia']),
+                            'state1'            => htmlspecialchars($_POST['state1']),
+                            'state2'            => htmlspecialchars($_POST['state2'])
+                        );
+                        try{
+                            $editRow->editRow($form_data);
+                            //echo $id;
+                        }catch(Throwable $e){
+                            echo $e->getMessage();
+                        }
                     }
                 }
                 ?>
@@ -110,11 +113,11 @@
                             <div class="row">
                                 <div class="col-50">
                                     <label for="jezyk_ang"></label>
-                                    <input type="radio" name="jezyk_obcy" id="jezyk_ang" value="Angielski" <?php if ($retriveRowFromDatabase['jezyk_obcy'] == "Angielski") echo "checked"; ?>>Język Angielski
+                                    <input type="radio" name="jezyk_wiodacy" id="jezyk_ang" value="Angielski" <?php if ($retriveRowFromDatabase['jezyk_obcy'] == "Angielski") echo "checked"; ?>>Język Angielski
                                 </div>
                                 <div class="col-50">
                                     <label for="jezyk_niem"></label>
-                                    <input type="radio" name="jezyk_obcy" id="jezyk_niem" value="Niemiecki" <?php if ($retriveRowFromDatabase['jezyk_obcy'] == "Niemiecki") echo "checked";?>>Język Niemiecki
+                                    <input type="radio" name="jezyk_wiodacy" id="jezyk_niem" value="Niemiecki" <?php if ($retriveRowFromDatabase['jezyk_obcy'] == "Niemiecki") echo "checked";?>>Język Niemiecki
                                 </div>
                             </div><br/>
                             <input type="text" name="" id="" value="<?php echo $retriveRowFromDatabase['jezyk_obcy']; ?>" disabled>
@@ -202,19 +205,19 @@
                             <label for="state1">Świadectwo z wyróżnieniem:</label>
                             <div class="row">
                                 <div class="col-50">
-                                    <label><input type="radio" name="state1" value="true" <?php if($retriveRowFromDatabase['pasek'] == true) echo "checked";?>>TAK</label>
+                                    <label><input type="radio" name="state1" value="true" <?php if($retriveRowFromDatabase['pasek'] === "true") echo "checked";?>>TAK</label>
                                 </div>
                                 <div class="col-50">
-                                    <label><input type="radio" name="state1" value="false" <?php if($retriveRowFromDatabase['pasek'] == false) echo "checked";?>>NIE</label>
+                                    <label><input type="radio" name="state1" value="false" <?php if($retriveRowFromDatabase['pasek'] === "false") echo "checked";?>>NIE</label>
                                 </div>
                             </div><br/>
                             <label for="state2">Wolontariat:</label>
                             <div class="row">
                                 <div class="col-50">
-                                    <label><input type="radio" name="state2" value="true" <?php if($retriveRowFromDatabase['wolontariat'] == true) echo "checked";?>>TAK</label>
+                                    <label><input type="radio" name="state2" value="true" <?php if($retriveRowFromDatabase['wolontariat'] === "true") echo "checked";?>>TAK</label>
                                 </div>
                                 <div class="col-50">
-                                    <label><input type="radio" name="state2" value="false" <?php if($retriveRowFromDatabase['wolontariat'] == false) echo "checked";?>>NIE</label>
+                                    <label><input type="radio" name="state2" value="false" <?php if($retriveRowFromDatabase['wolontariat'] === "false") echo "checked";?>>NIE</label>
                                 </div>
                             </div><br/>
                         </div>

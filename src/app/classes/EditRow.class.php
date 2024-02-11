@@ -9,7 +9,7 @@ class EditRow{
         $this->dbh = new DatabaseHandler();
     }
 
-    public function editRow(mixed $form_data){
+    public function editRow($form_data){
         try{
             if(!in_array(false, Validator::validate($form_data), true)){
 
@@ -46,14 +46,14 @@ class EditRow{
                 $wybor2 = $form_data['wybor2'];
                 $wybor3 = $form_data['wybor3'];
 
-                $akademicki = 0;
-                $prozdrowotny = 0;
-                $mundurowy = 0;
-                $spor_tury_sport = 0;
-                $mat_inzy = 0;
-                $logistyczny = 0;
-                $informatyczny = 0;
-                $wielobranzowy = 0;
+                $akademicki = "0";
+                $prozdrowotny = "0";
+                $mundurowy = "0";
+                $spor_tury_sport = "0";
+                $mat_inzy = "0";
+                $logistyczny = "0";
+                $informatyczny = "0";
+                $wielobranzowy = "0";
 
                 if ($wybor1 === "Profil Akademicki")
                     $akademicki =
@@ -221,15 +221,15 @@ class EditRow{
                     'miejscowosc' => $form_data['miejscowosc'],
                     'ulica_numer' => $form_data['ulica_numer'],
                     'szkola_podstawowa' => $form_data['szkola_podstawowa'],
-                    'jezyk_obcy' => $form_data['jezyk_obcy'],
+                    'jezyk_wiodacy' => $form_data['jezyk_wiodacy'],
                     'wybor1' => $wybor1,
                     'wybor2' => $wybor2,
                     'wybor3' => $wybor3,
-                    'egczhuman' => $form_data['egczhuman'],
-                    'egczmatma' => $form_data['egczmatma'],
-                    'egczobcy' => $form_data['egczobcy'],
-                    'polski' => $form_data['polski'],
-                    'obcy' => $form_data['obcy'],
+                    'egz_cz_humanistyczna' => $form_data['egczhuman'],
+                    'egz_cz_matematyczna' => $form_data['egczmatma'],
+                    'egz_cz_jezyk_obcy' => $form_data['egczobcy'],
+                    'jezyk_polski' => $form_data['polski'],
+                    'jezyk_obcy' => $form_data['obcy'],
                     'historia' => $form_data['historia'],
                     'wos' => $form_data['wos'],
                     'geografia' => $form_data['geografia'],
@@ -240,14 +240,14 @@ class EditRow{
                     'pasek' => $form_data['state1'],
                     'osiagniecia' => $form_data['osiagniecia'],
                     'wolontariat' => $form_data['state2'],
-                    'akademicki' => $akademicki,
-                    'prozdrowotny' => $prozdrowotny,
-                    'mundurowy' => $mundurowy,
-                    'spor_tury_sport' => $spor_tury_sport,
-                    'mat_inzy' => $mat_inzy,
-                    'logistyczny' => $logistyczny,
-                    'informatyczny' => $informatyczny,
-                    'wielobranzowy' => $wielobranzowy,
+                    'profil_akademicki' => $akademicki,
+                    'profil_prozdrowotny' => $prozdrowotny,
+                    'profil_mundurowy' => $mundurowy,
+                    'profil_sportowo_turystyczny_sportowy' => $spor_tury_sport,
+                    'profil_matematyczno_inzynieryjny' => $mat_inzy,
+                    'profil_logistyczny' => $logistyczny,
+                    'profil_informatyczny' => $informatyczny,
+                    'profil_wielozawodowy' => $wielobranzowy,
                 );
 
                 $this->dbh->editRowInDatabase($toDatabase);

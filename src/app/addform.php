@@ -39,7 +39,7 @@
         <?php
         $addRow = new AddRow();
             if($_SERVER['REQUEST_METHOD'] === 'POST'){
-                if(isset($_POST['add_button'])){
+                if(isset($_POST['add_submit'])){
                     $form_data = array(
                         'pesel'             => htmlspecialchars($_POST['pesel']),
                         'imie'              => htmlspecialchars($_POST['imie']),
@@ -210,7 +210,7 @@
                             </div><br/>
                         </div>
                     </div><br/>
-                    <input type="submit" class="btn btn-inventory btn-lg text-white btn-block" id="button_checked" name="add_button" value="DODAJ UCZNIA"><br />
+                    <input type="submit" class="btn btn-inventory btn-lg text-white btn-block" id="button_checked" name="add_submit" value="DODAJ UCZNIA"><br />
                 </form>
             </div>
         </div>

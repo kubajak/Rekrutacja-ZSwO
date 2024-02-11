@@ -97,7 +97,7 @@ class DatabaseHandler{
             header("Location: addform.php?success=1");
 
         }catch(PDOException $e){
-            header("Location: addform.php?success={$e->getMessage()}");
+            header("Location: addform.php?success=0");
         }
     }
 
@@ -117,21 +117,93 @@ class DatabaseHandler{
 
     public function editRowInDatabase($form_data){
         try{
+
             $pdo = $this->conn;
-            $updateColumns = implode('=?, ', $this->columns). '=?';
-            $sql = "UPDATE {$this->table_name} SET {$updateColumns} WHERE id = :id";
-            $stmt = $pdo->prepare($sql);
-            $stmt->bindParam(':id', $form_data['id']);
+            
+            $query = "UPDATE $this->table_name
+              SET 
+                pesel = :pesel,
+                imie = :imie,
+                drugie_imie = :drugie_imie,
+                nazwisko = :nazwisko,
+                kod_pocztowy = :kod_pocztowy,
+                miejscowosc = :miejscowosc,
+                ulica_numer = :ulica_numer,
+                szkola_podstawowa = :szkola_podstawowa,
+                jezyk_wiodacy = :jezyk_wiodacy,
+                wybor1 = :wybor1,
+                wybor2 = :wybor2,
+                wybor3 = :wybor3,
+                egz_cz_humanistyczna = :egz_cz_humanistyczna,
+                egz_cz_matematyczna = :egz_cz_matematyczna,
+                egz_cz_jezyk_obcy = :egz_cz_jezyk_obcy,
+                jezyk_polski = :jezyk_polski,
+                jezyk_obcy = :jezyk_obcy,
+                historia = :historia,
+                wos = :wos,
+                geografia = :geografia,
+                chemia = :chemia,
+                biologia = :biologia,
+                matematyka = :matematyka,
+                informatyka = :informatyka,
+                swiadectwo_z_wyrozn = :swiadectwo_z_wyrozn,
+                osiagniecia = :osiagniecia,
+                wolontariat = :wolontariat,
+                profil_akademicki = :profil_akademicki,
+                profil_prozdrowotny = :profil_prozdrowotny,
+                profil_mundurowy = :profil_mundurowy,
+                profil_sportowo_turystyczny_sportowy = :profil_sportowo_turystyczny_sportowy,
+                profil_matematyczno_inzynieryjny = :profil_matematyczno_inzynieryjny,
+                profil_logistyczny = :profil_logistyczny,
+                profil_informatyczny = :profil_informatyczny,
+                profil_wielozawodowy = :profil_wielozawodowy
+              WHERE id = :id";
 
-            foreach($this->columns as $column){
-                $stmt->bindParam(":$column", $form_data[$column]);
-            }
+            $statement = $pdo->prepare($query);
 
-            $stmt->execute();
+            $statement->bindParam(':id', $form_data['id'], PDO::PARAM_STR);
+            $statement->bindParam(':pesel', $form_data['pesel'], PDO::PARAM_STR);
+            $statement->bindParam(':imie', $form_data['imie'], PDO::PARAM_STR);
+            $statement->bindParam(':drugie_imie', $form_data['drugie_imie'], PDO::PARAM_STR);
+            $statement->bindParam(':nazwisko', $form_data['nazwisko'], PDO::PARAM_STR);
+            $statement->bindParam(':kod_pocztowy', $form_data['kod_pocztowy'], PDO::PARAM_STR);
+            $statement->bindParam(':miejscowosc', $form_data['miejscowosc'], PDO::PARAM_STR);
+            $statement->bindParam(':ulica_numer', $form_data['ulica_numer'], PDO::PARAM_STR);
+            $statement->bindParam(':szkola_podstawowa', $form_data['szkola_podstawowa'], PDO::PARAM_STR);
+            $statement->bindParam(':jezyk_wiodacy', $form_data['jezyk_wiodacy'], PDO::PARAM_STR);
+            $statement->bindParam(':wybor1', $form_data['wybor1'], PDO::PARAM_STR);
+            $statement->bindParam(':wybor2', $form_data['wybor2'], PDO::PARAM_STR);
+            $statement->bindParam(':wybor3', $form_data['wybor3'], PDO::PARAM_STR);
+            $statement->bindParam(':egz_cz_humanistyczna', $form_data['egz_cz_humanistyczna'], PDO::PARAM_STR);
+            $statement->bindParam(':egz_cz_matematyczna', $form_data['egz_cz_matematyczna'], PDO::PARAM_STR);
+            $statement->bindParam(':egz_cz_jezyk_obcy', $form_data['egz_cz_jezyk_obcy'], PDO::PARAM_STR);
+            $statement->bindParam(':jezyk_polski', $form_data['jezyk_polski'], PDO::PARAM_STR);
+            $statement->bindParam(':jezyk_obcy', $form_data['jezyk_obcy'], PDO::PARAM_STR);
+            $statement->bindParam(':historia', $form_data['historia'], PDO::PARAM_STR);
+            $statement->bindParam(':wos', $form_data['wos'], PDO::PARAM_STR);
+            $statement->bindParam(':geografia', $form_data['geografia'], PDO::PARAM_STR);
+            $statement->bindParam(':chemia', $form_data['chemia'], PDO::PARAM_STR);
+            $statement->bindParam(':biologia', $form_data['biologia'], PDO::PARAM_STR);
+            $statement->bindParam(':matematyka', $form_data['matematyka'], PDO::PARAM_STR);
+            $statement->bindParam(':informatyka', $form_data['informatyka'], PDO::PARAM_STR);
+            $statement->bindParam(':swiadectwo_z_wyrozn', $form_data['pasek'], PDO::PARAM_STR);
+            $statement->bindParam(':osiagniecia', $form_data['osiagniecia'], PDO::PARAM_STR);
+            $statement->bindParam(':wolontariat', $form_data['wolontariat'], PDO::PARAM_STR);
+            $statement->bindParam(':profil_akademicki', $form_data['profil_akademicki'], PDO::PARAM_STR);
+            $statement->bindParam(':profil_prozdrowotny', $form_data['profil_prozdrowotny'], PDO::PARAM_STR);
+            $statement->bindParam(':profil_mundurowy', $form_data['profil_mundurowy'], PDO::PARAM_STR);
+            $statement->bindParam(':profil_sportowo_turystyczny_sportowy', $form_data['profil_sportowo_turystyczny_sportowy'], PDO::PARAM_STR);
+            $statement->bindParam(':profil_matematyczno_inzynieryjny', $form_data['profil_matematyczno_inzynieryjny'], PDO::PARAM_STR);
+            $statement->bindParam(':profil_logistyczny', $form_data['profil_logistyczny'], PDO::PARAM_STR);
+            $statement->bindParam(':profil_informatyczny', $form_data['profil_informatyczny'], PDO::PARAM_STR);
+            $statement->bindParam(':profil_wielozawodowy', $form_data['profil_wielozawodowy'], PDO::PARAM_STR);
+
+            $statement->execute();
 
             header("Location: list.php?success=1");
         }catch(PDOException $e){
-            header("Location: list.php?success={$e->getMessage()}");
+            header("Location: list.php?success=0");
+            echo $e->getMessage();
         }
     }
 

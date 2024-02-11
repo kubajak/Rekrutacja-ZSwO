@@ -8,7 +8,7 @@ class AddRow{
         $this->dbh = new DatabaseHandler();
     }
 
-    public function addRow(mixed $form_data){
+    public function addRow($form_data){
         try{
             if(!in_array(false, Validator::validate($form_data), true)){
 
@@ -45,14 +45,14 @@ class AddRow{
                 $wybor2 = $form_data['wybor2'];
                 $wybor3 = $form_data['wybor3'];
 
-                $akademicki = 0;
-                $prozdrowotny = 0;
-                $mundurowy = 0;
-                $spor_tury_sport = 0;
-                $mat_inzy = 0;
-                $logistyczny = 0;
-                $informatyczny = 0;
-                $wielobranzowy = 0;
+                $akademicki = "0";
+                $prozdrowotny = "0";
+                $mundurowy = "0";
+                $spor_tury_sport = "0";
+                $mat_inzy = "0";
+                $logistyczny = "0";
+                $informatyczny = "0";
+                $wielobranzowy = "0";
 
                 if ($wybor1 === "Profil Akademicki")
                     $akademicki =
