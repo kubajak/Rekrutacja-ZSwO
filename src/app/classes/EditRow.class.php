@@ -1,6 +1,6 @@
 <?php
-include_once "Validator.class.php";
-include_once "DatabaseHandler.class.php";
+require_once "Validator.class.php";
+require_once "DatabaseHandler.class.php";
 
 class EditRow{
     private $dbh;

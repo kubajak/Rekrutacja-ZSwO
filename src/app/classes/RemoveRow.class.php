@@ -1,5 +1,6 @@
 <?php
 require_once "DatabaseHandler.class.php";
+
 class RemoveRow{
 
     private $dbh;

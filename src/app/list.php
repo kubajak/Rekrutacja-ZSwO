@@ -12,10 +12,10 @@
     <link rel="stylesheet" media="screen" href="../css/tables.css">
     <link href="https://fonts.googleapis.com/css?family=Inter:200,300,400,600,700&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="../../img/icon/website_icon/logo.png"/>
-    <script type="text/javascript" src="../js/confirmDelete.js"></script>
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script type="text/javascript" src="../js/confirmDelete.js"></script>
     <script src="../js/confirmEdit.js"></script>
     <script src="../js/ShowCurrentYear.js"></script>
 </head>
@@ -40,6 +40,7 @@
     </div>
     <!-- HEADER ( GÓRNA (CZARNY PASEK) ) -->
     <div class="main">
+    <div id="dialog-confirm" title="Czy napewno chcesz to zrobić?"></div>
         <div class="header">
             <div class="header-col">
             <div class="container">
@@ -51,7 +52,6 @@
             </div>
             </div>
         </div>
-        <div id="dialog-confirm" title="Czy napewno chcesz to zrobić?"></div>
         <?php
             $drawClassTableWithUtilities = new DrawClassTableWithUtilities();
             $drawClassTableWithUtilities->drawClassTableWithUtilities();

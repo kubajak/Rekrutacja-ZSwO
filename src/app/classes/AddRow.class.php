@@ -1,6 +1,7 @@
 <?php
 require_once 'DatabaseHandler.class.php';
 require_once 'Validator.class.php';
+
 class AddRow{
     private $dbh;
 
@@ -276,5 +277,4 @@ class AddRow{
         }   
     }
 }
-
 ?>
