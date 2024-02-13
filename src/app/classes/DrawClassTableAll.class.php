@@ -37,13 +37,13 @@ class DrawClassTableAll{
                 foreach($row as $row){
                     $licznik++;
                     echo "<tr class='tr_uczen'>";
-                    echo "<td class='td_uczen td_5'>" . $licznik . "</td>";
-                    echo "<td class='td_uczen'>" . $row['pesel'] . "</td>";
-                    echo "<td class='td_uczen'>" . $row['imie'] . "</td>";
-                    echo "<td class='td_uczen'>" . $row['nazwisko'] . "</td>";
-                    echo "<td class='td_uczen'>" . $row['wybor1'] . "</td>";
-                    echo "<td class='td_uczen'>" . $row['wybor2'] . "</td>";
-                    echo "<td class='td_uczen'>" . $row['wybor3'] . "</td>";
+                    echo "<td class='td_uczen td_5'>{$licznik}</td>";
+                    echo "<td class='td_uczen'>{$row['pesel']}</td>";
+                    echo "<td class='td_uczen'>{$row['imie']}</td>";
+                    echo "<td class='td_uczen'>{$row['nazwisko']}</td>";
+                    echo "<td class='td_uczen'>{$row['wybor1']}</td>";
+                    echo "<td class='td_uczen'>{$row['wybor2']}</td>";
+                    echo "<td class='td_uczen'>{$row['wybor3']}</td>";
                     echo "</tr>";
                 }
                 echo "</table>";

@@ -37,13 +37,13 @@ class DrawClassTableWithUtilities{
                 echo "</tr>";
                 foreach($row as $row){
                     echo "<tr class='tr_uczen'>";
-                    echo "<td class='td_uczen'>" . $row['id'] . "</td>";
-                    echo "<td class='td_uczen'>" . $row['pesel'] . "</td>";
-                    echo "<td class='td_uczen'>" . $row['imie'] . "</td>";
-                    echo "<td class='td_uczen'>" . $row['nazwisko'] . "</td>";
-                    echo "<td class='td_uczen w-33 r-text-td'>" . $row['wybor1'] . "</td>";
-                    echo "<td class='td_uczen w-33 r-text-td'>" . $row['wybor2'] . "</td>";
-                    echo "<td class='td_uczen w-33 r-text-td'>" . $row['wybor3'] . "</td>";
+                    echo "<td class='td_uczen'>{$row['id']}</td>";
+                    echo "<td class='td_uczen'>{$row['pesel']}</td>";
+                    echo "<td class='td_uczen'>{$row['imie']}</td>";
+                    echo "<td class='td_uczen'>{$row['nazwisko']}</td>";
+                    echo "<td class='td_uczen w-33 r-text-td'>{$row['wybor1']}</td>";
+                    echo "<td class='td_uczen w-33 r-text-td'>{$row['wybor2']}</td>";
+                    echo "<td class='td_uczen w-33 r-text-td'>{$row['wybor3']}</td>";
                     echo "<td class='td_uczen'><a href=\"#\" onclick=\"confirmDelete('classes/RemoveRow.class.php?id={$row['id']}', '{$row['id']}')\"><img src='../../img/icon/user-minus-solid.svg' style='width:16px;'></td>";
                     echo "<td class='td_uczen'><a href=\"#\" onclick=\"confirmEdit('editform.php?id={$row['id']}', '{$row['id']}')\"><img src='../../img/icon/user-edit-solid.svg' style='width:16px;'></td>";
                     echo "</tr>";

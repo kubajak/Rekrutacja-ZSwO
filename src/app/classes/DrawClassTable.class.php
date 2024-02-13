@@ -35,12 +35,12 @@ class DrawClassTable{
                 foreach($row as $row){
                     $licznik++;
                     echo "<tr class='tr_uczen'>";
-                    echo "<td class='td_uczen td_5'>" . $licznik . "</td>";
-                    echo "<td class='td_uczen'>" . $row['pesel'] . "</td>";
-                    echo "<td class='td_uczen'>" . $row['imie'] . "</td>";
-                    echo "<td class='td_uczen'>" . $row['nazwisko'] . "</td>";
-                    echo "<td class='td_uczen col-200'>" . $name . "</td>";
-                    echo "<td class='td_uczen col-200 td_10'>" . $row[$profile] . "</td>";
+                    echo "<td class='td_uczen td_5'>{$licznik}</td>";
+                    echo "<td class='td_uczen'>{$row['pesel']}</td>";
+                    echo "<td class='td_uczen'>{$row['imie']}</td>";
+                    echo "<td class='td_uczen'>{$row['nazwisko']}</td>";
+                    echo "<td class='td_uczen col-200'>{$name}</td>";
+                    echo "<td class='td_uczen col-200 td_10'>{$row[$profile]}</td>";
                     echo "</tr>";
                 }
                 echo "</table>";
