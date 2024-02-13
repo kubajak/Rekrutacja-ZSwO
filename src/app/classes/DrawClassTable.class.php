@@ -13,6 +13,7 @@ class DrawClassTable{
     public function drawClassTable(string $profile, string $name){
         try{
             $pdo = $this->conn;
+            
             $sql = "SELECT pesel,imie,nazwisko,$profile FROM $this->table_name WHERE $profile > 0";
             $stmt = $pdo->prepare($sql);
             $stmt->execute();

@@ -98,6 +98,7 @@ class DatabaseHandler{
 
         }catch(PDOException $e){
             header("Location: addform.php?success=0");
+            echo $e->getMessage();
         }
     }
 
@@ -110,8 +111,8 @@ class DatabaseHandler{
             $stmt->execute();
             header("Location: ../list.php?success=1");
         }catch(PDOException $e){
-            echo $e->getMessage();
             header("Location: ../list.php?succness=0");
+            echo $e->getMessage();
         }
     }
 
@@ -210,6 +211,7 @@ class DatabaseHandler{
     public function retriveRowFromDatabase(string $id){
         try{
             $pdo = $this->conn;
+            
             $sql = "SELECT * FROM " . $this->table_name . " WHERE id = ?";
             $stmt = $pdo->prepare($sql);
             $stmt->execute([$id]);

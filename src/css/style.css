@@ -141,7 +141,7 @@ nav img {
     border-radius: 6px;
   }
   
-  .btn-header:after {
+.btn-header:after {
     content: "";
     border-radius: 6px;
     background: rgb(7, 72, 250);
@@ -153,14 +153,14 @@ nav img {
     margin-top: -120%;
     opacity: 0;
     transition: all 0.8s
-  }
+}
   
-  .btn-header:active:after {
+.btn-header:active:after {
     padding: 0;
     margin: 0;
     opacity: 1;
     transition: 0s
-  }
+}
 
 /* -----] MAIN WEB [----- */
 
@@ -200,7 +200,7 @@ nav img {
 /* -----] SCROLLBAR [----- */
 ::-webkit-scrollbar {
     width: 19px;
-  }
+}
   
 ::-webkit-scrollbar-track {
     background: #161616; 

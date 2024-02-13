@@ -15,9 +15,10 @@ class DrawClassTableWithUtilities{
             $pdo = $this->conn;
 
             $sql = "SELECT id,pesel,imie,nazwisko,wybor1,wybor2,wybor3 FROM $this->table_name";
+            
             $stmt = $pdo->prepare($sql);
             $stmt->execute();
-
+            
             $row = $stmt->fetchAll(PDO::FETCH_ASSOC);
             $count = $stmt->rowCount();
 
