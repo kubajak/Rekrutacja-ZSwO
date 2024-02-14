@@ -39,6 +39,7 @@ class Validator{
         return $validation_results;
     }
 
+    /*
     private static function validatePola(array $form_data){
         foreach($form_data as $key => $value){
             if($key !== 'drugie_imie' && empty($value)){
@@ -47,6 +48,7 @@ class Validator{
         }
         return true;
     }
+    **/
 
     private static function validatePesel(string $pesel){
         $wagi = [1, 3, 7, 9, 1, 3, 7, 9, 1, 3];

@@ -1,65 +1,65 @@
-.div_tabela{
-  margin: 20px;
-  justify-content: center;
-  padding: 10px;
+.div_tabela {
+    margin: 20px;
+    justify-content: center;
+    padding: 10px;
 }
 
 table {
-  margin: 0 auto;
-  border: 2px solid rgb(54, 54, 54);
+    margin: 0 auto;
+    border: 2px solid rgb(54, 54, 54);
 }
 
 th {
-  padding: 10px;
-  margin: 10px;
-  border-left: 1px solid rgb(71, 71, 71);
-  border-right: 1px solid rgb(71, 71, 71);
-  text-align: center;
-  color: white;
-  font-weight: 500;
-  background: rgb(51, 51, 51);
+    padding: 10px;
+    margin: 10px;
+    border-left: 1px solid rgb(71, 71, 71);
+    border-right: 1px solid rgb(71, 71, 71);
+    text-align: center;
+    color: white;
+    font-weight: 500;
+    background: rgb(51, 51, 51);
 }
 
 td {
-  padding: 8px;
-  margin: 10px;
-  border: 1px solid rgb(124, 124, 124);
-  text-align: center;
-  width: 370px;
+    padding: 8px;
+    margin: 10px;
+    border: 1px solid rgb(124, 124, 124);
+    text-align: center;
+    width: 370px;
 }
 
 tr:nth-child(odd) { 
-  background-color:rgb(243, 243, 243); 
+    background-color:rgb(243, 243, 243); 
 }
 
 tr:nth-child(even) { 
-  background-color:rgb(182, 182, 182); 
+    background-color:rgb(182, 182, 182); 
 }
 
 /* Add hover effect for rows */
 tr:hover {
-  background-color: rgb(128, 128, 128);
-  color: white;
+    background-color: rgb(128, 128, 128);
+    color: white;
 }
 
 .r-text-td {
-  font-size: 1em;
+    font-size: 1em;
 }
 
 @media only screen and (max-width: 960px) {
-  .r-text-td {
-      font-size: 3.33333333vw;
+    .r-text-td {
+        font-size: 3.33333333vw;
   }
 }
 
 @media only screen and (max-width: 1400px) {
-  .r-text-td {
-      font-size: 0.8rem;
+    .r-text-td {
+        font-size: 0.8rem;
   }
 }
 
 #NoElements {
-  text-align: center;
-  font-weight: bold;
-  padding: 15px;
+    text-align: center;
+    font-weight: bold;
+    padding: 15px;
 }

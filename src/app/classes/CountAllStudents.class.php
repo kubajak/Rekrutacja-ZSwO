@@ -13,6 +13,7 @@ class CountAllStudents{
     public function countAllStudents(string $data){
         try{
             $pdo = $this->conn;
+            
             $sql = "SELECT count($data) AS total from $this->table_name WHERE $data > 0";
             $stmt = $pdo->prepare($sql);
             $stmt->execute();

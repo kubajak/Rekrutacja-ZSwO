@@ -1,6 +1,7 @@
 <?php
 require_once 'DatabaseHandler.class.php';
 require_once 'Validator.class.php';
+
 class AddRow{
     private $dbh;
 
@@ -16,15 +17,15 @@ class AddRow{
                 $egczmatma  = $form_data['egczmatma']  * 0.35;
                 $egczobcy   = $form_data['egczobcy']   * 0.30;
 
-                $polski         = $this->getPoints($form_data['polski']);
-                $obcy           = $this->getPoints($form_data['obcy']);
-                $historia       = $this->getPoints($form_data['historia']);
-                $wos            = $this->getPoints($form_data['wos']);
-                $geografia      = $this->getPoints($form_data['geografia']);
-                $chemia         = $this->getPoints($form_data['chemia']);
-                $biologia       = $this->getPoints($form_data['biologia']);
-                $matematyka     = $this->getPoints($form_data['matematyka']);
-                $informatyka    = $this->getPoints($form_data['informatyka']);
+                $polski         = self::getPoints($form_data['polski']);
+                $obcy           = self::getPoints($form_data['obcy']);
+                $historia       = self::getPoints($form_data['historia']);
+                $wos            = self::getPoints($form_data['wos']);
+                $geografia      = self::getPoints($form_data['geografia']);
+                $chemia         = self::getPoints($form_data['chemia']);
+                $biologia       = self::getPoints($form_data['biologia']);
+                $matematyka     = self::getPoints($form_data['matematyka']);
+                $informatyka    = self::getPoints($form_data['informatyka']);
 
                 $osiagniecia    = $form_data['osiagniecia'];
 
@@ -259,7 +260,7 @@ class AddRow{
         }
     }
 
-    private function getPoints(int $data){
+    private static function getPoints(int $data){
         switch($data){
             case 2:
                 return 2;
@@ -276,5 +277,4 @@ class AddRow{
         }   
     }
 }
-
 ?>
