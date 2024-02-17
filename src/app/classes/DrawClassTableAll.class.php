@@ -4,7 +4,7 @@ require_once "bdconfig/Dbh.php";
 class DrawClassTableAll{
 
     private $conn;
-    private $table_name = "rekrutacja_uczen_tbl";
+    private string $table_name = "rekrutacja_uczen_tbl";
 
     public function __construct(){
         $db = new Dbh();

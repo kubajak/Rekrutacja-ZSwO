@@ -2,9 +2,10 @@
 require_once "bdconfig/Dbh.php";
 
 class DatabaseHandler{
+    
     private $conn;
-    private $table_name = "rekrutacja_uczen_tbl";
-    private $columns = [
+    private string $table_name = "rekrutacja_uczen_tbl";
+    private array $columns = [
         'pesel',
         'imie',
         'drugie_imie',

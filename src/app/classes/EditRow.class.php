@@ -3,6 +3,7 @@ require_once "Validator.class.php";
 require_once "DatabaseHandler.class.php";
 
 class EditRow{
+    
     private $dbh;
 
     public function __construct(){
