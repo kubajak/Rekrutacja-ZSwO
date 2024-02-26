@@ -15,7 +15,7 @@ class DrawClassTable{
         try{
             $pdo = $this->conn;
             
-            $sql = "SELECT pesel,imie,nazwisko,$profile FROM $this->table_name WHERE $profile > 0";
+            $sql = "SELECT pesel, imie, nazwisko, $profile FROM $this->table_name WHERE $profile > 0";
             $stmt = $pdo->prepare($sql);
             $stmt->execute();
 
