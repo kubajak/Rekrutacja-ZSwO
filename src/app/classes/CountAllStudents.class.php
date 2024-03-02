@@ -24,7 +24,7 @@ class CountAllStudents{
 
             return $count;
 
-        } catch(PDOException $e){
+        }catch(PDOException $e){
             echo $e->getMessage();
         }
     }

@@ -1,6 +1,7 @@
 <?php require_once "../../vendor/autoloader/autoloader.php"; ?>
 <!DOCTYPE html>
 <html lang="pl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,7 +12,7 @@
     <link rel="stylesheet" media="screen" href="../css/root.css">
     <link rel="stylesheet" media="screen" href="../css/tables.css">
     <link href="https://fonts.googleapis.com/css?family=Inter:200,300,400,600,700&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/png" href="../../img/icon/website_icon/logo.png"/>
+    <link rel="icon" type="image/png" href="../../img/icon/website_icon/logo.png" />
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
@@ -19,13 +20,14 @@
     <script src="../js/confirmEdit.js"></script>
     <script src="../js/ShowCurrentYear.js"></script>
 </head>
+
 <body>
     <!-- SIDENAV( BOCZNE MENU ) -->
     <div class="sidenav">
         <div id="sidenav-wrapp">
             <div class="sidenav-title">
                 <h3>System rekrutacyjny</h3>
-                <hr/>
+                <hr />
             </div>
         </div><br><br><br>
         <nav>
@@ -35,27 +37,68 @@
             <li class="btn-background"><a href="listclasses.php"><img src="../../img/icon/nav_icon/book-solid.svg">Wyświetl klasy</a></li>
             <li class="btn-background"><a href="../../index.html"><img src="../../img/icon/nav_icon/sign-out-alt-solid.svg">WYJDŹ</a></li>
         </nav>
-        <hr class="footer-line"/>
+        <hr class="footer-line" />
         <div class="footer" style="float: left"><span id="span_footer"></span></div>
     </div>
     <!-- HEADER ( GÓRNA (CZARNY PASEK) ) -->
     <div class="main">
-    <div id="dialog-confirm" title="Czy napewno chcesz to zrobić?"></div>
+        <div id="dialog-confirm" title="Czy napewno chcesz to zrobić?"></div>
         <div class="header">
             <div class="header-col">
-            <div class="container">
-                <div class="row">
-                    <div class="col">
-                        <span>Lista Uczniów</span>
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <span>Lista Uczniów</span>
+                            <form style="float: right;">
+                                <input type="number" id="searchInput" placeholder="Wyszukaj pesel" onkeyup="liveSearch()">
+                            </form>
+                            <div style="clear: both;"></div>
+                        </div>
                     </div>
                 </div>
             </div>
-            </div>
         </div>
-        <?php
-            $drawClassTableWithUtilities = new DrawClassTableWithUtilities();
-            $drawClassTableWithUtilities->drawClassTableWithUtilities();
-        ?>
+        <div id="searchResults"></div>
+        <script>
+            var timeout;
+
+            function liveSearch() {
+                var input = document.getElementById("searchInput").value;
+                var resultsDiv = document.getElementById("searchResults");
+
+                // Jeśli pole wyszukiwania jest puste, pobierz wszystkie wartości
+                if (input.length === 0) {
+                    var xhrAll = new XMLHttpRequest();
+                    xhrAll.onreadystatechange = function() {
+                        if (xhrAll.readyState === 4 && xhrAll.status === 200) {
+                            resultsDiv.innerHTML = xhrAll.responseText;
+                        }
+                    };
+                    xhrAll.open("GET", "classes/Livesearch.class.php", true);
+                    xhrAll.send();
+                } else {
+                    // Jeśli pole wyszukiwania nie jest puste, wykonaj standardowe wyszukiwanie
+                    if (input.length >= 3) {
+                        clearTimeout(timeout);
+
+                        timeout = setTimeout(function() {
+                            var xhr = new XMLHttpRequest();
+                            xhr.onreadystatechange = function() {
+                                if (xhr.readyState === 4 && xhr.status === 200) {
+                                    resultsDiv.innerHTML = xhr.responseText;
+                                }
+                            };
+
+                            var sanitizedInput = encodeURIComponent(input);
+                            xhr.open("GET", "classes/Livesearch.class.php?q=" + sanitizedInput, true);
+                            xhr.send();
+                        }, 50); // Oczekaj pół sekundy po wpisaniu ostatniego znaku
+                    }
+                }
+            }
+            liveSearch();
+        </script>
     </div>
 </body>
+
 </html>

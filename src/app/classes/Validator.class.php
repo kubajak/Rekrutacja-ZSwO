@@ -1,7 +1,9 @@
 <?php
-class Validator{
+class Validator
+{
 
-    public static function validate(array $form_data){
+    public static function validate(array $form_data)
+    {
         $validation_results = [];
 
         $fields_to_validate = [
@@ -25,14 +27,15 @@ class Validator{
             'biologia',
             'matematyka',
             'informatyka',
-            'osiagniecia'];
+            'osiagniecia'
+        ];
 
 
-            foreach($fields_to_validate as $field){
-                if(isset($form_data[$field])){
-                    $validation_results[$field] = self::validateField($field, $form_data[$field]);
-                }else{
-                    $validation_results[$field] = false;
+        foreach ($fields_to_validate as $field) {
+            if (isset($form_data[$field])) {
+                $validation_results[$field] = self::validateField($field, $form_data[$field]);
+            } else {
+                $validation_results[$field] = false;
             }
         }
 
@@ -50,192 +53,216 @@ class Validator{
     }
     **/
 
-    private static function validatePesel(string $pesel){
+    private static function validatePesel(string $pesel)
+    {
         $wagi = [1, 3, 7, 9, 1, 3, 7, 9, 1, 3];
         $suma = 0;
         // Sprawdź długość numeru PESEL
         if (strlen($pesel) != 11) {
             return false;
         }
-    
+
         // Sprawdź, czy PESEL składa się tylko z cyfr
         if (!ctype_digit($pesel)) {
             return false;
         }
-    
+
         // Oblicz sumę kontrolną
         for ($i = 0; $i < 10; $i++) {
             $suma += $pesel[$i] * $wagi[$i];
         }
-    
+
         // Oblicz resztę z dzielenia sumy przez 10
         $mod = $suma % 10;
-    
+
         // Sprawdź, czy ostatnia cyfra (suma kontrolna) jest zgodna z obliczoną wartością
         return ($mod == 0) ? ($pesel[10] == 0) : ($pesel[10] == (10 - $mod));
     }
 
-    private static function validateImie(string $imie){
-        if(preg_match('/^[\s\p{L}]+$/u', $imie)){
+    private static function validateImie(string $imie)
+    {
+        if (preg_match('/^[\s\p{L}]+$/u', $imie)) {
             return true;
         }
         return false;
     }
 
-    private static function validateDrugieImie(string $drugieImie){
-        if(empty($drugieImie)){
+    private static function validateDrugieImie(string $drugieImie)
+    {
+        if (empty($drugieImie)) {
             return true;
-        }else{
-            if(preg_match('/^[\s\p{L}]+$/u', $drugieImie)){
+        } else {
+            if (preg_match('/^[\s\p{L}]+$/u', $drugieImie)) {
                 return true;
-            }else{
+            } else {
                 return false;
             }
         }
     }
 
-    private static function validateNazwisko(string $nazwisko){
-        if(preg_match('/^[\s\p{L}]+$/u', $nazwisko)){
+    private static function validateNazwisko(string $nazwisko)
+    {
+        if (preg_match('/^[\s\p{L}]+$/u', $nazwisko)) {
             return true;
         }
         return false;
     }
 
-    private static function validateMiejscowosc(string $miejscowosc){
-        if(preg_match('/^[\s\p{L}]+$/u', $miejscowosc)){
+    private static function validateMiejscowosc(string $miejscowosc)
+    {
+        if (preg_match('/^[\s\p{L}]+$/u', $miejscowosc)) {
             return true;
         }
         return false;
     }
 
-    private static function validateKodPocztowy(string $kodpocztowy){
-        if(preg_match('/^[0-9]{2}-[0-9]{3}$/', $kodpocztowy)){
+    private static function validateKodPocztowy(string $kodpocztowy)
+    {
+        if (preg_match('/^[0-9]{2}-[0-9]{3}$/', $kodpocztowy)) {
             return true;
         }
         return false;
     }
 
-    private static function valdiateUlicaNumerDomu(string $ulicaNumerDomu){
-        if(!empty($ulicaNumerDomu)){
+    private static function valdiateUlicaNumerDomu(string $ulicaNumerDomu)
+    {
+        if (!empty($ulicaNumerDomu)) {
             return true;
         }
         return false;
     }
 
-    private static function validateSzkolaPodstawowa(string $szkolaPodstawowa){
-        if(!empty($szkolaPodstawowa)){
+    private static function validateSzkolaPodstawowa(string $szkolaPodstawowa)
+    {
+        if (!empty($szkolaPodstawowa)) {
             return true;
         }
         return false;
     }
 
-    private static function validateEgzCzHuman(string $egczhuman){
-        if(self::checkProcent($egczhuman)){
+    private static function validateEgzCzHuman(string $egczhuman)
+    {
+        if (self::checkProcent($egczhuman)) {
             return true;
         }
         return false;
     }
 
-    private static function valdiateEgzCzMatma(string $egzczmatma){
-        if(self::checkProcent($egzczmatma)){
+    private static function valdiateEgzCzMatma(string $egzczmatma)
+    {
+        if (self::checkProcent($egzczmatma)) {
             return true;
         }
         return false;
     }
 
-    private static function valdiateEgzCzObcy(string $egzczobcy){
-        if(self::checkProcent($egzczobcy)){
+    private static function valdiateEgzCzObcy(string $egzczobcy)
+    {
+        if (self::checkProcent($egzczobcy)) {
             return true;
         }
         return false;
     }
 
-    private static function validatePolski(string $data){
-        if(self::checkOcena($data)){
+    private static function validatePolski(string $data)
+    {
+        if (self::checkOcena($data)) {
             return true;
         }
         return false;
     }
 
-    private static function validateObcy(string $data){
-        if(self::checkOcena($data)){
+    private static function validateObcy(string $data)
+    {
+        if (self::checkOcena($data)) {
             return true;
         }
         return false;
     }
 
-    private static function validateHistoria(string $data){
-        if(self::checkOcena($data)){
+    private static function validateHistoria(string $data)
+    {
+        if (self::checkOcena($data)) {
             return true;
         }
         return false;
     }
 
-    private static function validateWos(string $data){
-        if(self::checkOcena($data)){
+    private static function validateWos(string $data)
+    {
+        if (self::checkOcena($data)) {
             return true;
         }
         return false;
     }
 
-    private static function validateGeografia(string $data){
-        if(self::checkOcena($data)){
+    private static function validateGeografia(string $data)
+    {
+        if (self::checkOcena($data)) {
             return true;
         }
         return false;
     }
 
-    private static function validateChemia(string $data){
-        if(self::checkOcena($data)){
+    private static function validateChemia(string $data)
+    {
+        if (self::checkOcena($data)) {
             return true;
         }
         return false;
     }
-    
-    private static function validateBiologia(string $data){
-        if(self::checkOcena($data)){
+
+    private static function validateBiologia(string $data)
+    {
+        if (self::checkOcena($data)) {
             return true;
         }
         return false;
     }
-    
-    private static function validateMatematyka(string $data){
-        if(self::checkOcena($data)){
+
+    private static function validateMatematyka(string $data)
+    {
+        if (self::checkOcena($data)) {
             return true;
         }
         return false;
     }
-    
-    private static function validateInformatyka(string $data){
-        if(self::checkOcena($data)){
+
+    private static function validateInformatyka(string $data)
+    {
+        if (self::checkOcena($data)) {
             return true;
         }
         return false;
     }
-    
-    private static function validateOsiagniecia(string $data){
-        if(!($data >= 0 && $data <= 18 && is_numeric($data))){
+
+    private static function validateOsiagniecia(string $data)
+    {
+        if (!($data >= 0 && $data <= 18 && is_numeric($data))) {
             return false;
         }
         return true;
     }
 
-    private static function checkProcent(string $data){
-        if(!($data >= 0 && $data <= 100 && is_numeric($data))){
+    private static function checkProcent(string $data)
+    {
+        if (!($data >= 0 && $data <= 100 && is_numeric($data))) {
             return false;
         }
         return true;
     }
 
-    private static function checkOcena(string $data){
-        if(!($data >= 2 && $data <= 6 && is_numeric($data))){
+    private static function checkOcena(string $data)
+    {
+        if (!($data >= 2 && $data <= 6 && is_numeric($data))) {
             return false;
         }
         return true;
     }
 
-    private static function validateField(string $field, string $value){
-        switch($field){
+    private static function validateField(string $field, string $value)
+    {
+        switch ($field) {
             case 'pesel':
                 return self::validatePesel($value);
             case 'imie':
@@ -280,7 +307,7 @@ class Validator{
                 return self::validateOsiagniecia($value);
             default:
                 return false; // Zwróć false jeśli nie znaleziono prawidłowego pola formularza. Domyślnie, jeśli nie znaleziono prawidłowego pola, zwróci true.
-            }
+        }
     }
 }
 
@@ -320,4 +347,3 @@ if(!in_array(false, Validator::validate($form_data), true)) {
     echo var_dump(Validator::validate($form_data));
 }
 **/
-?>
