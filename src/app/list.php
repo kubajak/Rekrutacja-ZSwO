@@ -50,7 +50,7 @@
                         <div class="col">
                             <span>Lista Uczniów</span>
                             <form style="float: right;">
-                                <input type="number" id="searchInput" placeholder="Wyszukaj pesel" onkeyup="liveSearch()">
+                                <input type="number" id="searchInput" pattern="[0-9]+" placeholder="Wyszukaj ucznia" onkeyup="liveSearch()">
                             </form>
                             <div style="clear: both;"></div>
                         </div>
@@ -62,40 +62,38 @@
         <script>
             var timeout;
 
-            function liveSearch() {
+            async function liveSearch() {
                 var input = document.getElementById("searchInput").value;
                 var resultsDiv = document.getElementById("searchResults");
 
                 // Jeśli pole wyszukiwania jest puste, pobierz wszystkie wartości
                 if (input.length === 0) {
-                    var xhrAll = new XMLHttpRequest();
-                    xhrAll.onreadystatechange = function() {
-                        if (xhrAll.readyState === 4 && xhrAll.status === 200) {
-                            resultsDiv.innerHTML = xhrAll.responseText;
-                        }
-                    };
-                    xhrAll.open("GET", "classes/Livesearch.class.php", true);
-                    xhrAll.send();
+                    try {
+                        var response = await fetch("classes/Livesearch.class.php");
+                        var data = await response.text();
+                        resultsDiv.innerHTML = data;
+                    } catch (error) {
+                        console.error("Error fetching data:", error);
+                    }
                 } else {
                     // Jeśli pole wyszukiwania nie jest puste, wykonaj standardowe wyszukiwanie
-                    if (input.length >= 3) {
+                    if ((input.length >= 4)) {
                         clearTimeout(timeout);
 
-                        timeout = setTimeout(function() {
-                            var xhr = new XMLHttpRequest();
-                            xhr.onreadystatechange = function() {
-                                if (xhr.readyState === 4 && xhr.status === 200) {
-                                    resultsDiv.innerHTML = xhr.responseText;
-                                }
-                            };
-
-                            var sanitizedInput = encodeURIComponent(input);
-                            xhr.open("GET", "classes/Livesearch.class.php?q=" + sanitizedInput, true);
-                            xhr.send();
-                        }, 50); // Oczekaj pół sekundy po wpisaniu ostatniego znaku
+                        timeout = setTimeout(async function() {
+                            try {
+                                var sanitizedInput = encodeURIComponent(input);
+                                var response = await fetch("classes/Livesearch.class.php?q=" + sanitizedInput);
+                                var data = await response.text();
+                                resultsDiv.innerHTML = data;
+                            } catch (error) {
+                                console.error("Error fetching data:", error);
+                            }
+                        }, 50);
                     }
                 }
             }
+
             liveSearch();
         </script>
     </div>
