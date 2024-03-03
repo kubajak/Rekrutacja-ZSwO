@@ -10,10 +10,10 @@
     <link rel="stylesheet" href="../../vendor/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" media="screen" href="../css/root.css">
     <link rel="stylesheet" media="screen" href="../css/style.css">
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script defer src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Inter:200,300,400,600,700&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="../../img/icon/website_icon/logo.png" />
-    <script src="../js/ShowCurrentYear.js"></script>
+    <script defer src="../js/ShowCurrentYear.js"></script>
 </head>
 
 <body>

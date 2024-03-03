@@ -11,11 +11,11 @@
     <link rel="stylesheet" media="screen" href="../css/style.css">
     <link rel="stylesheet" media="screen" href="../css/add_page.css">
     <link rel="stylesheet" media="screen" href="../css/root.css">
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script defer src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Inter:200,300,400,600,700&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="../../img/icon/website_icon/logo.png" />
-    <script type="text/javascript" src="../js/pesel.js"></script>
-    <script src="../js/ShowCurrentYear.js"></script>
+    <script defer type="text/javascript" src="../js/pesel.js"></script>
+    <script defer src="../js/ShowCurrentYear.js"></script>
 </head>
 
 <body>

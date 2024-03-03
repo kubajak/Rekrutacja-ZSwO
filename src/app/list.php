@@ -7,18 +7,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ZS - System rekrutacyjny</title>
     <link rel="stylesheet" href="../../vendor/bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" href="../../vendor/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" media="screen" href="../css/style.css">
     <link rel="stylesheet" media="screen" href="../css/root.css">
     <link rel="stylesheet" media="screen" href="../css/tables.css">
     <link href="https://fonts.googleapis.com/css?family=Inter:200,300,400,600,700&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="../../img/icon/website_icon/logo.png" />
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
-    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
-    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
-    <script type="text/javascript" src="../js/confirmDelete.js"></script>
-    <script src="../js/confirmEdit.js"></script>
-    <script src="../js/ShowCurrentYear.js"></script>
+    <script defer src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script defer src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script defer src="../js/confirmDelete.js"></script>
+    <script defer src="../js/confirmEdit.js"></script>
+    <script defer src="../js/ShowCurrentYear.js"></script>
 </head>
 
 <body>
@@ -49,7 +48,7 @@
                     <div class="row">
                         <div class="col">
                             <span>Lista Uczniów</span>
-                            <form style="float: right;">
+                            <form style="float: right;" autocomplete="off">
                                 <input type="number" id="searchInput" pattern="[0-9]+" placeholder="Wyszukaj ucznia" onkeyup="liveSearch()">
                             </form>
                             <div style="clear: both;"></div>
@@ -77,7 +76,7 @@
                     }
                 } else {
                     // Jeśli pole wyszukiwania nie jest puste, wykonaj standardowe wyszukiwanie
-                    if ((input.length >= 4)) {
+                    if ((input.length >= 1)) {
                         clearTimeout(timeout);
 
                         timeout = setTimeout(async function() {
@@ -89,7 +88,7 @@
                             } catch (error) {
                                 console.error("Error fetching data:", error);
                             }
-                        }, 50);
+                        }, 0);
                     }
                 }
             }
