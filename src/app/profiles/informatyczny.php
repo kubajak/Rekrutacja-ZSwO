@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profil Informatyczny</title>
     <link rel="stylesheet" href="../../../vendor/bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" href="../../../vendor/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" media="screen" href="../../css/style.css">
     <link rel="stylesheet" media="screen" href="../../css/root.css">
     <link rel="stylesheet" media="screen" href="../../css/profile.css">

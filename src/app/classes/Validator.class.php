@@ -246,10 +246,14 @@ class Validator
 
     private static function checkProcent(string $data)
     {
-        if (!($data >= 0 && $data <= 100 && is_numeric($data))) {
+        $data = floatval($data);
+        
+        if (is_numeric($data) && $data >= 0.00 && $data <= 100.00) 
+        {
+            return true;
+        } else {
             return false;
         }
-        return true;
     }
 
     private static function checkOcena(string $data)

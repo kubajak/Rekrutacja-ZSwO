@@ -76,7 +76,7 @@
                     }
                 } else {
                     // Jeśli pole wyszukiwania nie jest puste, wykonaj standardowe wyszukiwanie
-                    if ((input.length >= 3)) {
+                    if ((input.length >= 1)) {
                         clearTimeout(timeout);
 
                         timeout = setTimeout(async function() {

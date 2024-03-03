@@ -210,13 +210,21 @@ function sprawdz_dane(pole_id){
     }
 }
 
-function sprawdz_procenty(pole_id){
-    var reg = /^\d+$/;
+function sprawdz_procenty(pole_id) {
     var val = $.trim($(pole_id).val());
-    if(val >= 0 && val <= 100 && reg.test(val)){
-        $(pole_id).css({
-            "border": "1px solid #17C671"
-        }); 
+
+    if (/^[0-9]+([,.][0-9]{1,2})?$/.test(val)) {
+        var valFloat = parseFloat(val.replace(",", ".")); // Zamień ewentualny przecinek na kropkę
+
+        if (!isNaN(valFloat) && valFloat >= 0.00 && valFloat <= 100.00) {
+            $(pole_id).css({
+                "border": "1px solid #17C671"
+            });
+        } else {
+            $(pole_id).css({
+                "border": "1px solid #C4183C"
+            });
+        }
     } else {
         $(pole_id).css({
             "border": "1px solid #C4183C"
