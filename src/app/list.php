@@ -67,13 +67,17 @@
 
                 // Jeśli pole wyszukiwania jest puste, pobierz wszystkie wartości
                 if (input.length === 0) {
-                    try {
-                        var response = await fetch("classes/Livesearch.class.php");
-                        var data = await response.text();
-                        resultsDiv.innerHTML = data;
-                    } catch (error) {
-                        console.error("Error fetching data:", error);
-                    }
+                    clearTimeout(timeout);
+
+                    timeout = setTimeout(async function() {
+                        try {
+                            var response = await fetch("classes/Livesearch.class.php");
+                            var data = await response.text();
+                            resultsDiv.innerHTML = data;
+                        } catch (error) {
+                            console.error("Error fetching data:", error);
+                        }
+                    }, 300);
                 } else {
                     // Jeśli pole wyszukiwania nie jest puste, wykonaj standardowe wyszukiwanie
                     if ((input.length >= 1)) {
@@ -88,7 +92,7 @@
                             } catch (error) {
                                 console.error("Error fetching data:", error);
                             }
-                        }, 50);
+                        }, 300);
                     }
                 }
             }
