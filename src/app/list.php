@@ -76,7 +76,7 @@
                     }
                 } else {
                     // Jeśli pole wyszukiwania nie jest puste, wykonaj standardowe wyszukiwanie
-                    if ((input.length >= 1)) {
+                    if ((input.length >= 3)) {
                         clearTimeout(timeout);
 
                         timeout = setTimeout(async function() {
@@ -88,7 +88,7 @@
                             } catch (error) {
                                 console.error("Error fetching data:", error);
                             }
-                        }, 0);
+                        }, 50);
                     }
                 }
             }

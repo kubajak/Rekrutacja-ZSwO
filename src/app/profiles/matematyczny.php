@@ -37,7 +37,7 @@
         </div>
     </div>
     <?php
-        require "../../../vendor/autoloader/autoloader.php";
+        require_once "../../../vendor/autoloader/autoloader.php";
         $drawClassTable = new DrawClassTable();
         $drawClassTable->drawClassTable("profil_matematyczno_inzynieryjny","Profil Mat-Inż");
     ?>

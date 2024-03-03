@@ -37,7 +37,7 @@
         </div>
     </div>
     <?php
-        include "../../../vendor/autoloader/autoloader.php";
+        require_once "../../../vendor/autoloader/autoloader.php";
         $drawClassTableAll = new DrawClassTableAll();
         $drawClassTableAll->drawClassTableAll("id");
     ?>
