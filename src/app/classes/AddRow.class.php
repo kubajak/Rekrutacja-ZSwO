@@ -250,7 +250,7 @@ class AddRow{
                 );
 
                 $this->dbh->addToDatabase($toDatabase);
-
+                
             }else{
                 throw new Exception("Nieprawidłowe dane");
             }

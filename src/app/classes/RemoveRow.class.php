@@ -12,6 +12,8 @@ class RemoveRow{
     public function remove(int $id){
         try{
             $this->dbh->removeRowFromDatabase($id);
+
+            throw new Exception("Próba usunięcia nie powiodła się");
         }catch(Exception $e){
             echo $e->getMessage();
         }

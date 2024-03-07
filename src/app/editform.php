@@ -1,6 +1,7 @@
 <?php require_once "../../vendor/autoloader/autoloader.php"; ?>
 <!DOCTYPE html>
 <html lang="pl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,23 +11,24 @@
     <link rel="stylesheet" media="screen" href="../css/style.css">
     <link rel="stylesheet" media="screen" href="../css/add_page.css">
     <link rel="stylesheet" media="screen" href="../css/root.css">
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script defer src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Inter:200,300,400,600,700&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="../../img/icon/website_icon/logo.png" />
-    <script type="text/javascript" src="../js/pesel.js"></script>
-    <script src="../js/ShowCurrentYear.js"></script>
+    <script defer type="text/javascript" src="../js/pesel.js"></script>
+    <script defer src="../js/ShowCurrentYear.js"></script>
 </head>
+
 <body>
     <!-- SIDENAV( BOCZNE MENU ) -->
     <div class="sidenav">
         <div id="sidenav-wrapp">
             <div class="sidenav-title">
                 <h3>System rekrutacyjny</h3>
-                <hr/>
+                <hr />
             </div>
         </div><br><br><br>
         <nav>
-        <li class="btn-background"><a href="public/index.php"><img src="../../img/icon/nav_icon/home-solid.svg">Home</a></li>
+            <li class="btn-background"><a href="public/index.php"><img src="../../img/icon/nav_icon/home-solid.svg">Home</a></li>
             <li class="btn-background"><a href="addform.php"><img src="../../img/icon/nav_icon/user-plus-solid.svg">Dodaj Ucznia</a></li>
             <li class="btn-background"><a href="list.php"><img src="../../img/icon/nav_icon/list-alt-solid.svg">Lista Uczniów</a></li>
             <li class="btn-background"><a href="listclasses.php"><img src="../../img/icon/nav_icon/book-solid.svg">Wyświetl klasy</a></li>
@@ -47,8 +49,8 @@
                 $editRow = new EditRow();
                 $id = $_GET['id'];
                 $retriveRowFromDatabase = $dbh->retriveRowFromDatabase($id);
-                if($_SERVER['REQUEST_METHOD'] === 'POST'){
-                    if(isset($_POST['edit_submit'])){
+                if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                    if (isset($_POST['edit_submit'])) {
                         $form_data = array(
                             'id'                => $id,
                             'pesel'             => htmlspecialchars($_POST['pesel']),
@@ -79,9 +81,9 @@
                             'state1'            => htmlspecialchars($_POST['state1']),
                             'state2'            => htmlspecialchars($_POST['state2'])
                         );
-                        try{
+                        try {
                             $editRow->editRow($form_data);
-                        }catch(Throwable $e){
+                        } catch (Throwable $e) {
                             echo $e->getMessage();
                         }
                     }
@@ -89,8 +91,8 @@
                 ?>
                 <form action="#" method="POST" autocomplete="off">
                     <div class="row">
-                        <div class="col-50" id="col-50-id"><br/>
-                            <h3>Dane Ucznia</h3><br/>
+                        <div class="col-50" id="col-50-id"><br />
+                            <h3>Dane Ucznia</h3><br />
                             <label for="id">ID:</label>
                             <input type="text" name="id" id="id" placeholder="ID" value="<?php echo $retriveRowFromDatabase['id']; ?>" readonly required disabled>
                             <label for="pesel">PESEL:</label>
@@ -119,7 +121,7 @@
                                     <label for="jezyk_niem"></label>
                                     <input type="radio" name="jezyk_wiodacy" id="jezyk_niem" value="Niemiecki" <?php if ($retriveRowFromDatabase['jezyk_obcy'] === "Niemiecki") echo "checked"; ?>>Język Niemiecki
                                 </div>
-                            </div><br/>
+                            </div><br />
                             <input type="text" name="" id="" value="<?php echo $retriveRowFromDatabase['jezyk_obcy']; ?>" disabled>
                             <div class="row">
                                 <div class="wybor col-12">
@@ -171,11 +173,13 @@
                             <input type="text" value="Wybór 1: <?php echo $retriveRowFromDatabase['wybor1']; ?>" disabled>
                             <input type="text" value="Wybór 2: <?php echo $retriveRowFromDatabase['wybor2']; ?>" disabled>
                             <input type="text" value="Wybór 3: <?php echo $retriveRowFromDatabase['wybor3']; ?>" disabled>
-                            <input type="text" value="Świadectwo z wyróżnieniem: <?php if($retriveRowFromDatabase['pasek'] === "true") echo "Tak"; else echo "Nie"; ?>" disabled>
-                            <input type="text" value="Wolontariat: <?php if($retriveRowFromDatabase['wolontariat'] === "true") echo "Tak"; else echo "Nie"; ?>" disabled>
+                            <input type="text" value="Świadectwo z wyróżnieniem: <?php if ($retriveRowFromDatabase['pasek'] === "true") echo "Tak";
+                                                                                    else echo "Nie"; ?>" disabled>
+                            <input type="text" value="Wolontariat: <?php if ($retriveRowFromDatabase['wolontariat'] === "true") echo "Tak";
+                                                                    else echo "Nie"; ?>" disabled>
                         </div>
-                        <div class="col-50"><br/>
-                            <h3>Punktacja</h3><br/>
+                        <div class="col-50"><br />
+                            <h3>Punktacja</h3><br />
                             <label for="egczhuman">Egzamin część Humanistyczna:</label>
                             <input type="text" name="egczhuman" id="egczhuman" placeholder="0-100" value="<?php echo $retriveRowFromDatabase['egczhuman']; ?>">
                             <label for="egczmatma">Egzamin część Matemtyczna:</label>
@@ -205,27 +209,28 @@
                             <label for="state1">Świadectwo z wyróżnieniem:</label>
                             <div class="row">
                                 <div class="col-50">
-                                    <label><input type="radio" name="state1" value="true" <?php if($retriveRowFromDatabase['pasek'] === "true") echo "checked"; ?>>TAK</label>
+                                    <label><input type="radio" name="state1" value="true" <?php if ($retriveRowFromDatabase['pasek'] === "true") echo "checked"; ?>>TAK</label>
                                 </div>
                                 <div class="col-50">
-                                    <label><input type="radio" name="state1" value="false" <?php if($retriveRowFromDatabase['pasek'] === "false") echo "checked"; ?>>NIE</label>
+                                    <label><input type="radio" name="state1" value="false" <?php if ($retriveRowFromDatabase['pasek'] === "false") echo "checked"; ?>>NIE</label>
                                 </div>
-                            </div><br/>
+                            </div><br />
                             <label for="state2">Wolontariat:</label>
                             <div class="row">
                                 <div class="col-50">
-                                    <label><input type="radio" name="state2" value="true" <?php if($retriveRowFromDatabase['wolontariat'] === "true") echo "checked"; ?>>TAK</label>
+                                    <label><input type="radio" name="state2" value="true" <?php if ($retriveRowFromDatabase['wolontariat'] === "true") echo "checked"; ?>>TAK</label>
                                 </div>
                                 <div class="col-50">
-                                    <label><input type="radio" name="state2" value="false" <?php if($retriveRowFromDatabase['wolontariat'] === "false") echo "checked"; ?>>NIE</label>
+                                    <label><input type="radio" name="state2" value="false" <?php if ($retriveRowFromDatabase['wolontariat'] === "false") echo "checked"; ?>>NIE</label>
                                 </div>
-                            </div><br/>
+                            </div><br />
                         </div>
-                    </div><br/>
-                    <input type="submit" class="btn btn-inventory btn-lg text-white btn-block" name="edit_submit" value="EDYTUJ UCZNIA"><br/>
+                    </div><br />
+                    <input type="submit" class="btn btn-inventory btn-lg text-white btn-block" name="edit_submit" value="EDYTUJ UCZNIA"><br />
                 </form>
             </div>
         </div>
     </div>
 </body>
+
 </html>

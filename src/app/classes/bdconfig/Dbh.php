@@ -22,7 +22,7 @@ class Dbh{
             $pdo = new PDO($dsn,$this->username,$this->password); 
             // Tworzenie obiektu PDO (PHP Data Object) dla nawiązania połączenia z bazą danych, przekazując do konstruktora wartości zmiennych $dsn, $username i $password
 
-            $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION); 
+            $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
             // Ustawienie atrybutu PDO na tryb zgłaszania błędów w przypadku wystąpienia wyjątków
 
             return $pdo; // Zwrócenie obiektu PDO reprezentującego połączenie z bazą danych

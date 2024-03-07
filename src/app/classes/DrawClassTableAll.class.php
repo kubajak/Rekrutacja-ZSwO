@@ -4,7 +4,7 @@ require_once "bdconfig/Dbh.php";
 class DrawClassTableAll{
 
     private $conn;
-    private $table_name = "rekrutacja_uczen_tbl";
+    private string $table_name = "rekrutacja_uczen_tbl";
 
     public function __construct(){
         $db = new Dbh();
@@ -15,7 +15,7 @@ class DrawClassTableAll{
         try{
             $pdo = $this->conn;
             
-            $sql = "SELECT pesel,imie,nazwisko,wybor1,wybor2,wybor3 FROM $this->table_name WHERE $data > 0";
+            $sql = "SELECT pesel, imie, nazwisko, wybor1, wybor2, wybor3 FROM $this->table_name WHERE $data > 0";
             $stmt = $pdo->prepare($sql);
             $stmt->execute();
 

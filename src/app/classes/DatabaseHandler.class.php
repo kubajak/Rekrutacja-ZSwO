@@ -2,9 +2,10 @@
 require_once "bdconfig/Dbh.php";
 
 class DatabaseHandler{
+    
     private $conn;
-    private $table_name = "rekrutacja_uczen_tbl";
-    private $columns = [
+    private string $table_name = "rekrutacja_uczen_tbl";
+    private array $columns = [
         'pesel',
         'imie',
         'drugie_imie',
@@ -107,7 +108,7 @@ class DatabaseHandler{
             $pdo = $this->conn;
             $sql = "DELETE FROM " .$this->table_name. " WHERE id = :id";
             $stmt = $pdo->prepare($sql);
-            $stmt->bindParam(':id', $id);
+            $stmt->bindParam(':id', $id, PDO::PARAM_INT);
             $stmt->execute();
             header("Location: ../list.php?success=1");
         }catch(PDOException $e){
@@ -212,9 +213,13 @@ class DatabaseHandler{
         try{
             $pdo = $this->conn;
             
-            $sql = "SELECT * FROM " . $this->table_name . " WHERE id = ?";
+            $sql = "SELECT id, pesel, imie, drugie_imie, nazwisko, kod_pocztowy, miejscowosc, ulica_numer, szkola_podstawowa, jezyk_wiodacy, wybor1, wybor2, wybor3,
+            egz_cz_humanistyczna, egz_cz_matematyczna, egz_cz_jezyk_obcy, jezyk_polski, jezyk_obcy, historia, wos, geografia, chemia, biologia, matematyka,
+            informatyka, swiadectwo_z_wyrozn, osiagniecia, wolontariat FROM " . $this->table_name . " WHERE id = :id";
+
             $stmt = $pdo->prepare($sql);
-            $stmt->execute([$id]);
+            $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+            $stmt->execute();
             $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
             foreach($result as $result){

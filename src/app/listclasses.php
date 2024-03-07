@@ -1,6 +1,7 @@
 <?php require_once "../../vendor/autoloader/autoloader.php"; ?>
 <!DOCTYPE html>
 <html lang="pl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,22 +10,23 @@
     <link rel="stylesheet" href="../../vendor/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" media="screen" href="../css/root.css">
     <link rel="stylesheet" media="screen" href="../css/style.css">
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script defer src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Inter:200,300,400,600,700&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/png" href="../../img/icon/website_icon/logo.png"/>
-    <script src="../js/ShowCurrentYear.js"></script>
+    <link rel="icon" type="image/png" href="../../img/icon/website_icon/logo.png" />
+    <script defer src="../js/ShowCurrentYear.js"></script>
 </head>
+
 <body>
     <!-- SIDENAV( BOCZNE MENU ) -->
     <div class="sidenav">
         <div id="sidenav-wrapp">
             <div class="sidenav-title">
                 <h3>System rekrutacyjny</h3>
-                <hr/>
+                <hr />
             </div>
         </div><br><br><br>
         <nav>
-        <li class="btn-background"><a href="public/index.php"><img src="../../img/icon/nav_icon/home-solid.svg">Home</a></li>
+            <li class="btn-background"><a href="public/index.php"><img src="../../img/icon/nav_icon/home-solid.svg">Home</a></li>
             <li class="btn-background"><a href="addform.php"><img src="../../img/icon/nav_icon/user-plus-solid.svg">Dodaj Ucznia</a></li>
             <li class="btn-background"><a href="list.php"><img src="../../img/icon/nav_icon/list-alt-solid.svg">Lista Uczniów</a></li>
             <li class="btn-background"><a href="listclasses.php"><img src="../../img/icon/nav_icon/book-solid.svg">Wyświetl klasy</a></li>
@@ -91,4 +93,5 @@
         </div>
     </div>
 </body>
+
 </html>

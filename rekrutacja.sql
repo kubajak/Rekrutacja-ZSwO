@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 14, 2024 at 07:00 PM
+-- Generation Time: Feb 17, 2024 at 05:31 PM
 -- Wersja serwera: 10.4.28-MariaDB
 -- Wersja PHP: 8.2.4
 
@@ -28,42 +28,42 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `rekrutacja_uczen_tbl` (
-  `id` int(11) NOT NULL,
-  `pesel` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_polish_ci DEFAULT NULL,
-  `imie` varchar(60) CHARACTER SET utf8mb4 COLLATE utf8mb4_polish_ci DEFAULT NULL,
-  `drugie_imie` varchar(60) CHARACTER SET utf8mb4 COLLATE utf8mb4_polish_ci DEFAULT NULL,
-  `nazwisko` varchar(60) CHARACTER SET utf8mb4 COLLATE utf8mb4_polish_ci DEFAULT NULL,
-  `kod_pocztowy` varchar(60) CHARACTER SET utf8mb4 COLLATE utf8mb4_polish_ci DEFAULT NULL,
-  `miejscowosc` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_polish_ci DEFAULT NULL,
-  `ulica_numer` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_polish_ci DEFAULT NULL,
-  `szkola_podstawowa` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_polish_ci DEFAULT NULL,
-  `jezyk_wiodacy` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_polish_ci DEFAULT NULL,
-  `wybor1` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_polish_ci DEFAULT NULL,
-  `wybor2` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_polish_ci DEFAULT NULL,
-  `wybor3` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_polish_ci DEFAULT NULL,
-  `egz_cz_humanistyczna` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_polish_ci DEFAULT NULL,
-  `egz_cz_matematyczna` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_polish_ci DEFAULT NULL,
-  `egz_cz_jezyk_obcy` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_polish_ci DEFAULT NULL,
-  `jezyk_polski` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_polish_ci DEFAULT NULL,
-  `jezyk_obcy` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_polish_ci DEFAULT NULL,
-  `historia` varchar(100) DEFAULT NULL,
-  `wos` varchar(100) DEFAULT NULL,
-  `geografia` varchar(100) DEFAULT NULL,
-  `chemia` varchar(100) DEFAULT NULL,
-  `biologia` varchar(100) DEFAULT NULL,
-  `matematyka` varchar(100) DEFAULT NULL,
-  `informatyka` varchar(100) DEFAULT NULL,
-  `swiadectwo_z_wyrozn` varchar(100) DEFAULT NULL,
-  `osiagniecia` varchar(100) DEFAULT NULL,
-  `wolontariat` varchar(100) DEFAULT NULL,
-  `profil_akademicki` varchar(100) DEFAULT NULL,
-  `profil_prozdrowotny` varchar(100) DEFAULT NULL,
-  `profil_mundurowy` varchar(100) DEFAULT NULL,
-  `profil_sportowo_turystyczny_sportowy` varchar(100) DEFAULT NULL,
-  `profil_matematyczno_inzynieryjny` varchar(100) DEFAULT NULL,
-  `profil_logistyczny` varchar(100) DEFAULT NULL,
-  `profil_informatyczny` varchar(100) DEFAULT NULL,
-  `profil_wielozawodowy` varchar(100) DEFAULT NULL
+  `id` int(255) NOT NULL,
+  `pesel` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_polish_ci NOT NULL,
+  `imie` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_polish_ci NOT NULL,
+  `drugie_imie` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_polish_ci DEFAULT NULL,
+  `nazwisko` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_polish_ci NOT NULL,
+  `kod_pocztowy` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_polish_ci NOT NULL,
+  `miejscowosc` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_polish_ci NOT NULL,
+  `ulica_numer` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_polish_ci NOT NULL,
+  `szkola_podstawowa` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_polish_ci NOT NULL,
+  `jezyk_wiodacy` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_polish_ci NOT NULL,
+  `wybor1` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_polish_ci NOT NULL,
+  `wybor2` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_polish_ci NOT NULL,
+  `wybor3` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_polish_ci NOT NULL,
+  `egz_cz_humanistyczna` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_polish_ci NOT NULL,
+  `egz_cz_matematyczna` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_polish_ci NOT NULL,
+  `egz_cz_jezyk_obcy` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_polish_ci NOT NULL,
+  `jezyk_polski` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_polish_ci NOT NULL,
+  `jezyk_obcy` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_polish_ci NOT NULL,
+  `historia` varchar(100) NOT NULL,
+  `wos` varchar(100) NOT NULL,
+  `geografia` varchar(100) NOT NULL,
+  `chemia` varchar(100) NOT NULL,
+  `biologia` varchar(100) NOT NULL,
+  `matematyka` varchar(100) NOT NULL,
+  `informatyka` varchar(100) NOT NULL,
+  `swiadectwo_z_wyrozn` varchar(100) NOT NULL,
+  `osiagniecia` varchar(100) NOT NULL,
+  `wolontariat` varchar(100) NOT NULL,
+  `profil_akademicki` varchar(100) NOT NULL,
+  `profil_prozdrowotny` varchar(100) NOT NULL,
+  `profil_mundurowy` varchar(100) NOT NULL,
+  `profil_sportowo_turystyczny_sportowy` varchar(100) NOT NULL,
+  `profil_matematyczno_inzynieryjny` varchar(100) NOT NULL,
+  `profil_logistyczny` varchar(100) NOT NULL,
+  `profil_informatyczny` varchar(100) NOT NULL,
+  `profil_wielozawodowy` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
 
 --
@@ -84,7 +84,7 @@ ALTER TABLE `rekrutacja_uczen_tbl`
 -- AUTO_INCREMENT for table `rekrutacja_uczen_tbl`
 --
 ALTER TABLE `rekrutacja_uczen_tbl`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
