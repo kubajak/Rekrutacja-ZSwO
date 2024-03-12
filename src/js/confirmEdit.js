@@ -14,11 +14,11 @@ function confirmEdit(url, id) {
         width: 400,
         modal: true,
         buttons: {
-            "Edytuj rekord": function() {
+            "Edytuj rekord": function () {
                 window.location.href = url; // Przekierowanie do URL
                 $(this).dialog("close");
             },
-            "Anuluj": function() {
+            "Anuluj": function () {
                 $(this).dialog("close");
             }
         }

@@ -16,7 +16,7 @@ class LiveSearch
         $this->searchQuery = $_GET['q'] ?? '';
     }
 
-    public function liveSearch()
+    public function liveSearch(): void
     {
         $query = "SELECT id, pesel, imie, nazwisko, wybor1, wybor2, wybor3 FROM {$this->table_name} WHERE pesel LIKE '%{$this->searchQuery}%'";
 

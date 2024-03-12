@@ -11,7 +11,7 @@ class DrawClassTable{
         $this->conn = $db->connect();
     }
 
-    public function drawClassTable(string $profile, string $name){
+    public function drawClassTable(string $profile, string $name): void{
         try{
             $pdo = $this->conn;
             

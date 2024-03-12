@@ -2,7 +2,7 @@
 class Validator
 {
 
-    public static function validate(array $form_data)
+    public static function validate(array $form_data): array
     {
         $validation_results = [];
 
@@ -53,7 +53,7 @@ class Validator
     }
     **/
 
-    private static function validatePesel(string $pesel)
+    private static function validatePesel(string $pesel): bool
     {
         $wagi = [1, 3, 7, 9, 1, 3, 7, 9, 1, 3];
         $suma = 0;
@@ -79,7 +79,7 @@ class Validator
         return ($mod == 0) ? ($pesel[10] == 0) : ($pesel[10] == (10 - $mod));
     }
 
-    private static function validateImie(string $imie)
+    private static function validateImie(string $imie): bool
     {
         if (preg_match('/^[\s\p{L}]+$/u', $imie)) {
             return true;
@@ -87,7 +87,7 @@ class Validator
         return false;
     }
 
-    private static function validateDrugieImie(string $drugieImie)
+    private static function validateDrugieImie(string $drugieImie): bool
     {
         if (empty($drugieImie)) {
             return true;
@@ -100,7 +100,7 @@ class Validator
         }
     }
 
-    private static function validateNazwisko(string $nazwisko)
+    private static function validateNazwisko(string $nazwisko): bool
     {
         if (preg_match('/^[\s\p{L}]+$/u', $nazwisko)) {
             return true;
@@ -108,7 +108,7 @@ class Validator
         return false;
     }
 
-    private static function validateMiejscowosc(string $miejscowosc)
+    private static function validateMiejscowosc(string $miejscowosc): bool
     {
         if (preg_match('/^[\s\p{L}]+$/u', $miejscowosc)) {
             return true;
@@ -116,7 +116,7 @@ class Validator
         return false;
     }
 
-    private static function validateKodPocztowy(string $kodpocztowy)
+    private static function validateKodPocztowy(string $kodpocztowy): bool
     {
         if (preg_match('/^[0-9]{2}-[0-9]{3}$/', $kodpocztowy)) {
             return true;
@@ -124,7 +124,7 @@ class Validator
         return false;
     }
 
-    private static function valdiateUlicaNumerDomu(string $ulicaNumerDomu)
+    private static function valdiateUlicaNumerDomu(string $ulicaNumerDomu): bool
     {
         if (!empty($ulicaNumerDomu)) {
             return true;
@@ -132,7 +132,7 @@ class Validator
         return false;
     }
 
-    private static function validateSzkolaPodstawowa(string $szkolaPodstawowa)
+    private static function validateSzkolaPodstawowa(string $szkolaPodstawowa): bool
     {
         if (!empty($szkolaPodstawowa)) {
             return true;
@@ -140,7 +140,7 @@ class Validator
         return false;
     }
 
-    private static function validateEgzCzHuman(string $egczhuman)
+    private static function validateEgzCzHuman(string $egczhuman): bool
     {
         if (self::checkProcent($egczhuman)) {
             return true;
@@ -148,7 +148,7 @@ class Validator
         return false;
     }
 
-    private static function valdiateEgzCzMatma(string $egzczmatma)
+    private static function valdiateEgzCzMatma(string $egzczmatma): bool
     {
         if (self::checkProcent($egzczmatma)) {
             return true;
@@ -156,7 +156,7 @@ class Validator
         return false;
     }
 
-    private static function valdiateEgzCzObcy(string $egzczobcy)
+    private static function valdiateEgzCzObcy(string $egzczobcy): bool
     {
         if (self::checkProcent($egzczobcy)) {
             return true;
@@ -164,7 +164,7 @@ class Validator
         return false;
     }
 
-    private static function validatePolski(string $data)
+    private static function validatePolski(string $data): bool
     {
         if (self::checkOcena($data)) {
             return true;
@@ -172,7 +172,7 @@ class Validator
         return false;
     }
 
-    private static function validateObcy(string $data)
+    private static function validateObcy(string $data): bool
     {
         if (self::checkOcena($data)) {
             return true;
@@ -180,7 +180,7 @@ class Validator
         return false;
     }
 
-    private static function validateHistoria(string $data)
+    private static function validateHistoria(string $data): bool
     {
         if (self::checkOcena($data)) {
             return true;
@@ -188,7 +188,7 @@ class Validator
         return false;
     }
 
-    private static function validateWos(string $data)
+    private static function validateWos(string $data): bool
     {
         if (self::checkOcena($data)) {
             return true;
@@ -196,7 +196,7 @@ class Validator
         return false;
     }
 
-    private static function validateGeografia(string $data)
+    private static function validateGeografia(string $data): bool
     {
         if (self::checkOcena($data)) {
             return true;
@@ -204,7 +204,7 @@ class Validator
         return false;
     }
 
-    private static function validateChemia(string $data)
+    private static function validateChemia(string $data): bool
     {
         if (self::checkOcena($data)) {
             return true;
@@ -212,7 +212,7 @@ class Validator
         return false;
     }
 
-    private static function validateBiologia(string $data)
+    private static function validateBiologia(string $data): bool
     {
         if (self::checkOcena($data)) {
             return true;
@@ -220,7 +220,7 @@ class Validator
         return false;
     }
 
-    private static function validateMatematyka(string $data)
+    private static function validateMatematyka(string $data): bool
     {
         if (self::checkOcena($data)) {
             return true;
@@ -228,7 +228,7 @@ class Validator
         return false;
     }
 
-    private static function validateInformatyka(string $data)
+    private static function validateInformatyka(string $data): bool
     {
         if (self::checkOcena($data)) {
             return true;
@@ -236,7 +236,7 @@ class Validator
         return false;
     }
 
-    private static function validateOsiagniecia(string $data)
+    private static function validateOsiagniecia(string $data): bool
     {
         if (!($data >= 0 && $data <= 18 && is_numeric($data))) {
             return false;
@@ -244,7 +244,7 @@ class Validator
         return true;
     }
 
-    private static function checkProcent(string $data)
+    private static function checkProcent(string $data): bool
     {
         $data = floatval($data);
         
@@ -256,7 +256,7 @@ class Validator
         }
     }
 
-    private static function checkOcena(string $data)
+    private static function checkOcena(string $data): bool
     {
         if (!($data >= 2 && $data <= 6 && is_numeric($data))) {
             return false;
@@ -264,7 +264,7 @@ class Validator
         return true;
     }
 
-    private static function validateField(string $field, string $value)
+    private static function validateField(string $field, string $value): bool
     {
         switch ($field) {
             case 'pesel':
