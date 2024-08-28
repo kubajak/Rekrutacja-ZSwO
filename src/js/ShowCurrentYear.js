@@ -1,5 +1,5 @@
-$(document).ready(function(){
-    function showCurrentYear(){
+$(document).ready(function () {
+    function showCurrentYear() {
         var date = new Date();
 
         var currentYear = date.getFullYear();

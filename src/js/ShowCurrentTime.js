@@ -1,5 +1,5 @@
-$(document).ready(function(){
-    function showCurrentTime(){
+$(document).ready(function () {
+    function showCurrentTime() {
         var date = new Date();
 
         var hours = date.getHours();

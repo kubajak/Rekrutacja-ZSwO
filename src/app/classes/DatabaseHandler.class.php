@@ -48,7 +48,7 @@ class DatabaseHandler{
         $this->conn = $db->connect();
     }
 
-    public function addToDatabase(array $data){
+    public function addToDatabase(array $data): void{
         try{
             $pdo = $this->conn;
 
@@ -103,7 +103,7 @@ class DatabaseHandler{
         }
     }
 
-    public function removeRowFromDatabase(int $id){
+    public function removeRowFromDatabase(int $id): void{
         try{
             $pdo = $this->conn;
             $sql = "DELETE FROM " .$this->table_name. " WHERE id = :id";
@@ -117,7 +117,7 @@ class DatabaseHandler{
         }
     }
 
-    public function editRowInDatabase($form_data){
+    public function editRowInDatabase($form_data): void{
         try{
 
             $pdo = $this->conn;
@@ -209,7 +209,7 @@ class DatabaseHandler{
         }
     }
 
-    public function retriveRowFromDatabase(string $id){
+    public function retriveRowFromDatabase(string $id): array{
         try{
             $pdo = $this->conn;
             

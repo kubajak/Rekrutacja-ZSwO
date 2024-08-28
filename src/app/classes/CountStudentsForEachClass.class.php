@@ -11,7 +11,7 @@ class CountStudentsForEachClass{
         $this->conn = $db->connect();
     }
 
-    public function countStudentsForEachClass(string $data){
+    public function countStudentsForEachClass(string $data): mixed{
         try{
             $pdo = $this->conn;
             

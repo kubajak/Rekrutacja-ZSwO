@@ -10,7 +10,7 @@ class EditRow{
         $this->dbh = new DatabaseHandler();
     }
 
-    public function editRow(array $form_data){
+    public function editRow(array $form_data): void{
         try{
             if(!in_array(false, Validator::validate($form_data), true)){
 

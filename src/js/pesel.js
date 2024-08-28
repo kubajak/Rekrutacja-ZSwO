@@ -197,7 +197,7 @@ $(function () {
   // Informatyka*
   $("#informatyka").keyup(function () {
     sprawdz_oceny("#informatyka");
-  }); 
+  });
 });
 
 $(function () {

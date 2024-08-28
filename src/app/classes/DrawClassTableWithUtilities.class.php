@@ -11,7 +11,7 @@ class DrawClassTableWithUtilities{
         $this->conn = $db->connect();
     }
 
-    public function drawClassTableWithUtilities(){
+    public function drawClassTableWithUtilities(): void{
         try{
             $pdo = $this->conn;
 
